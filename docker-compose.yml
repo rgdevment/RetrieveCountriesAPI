@@ -1,0 +1,12 @@
+services:
+  postgres:
+    container_name: countries_postgres
+    image: postgres:16.2-alpine
+    ports:
+      - "54321:5432"
+    volumes:
+      - ~/databases/postgres/countries:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=S3cr3t0
+      - POSTGRES_USER=countries
+      - POSTGRES_DB=db_countries
