@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Country.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">RetrieveCountriesAPI</a> &gt; <a href="index.source.html" class="el_package">cl.tica.portfolio.retrievecountriesapi.rest.entities</a> &gt; <span class="el_source">Country.java</span></div><h1>Country.java</h1><pre class="source lang-java linenums">package cl.tica.portfolio.retrievecountriesapi.rest.entities;
 
 import jakarta.persistence.Column;
-import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -13,7 +12,6 @@ import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -21,7 +19,7 @@ import java.util.Set;
         @Index(name = &quot;idx_name&quot;, columnList = &quot;name&quot;),
         @Index(name = &quot;idx_capital&quot;, columnList = &quot;capital&quot;)
 })
-<span class="fc" id="L24">public class Country {</span>
+<span class="fc" id="L22">public class Country {</span>
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = &quot;countries_seq&quot;)
     @SequenceGenerator(name = &quot;countries_seq&quot;, allocationSize = 1)
@@ -47,8 +45,8 @@ import java.util.Set;
     @Column(nullable = false)
     private String subregion;
 
-    @ElementCollection
-    private List&lt;String&gt; cities;
+    @OneToMany(mappedBy = &quot;country&quot;)
+    private Set&lt;City&gt; cities;
 
     @OneToMany(mappedBy = &quot;country&quot;)
     private Set&lt;Flag&gt; flags;
