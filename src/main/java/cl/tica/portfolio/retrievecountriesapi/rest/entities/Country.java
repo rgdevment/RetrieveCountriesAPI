@@ -16,8 +16,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "countries", indexes = {
-        @Index(name = "idx_name", columnList = "name"),
-        @Index(name = "idx_capital", columnList = "capital")
+        @Index(name = "idx_name", columnList = "name")
 })
 public class Country {
     @Id
@@ -26,28 +25,94 @@ public class Country {
     private Long id;
 
     @NotBlank
-    @Size(min = 3, max = 50)
+    @Size(max = 80)
     @Column(nullable = false)
     private String name;
 
     @NotBlank
-    @Size(min = 3, max = 50)
+    @Size(max = 80)
     @Column(nullable = false)
     private String capital;
 
     @NotBlank
-    @Size(min = 3, max = 50)
+    @Size(max = 80)
     @Column(nullable = false)
     private String region;
 
     @NotBlank
-    @Size(min = 3, max = 50)
+    @Size(max = 80)
     @Column(nullable = false)
     private String subregion;
 
     @OneToMany(mappedBy = "country")
     private Set<City> cities;
 
+    @NotBlank
+    @Size(max = 20)
+    @Column(nullable = false)
+    private String flag;
+
     @OneToMany(mappedBy = "country")
     private Set<Flag> flags;
+
+    public @NotBlank @Size(max = 80) String getName() {
+        return name;
+    }
+
+    public void setName(
+            @NotBlank @Size(max = 80) String name) {
+        this.name = name;
+    }
+
+    public @NotBlank @Size(max = 80) String getCapital() {
+        return capital;
+    }
+
+    public void setCapital(
+            @NotBlank @Size(max = 80) String capital) {
+        this.capital = capital;
+    }
+
+    public @NotBlank @Size(max = 80) String getRegion() {
+        return region;
+    }
+
+    public void setRegion(
+            @NotBlank @Size(max = 80) String region) {
+        this.region = region;
+    }
+
+    public @NotBlank @Size(max = 80) String getSubregion() {
+        return subregion;
+    }
+
+    public void setSubregion(
+            @NotBlank @Size(max = 80) String subregion) {
+        this.subregion = subregion;
+    }
+
+    public Set<City> getCities() {
+        return cities;
+    }
+
+    public void setCities(Set<City> cities) {
+        this.cities = cities;
+    }
+
+    public @NotBlank @Size(max = 20) String getFlag() {
+        return flag;
+    }
+
+    public void setFlag(
+            @NotBlank @Size(max = 20) String flag) {
+        this.flag = flag;
+    }
+
+    public Set<Flag> getFlags() {
+        return flags;
+    }
+
+    public void setFlags(Set<Flag> flags) {
+        this.flags = flags;
+    }
 }
