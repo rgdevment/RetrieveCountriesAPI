@@ -1,7 +1,6 @@
 package cl.tica.portfolio.retrievecountriesapi.rest.entities;
 
 import jakarta.persistence.Column;
-import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -13,7 +12,6 @@ import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -47,8 +45,8 @@ public class Country {
     @Column(nullable = false)
     private String subregion;
 
-    @ElementCollection
-    private List<String> cities;
+    @OneToMany(mappedBy = "country")
+    private Set<City> cities;
 
     @OneToMany(mappedBy = "country")
     private Set<Flag> flags;
