@@ -26,11 +26,37 @@ public class Flag {
     private String format;
 
     @NotBlank
-    @Size(max = 80)
+    @Size(max = 120)
     @Column(nullable = false)
     private String path;
 
     @ManyToOne
     @JoinColumn(name = "country_id", nullable = false)
     private Country country;
+
+    public @NotBlank @Size(max = 10) String getFormat() {
+        return format;
+    }
+
+    public void setFormat(
+            @NotBlank @Size(max = 10) String format) {
+        this.format = format;
+    }
+
+    public @NotBlank @Size(max = 120) String getPath() {
+        return path;
+    }
+
+    public void setPath(
+            @NotBlank @Size(max = 120) String path) {
+        this.path = path;
+    }
+
+    public Country getCountry() {
+        return country;
+    }
+
+    public void setCountry(Country country) {
+        this.country = country;
+    }
 }

@@ -16,7 +16,7 @@ import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name = "cities", indexes = {
-        @Index(name = "idx_name", columnList = "name")
+        @Index(name = "idx_city_name", columnList = "name")
 })
 public class City {
     @Id
@@ -25,7 +25,7 @@ public class City {
     private Long id;
 
     @NotBlank
-    @Size(min = 3, max = 50)
+    @Size(max = 80)
     @Column(nullable = false)
     private String name;
 
@@ -35,4 +35,29 @@ public class City {
     @ManyToOne
     @JoinColumn(name = "country_id", nullable = false)
     private Country country;
+
+    public @NotBlank @Size(max = 80) String getName() {
+        return name;
+    }
+
+    public void setName(
+            @NotBlank @Size(max = 80) String name) {
+        this.name = name;
+    }
+
+    public @NotNull Integer getPopulation() {
+        return population;
+    }
+
+    public void setPopulation(@NotNull Integer population) {
+        this.population = population;
+    }
+
+    public Country getCountry() {
+        return country;
+    }
+
+    public void setCountry(Country country) {
+        this.country = country;
+    }
 }
