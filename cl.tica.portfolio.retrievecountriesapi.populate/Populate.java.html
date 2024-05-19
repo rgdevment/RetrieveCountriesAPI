@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Populate.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">RetrieveCountriesAPI</a> &gt; <a href="index.source.html" class="el_package">cl.tica.portfolio.retrievecountriesapi.populate</a> &gt; <span class="el_source">Populate.java</span></div><h1>Populate.java</h1><pre class="source lang-java linenums">package cl.tica.portfolio.retrievecountriesapi.populate;
+
+import cl.tica.portfolio.retrievecountriesapi.RetrieveCountriesApiApplication;
+import cl.tica.portfolio.retrievecountriesapi.populate.services.DatabasePopulationService;
+import org.springframework.boot.SpringApplication;
+import org.springframework.context.ConfigurableApplicationContext;
+
+/**
+ * This class is used to populate the database with information about countries and cities.
+ * You might need to modify the models to match your JSON format before proceeding.
+ *
+ * &lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; Use this class only in a development environment. After populating your development
+ * database, you can update your data in production.&lt;/p&gt;
+ *
+ * &lt;p&gt;This class accepts JSON files from both local files and web URLs.&lt;/p&gt;
+ *
+ * &lt;p&gt;For example, you can visit our sample API site to get our data and populate your database:&lt;/p&gt;
+ * &lt;pre&gt;{@code
+ * http://example.com/api/countries
+ * http://example.com/api/cities
+ * }&lt;/pre&gt;
+ *
+ * &lt;h2&gt;Usage example:&lt;/h2&gt;
+ * &lt;pre&gt;{@code
+ * // Command to populate your database
+ * ./gradlew populate
+ * }&lt;/pre&gt;
+ */
+<span class="nc" id="L29">public class Populate {</span>
+
+    public static void main(String[] args) {
+<span class="nc" id="L32">        ConfigurableApplicationContext context = SpringApplication.run(RetrieveCountriesApiApplication.class, args);</span>
+<span class="nc" id="L33">        DatabasePopulationService databasePopulationService = context.getBean(DatabasePopulationService.class);</span>
+<span class="nc" id="L34">        databasePopulationService.populateDatabase();</span>
+<span class="nc" id="L35">        context.close();</span>
+<span class="nc" id="L36">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

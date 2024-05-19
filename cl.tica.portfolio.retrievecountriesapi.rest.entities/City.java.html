@@ -11,29 +11,42 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name = &quot;cities&quot;, indexes = {
-        @Index(name = &quot;idx_name&quot;, columnList = &quot;name&quot;)
+        @Index(name = &quot;idx_city_name&quot;, columnList = &quot;name&quot;)
 })
-<span class="fc" id="L21">public class City {</span>
+<span class="fc" id="L20">public class City {</span>
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = &quot;cities_seq&quot;)
     @SequenceGenerator(name = &quot;cities_seq&quot;, allocationSize = 1)
     private Long id;
 
     @NotBlank
-    @Size(min = 3, max = 50)
+    @Size(max = 80)
     @Column(nullable = false)
     private String name;
-
-    @NotNull
-    private Integer population;
 
     @ManyToOne
     @JoinColumn(name = &quot;country_id&quot;, nullable = false)
     private Country country;
+
+    public @NotBlank @Size(max = 80) String getName() {
+<span class="nc" id="L36">        return name;</span>
+    }
+
+    public void setName(
+            @NotBlank @Size(max = 80) String name) {
+<span class="nc" id="L41">        this.name = name;</span>
+<span class="nc" id="L42">    }</span>
+
+    public Country getCountry() {
+<span class="nc" id="L45">        return country;</span>
+    }
+
+    public void setCountry(Country country) {
+<span class="nc" id="L49">        this.country = country;</span>
+<span class="nc" id="L50">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

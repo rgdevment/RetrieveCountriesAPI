@@ -16,39 +16,104 @@ import java.util.Set;
 
 @Entity
 @Table(name = &quot;countries&quot;, indexes = {
-        @Index(name = &quot;idx_name&quot;, columnList = &quot;name&quot;),
-        @Index(name = &quot;idx_capital&quot;, columnList = &quot;capital&quot;)
+        @Index(name = &quot;idx_name&quot;, columnList = &quot;name&quot;)
 })
-<span class="fc" id="L22">public class Country {</span>
+<span class="fc" id="L21">public class Country {</span>
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = &quot;countries_seq&quot;)
     @SequenceGenerator(name = &quot;countries_seq&quot;, allocationSize = 1)
     private Long id;
 
     @NotBlank
-    @Size(min = 3, max = 50)
+    @Size(max = 80)
     @Column(nullable = false)
     private String name;
 
     @NotBlank
-    @Size(min = 3, max = 50)
+    @Size(max = 80)
     @Column(nullable = false)
     private String capital;
 
     @NotBlank
-    @Size(min = 3, max = 50)
+    @Size(max = 80)
     @Column(nullable = false)
     private String region;
 
     @NotBlank
-    @Size(min = 3, max = 50)
+    @Size(max = 80)
     @Column(nullable = false)
     private String subregion;
 
     @OneToMany(mappedBy = &quot;country&quot;)
     private Set&lt;City&gt; cities;
 
+    @NotBlank
+    @Size(max = 20)
+    @Column(nullable = false)
+    private String flag;
+
     @OneToMany(mappedBy = &quot;country&quot;)
     private Set&lt;Flag&gt; flags;
+
+    public @NotBlank @Size(max = 80) String getName() {
+<span class="nc" id="L59">        return name;</span>
+    }
+
+    public void setName(
+            @NotBlank @Size(max = 80) String name) {
+<span class="nc" id="L64">        this.name = name;</span>
+<span class="nc" id="L65">    }</span>
+
+    public @NotBlank @Size(max = 80) String getCapital() {
+<span class="nc" id="L68">        return capital;</span>
+    }
+
+    public void setCapital(
+            @NotBlank @Size(max = 80) String capital) {
+<span class="nc" id="L73">        this.capital = capital;</span>
+<span class="nc" id="L74">    }</span>
+
+    public @NotBlank @Size(max = 80) String getRegion() {
+<span class="nc" id="L77">        return region;</span>
+    }
+
+    public void setRegion(
+            @NotBlank @Size(max = 80) String region) {
+<span class="nc" id="L82">        this.region = region;</span>
+<span class="nc" id="L83">    }</span>
+
+    public @NotBlank @Size(max = 80) String getSubregion() {
+<span class="nc" id="L86">        return subregion;</span>
+    }
+
+    public void setSubregion(
+            @NotBlank @Size(max = 80) String subregion) {
+<span class="nc" id="L91">        this.subregion = subregion;</span>
+<span class="nc" id="L92">    }</span>
+
+    public Set&lt;City&gt; getCities() {
+<span class="nc" id="L95">        return cities;</span>
+    }
+
+    public void setCities(Set&lt;City&gt; cities) {
+<span class="nc" id="L99">        this.cities = cities;</span>
+<span class="nc" id="L100">    }</span>
+
+    public @NotBlank @Size(max = 20) String getFlag() {
+<span class="nc" id="L103">        return flag;</span>
+    }
+
+    public void setFlag(
+            @NotBlank @Size(max = 20) String flag) {
+<span class="nc" id="L108">        this.flag = flag;</span>
+<span class="nc" id="L109">    }</span>
+
+    public Set&lt;Flag&gt; getFlags() {
+<span class="nc" id="L112">        return flags;</span>
+    }
+
+    public void setFlags(Set&lt;Flag&gt; flags) {
+<span class="nc" id="L116">        this.flags = flags;</span>
+<span class="nc" id="L117">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>
