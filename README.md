@@ -1,3 +1,7 @@
+[![Build Status](https://github.com/rgdevment/RetrieveCountriesAPI/actions/workflows/main.yml/badge.svg)](https://github.com/rgdevment/RetrieveCountriesAPI/actions/workflows/main.yml)
+[![Coverage](https://rgdevment.github.io/RetrieveCountriesAPI/badges/jacoco.svg)](https://rgdevment.github.io/RetrieveCountriesAPI) [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=rgdevment_RetrieveCountriesAPI&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=rgdevment_RetrieveCountriesAPI)
+
+
 # RetrieveCountriesAPI
 
 RetrieveCountriesAPI is an open-source REST API designed to provide easy access to data about countries and cities worldwide. With an MIT license allowing free distribution and modification, our API is an ideal solution for developers needing to integrate geographical information into their applications simply and efficiently.
