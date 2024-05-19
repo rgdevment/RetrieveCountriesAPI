@@ -56,6 +56,13 @@ jobs:
           name: jacoco-report
           path: build/reports/jacoco/test/
 
+      - name: Publish coverage report to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          folder: build/reports/jacoco/test/html
+
+
       - name: Build and Analyze
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

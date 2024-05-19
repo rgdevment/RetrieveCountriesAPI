@@ -82,7 +82,7 @@ sonar {
 }
 
 project.tasks.named("sonar").configure {
-    dependsOn "checkstyleMain", "checkstyleTest", "jacocoTestReport"
+    dependsOn "check"
 }
 
 tasks.withType(Test).configureEach {
