@@ -1,0 +1,14 @@
+{
+  "properties": [
+    {
+      "name": "countries.json_file",
+      "type": "java.lang.String",
+      "description": "json with data for countries."
+    },
+    {
+      "name": "cities.json_file",
+      "type": "java.lang.String",
+      "description": "json with data for cities."
+    }
+  ]
+}
