@@ -5,6 +5,7 @@ import cl.tica.portfolio.retrievecountriesapi.populate.models.CountryData;
 import cl.tica.portfolio.retrievecountriesapi.rest.entities.City;
 import cl.tica.portfolio.retrievecountriesapi.rest.entities.Country;
 import cl.tica.portfolio.retrievecountriesapi.rest.entities.Flag;
+import cl.tica.portfolio.retrievecountriesapi.rest.enums.FlagFormat;
 import cl.tica.portfolio.retrievecountriesapi.rest.repositories.CityRepository;
 import cl.tica.portfolio.retrievecountriesapi.rest.repositories.CountryRepository;
 import cl.tica.portfolio.retrievecountriesapi.rest.repositories.FlagRepository;
@@ -14,6 +15,7 @@ import org.springframework.stereotype.Service;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -42,25 +44,29 @@ public class DatabasePopulationService {
         for (CountryData countryData : countryDataList) {
             Country country = new Country();
             country.setName(countryData.name().getCommon());
-            if (countryData.capital() != null && !countryData.capital().isEmpty()) {
-                country.getCapitals().addAll(countryData.capital());
-            }
             country.setRegion(countryData.region());
 
-            if (countryData.subregion() != null && !countryData.subregion().isBlank()) {
-                country.setSubregion(countryData.subregion());
-            } else {
-                country.setSubregion("N/A");
-            }
+            country.setCapital(Optional.ofNullable(countryData.capital())
+                    .filter(capital -> !capital.isEmpty())
+                    .map(List::getFirst)
+                    .orElse("N/A"));
+
+            country.setSubregion(Optional.ofNullable(countryData.subregion())
+                    .filter(subregion -> !subregion.isBlank())
+                    .orElse("N/A"));
+
+            country.setFlag(countryData.flag());
 
             Flag flagPNG = new Flag();
-            flagPNG.setFormat("png");
+            flagPNG.setFormat(FlagFormat.PNG);
             flagPNG.setPath(countryData.flags().png());
+            flagPNG.setDescription(countryData.flags().alt());
             flagPNG.setCountry(country);
 
             Flag flagSVG = new Flag();
-            flagSVG.setFormat("svg");
+            flagSVG.setFormat(FlagFormat.SVG);
             flagSVG.setPath(countryData.flags().svg());
+            flagSVG.setDescription(countryData.flags().alt());
             flagSVG.setCountry(country);
 
             Set<Flag> flags = new HashSet<>();
@@ -78,7 +84,6 @@ public class DatabasePopulationService {
                     City city = new City();
                     city.setName(cityName);
                     city.setCountry(country);
-                    city.setPopulation(0);
                     cityRepository.save(city);
                     citiesSet.add(city);
                 }

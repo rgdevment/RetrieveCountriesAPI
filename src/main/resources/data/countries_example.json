@@ -5,6 +5,7 @@
     ],
     "region": "Europe",
     "subregion": "Eastern Europe",
+    "flag": "🇲🇩",
     "flags": {
       "png": "https://flagcdn.com/w320/md.png",
       "svg": "https://flagcdn.com/md.svg",
@@ -18,6 +19,7 @@
     ],
     "region": "Americas",
     "subregion": "North America",
+    "flag": "🇺🇸",
     "flags": {
       "png": "https://flagcdn.com/w320/us.png",
       "svg": "https://flagcdn.com/us.svg",
@@ -31,6 +33,7 @@
     ],
     "region": "Africa",
     "subregion": "Eastern Africa",
+    "flag": "🇾🇹",
     "flags": {
       "png": "https://flagcdn.com/w320/yt.png",
       "svg": "https://flagcdn.com/yt.svg"
@@ -43,6 +46,7 @@
     ],
     "region": "Oceania",
     "subregion": "Micronesia",
+    "flag": "🇳🇷",
     "flags": {
       "png": "https://flagcdn.com/w320/nr.png",
       "svg": "https://flagcdn.com/nr.svg",
@@ -56,6 +60,7 @@
     ],
     "region": "Africa",
     "subregion": "Eastern Africa",
+    "flag": "🇲🇿",
     "flags": {
       "png": "https://flagcdn.com/w320/mz.png",
       "svg": "https://flagcdn.com/mz.svg",
@@ -69,6 +74,7 @@
     ],
     "region": "Americas",
     "subregion": "South America",
+    "flag": "🇧🇷",
     "flags": {
       "png": "https://flagcdn.com/w320/br.png",
       "svg": "https://flagcdn.com/br.svg",
@@ -82,6 +88,7 @@
     ],
     "region": "Africa",
     "subregion": "Western Africa",
+    "flag": "🇨🇻",
     "flags": {
       "png": "https://flagcdn.com/w320/cv.png",
       "svg": "https://flagcdn.com/cv.svg",
@@ -95,6 +102,7 @@
     ],
     "region": "Africa",
     "subregion": "Middle Africa",
+    "flag": "🇬🇶",
     "flags": {
       "png": "https://flagcdn.com/w320/gq.png",
       "svg": "https://flagcdn.com/gq.svg",
@@ -108,6 +116,7 @@
     ],
     "region": "Europe",
     "subregion": "Southeast Europe",
+    "flag": "🇦🇱",
     "flags": {
       "png": "https://flagcdn.com/w320/al.png",
       "svg": "https://flagcdn.com/al.svg",
@@ -121,6 +130,7 @@
     ],
     "region": "Americas",
     "subregion": "Caribbean",
+    "flag": "🇻🇮",
     "flags": {
       "png": "https://flagcdn.com/w320/vi.png",
       "svg": "https://flagcdn.com/vi.svg"
@@ -133,6 +143,7 @@
     ],
     "region": "Oceania",
     "subregion": "Polynesia",
+    "flag": "🇳🇺",
     "flags": {
       "png": "https://flagcdn.com/w320/nu.png",
       "svg": "https://flagcdn.com/nu.svg"
@@ -145,6 +156,7 @@
     ],
     "region": "Oceania",
     "subregion": "Micronesia",
+    "flag": "🇵🇼",
     "flags": {
       "png": "https://flagcdn.com/w320/pw.png",
       "svg": "https://flagcdn.com/pw.svg",
@@ -158,6 +170,7 @@
     ],
     "region": "Africa",
     "subregion": "Western Africa",
+    "flag": "🇳🇬",
     "flags": {
       "png": "https://flagcdn.com/w320/ng.png",
       "svg": "https://flagcdn.com/ng.svg",
@@ -171,6 +184,7 @@
     ],
     "region": "Americas",
     "subregion": "Caribbean",
+    "flag": "🇻🇬",
     "flags": {
       "png": "https://flagcdn.com/w320/vg.png",
       "svg": "https://flagcdn.com/vg.svg"
@@ -183,6 +197,7 @@
     ],
     "region": "Africa",
     "subregion": "Western Africa",
+    "flag": "🇬🇲",
     "flags": {
       "png": "https://flagcdn.com/w320/gm.png",
       "svg": "https://flagcdn.com/gm.svg",
@@ -196,6 +211,7 @@
     ],
     "region": "Africa",
     "subregion": "Eastern Africa",
+    "flag": "🇸🇴",
     "flags": {
       "png": "https://flagcdn.com/w320/so.png",
       "svg": "https://flagcdn.com/so.svg",
@@ -209,6 +225,7 @@
     ],
     "region": "Asia",
     "subregion": "Western Asia",
+    "flag": "🇾🇪",
     "flags": {
       "png": "https://flagcdn.com/w320/ye.png",
       "svg": "https://flagcdn.com/ye.svg",
@@ -222,6 +239,7 @@
     ],
     "region": "Asia",
     "subregion": "South-Eastern Asia",
+    "flag": "🇲🇾",
     "flags": {
       "png": "https://flagcdn.com/w320/my.png",
       "svg": "https://flagcdn.com/my.svg",
@@ -235,6 +253,7 @@
     ],
     "region": "Americas",
     "subregion": "Caribbean",
+    "flag": "🇩🇲",
     "flags": {
       "png": "https://flagcdn.com/w320/dm.png",
       "svg": "https://flagcdn.com/dm.svg",
@@ -248,6 +267,7 @@
     ],
     "region": "Europe",
     "subregion": "Northern Europe",
+    "flag": "🇬🇧",
     "flags": {
       "png": "https://flagcdn.com/w320/gb.png",
       "svg": "https://flagcdn.com/gb.svg",
@@ -261,6 +281,7 @@
     ],
     "region": "Africa",
     "subregion": "Eastern Africa",
+    "flag": "🇲🇬",
     "flags": {
       "png": "https://flagcdn.com/w320/mg.png",
       "svg": "https://flagcdn.com/mg.svg",
@@ -274,6 +295,7 @@
     ],
     "region": "Africa",
     "subregion": "Northern Africa",
+    "flag": "🇪🇭",
     "flags": {
       "png": "https://flagcdn.com/w320/eh.png",
       "svg": "https://flagcdn.com/eh.svg"
@@ -286,6 +308,7 @@
     ],
     "region": "Europe",
     "subregion": "Southern Europe",
+    "flag": "🇨🇾",
     "flags": {
       "png": "https://flagcdn.com/w320/cy.png",
       "svg": "https://flagcdn.com/cy.svg",
@@ -299,6 +322,7 @@
     ],
     "region": "Americas",
     "subregion": "Caribbean",
+    "flag": "🇦🇬",
     "flags": {
       "png": "https://flagcdn.com/w320/ag.png",
       "svg": "https://flagcdn.com/ag.svg",
@@ -312,6 +336,7 @@
     ],
     "region": "Europe",
     "subregion": "Northern Europe",
+    "flag": "🇮🇪",
     "flags": {
       "png": "https://flagcdn.com/w320/ie.png",
       "svg": "https://flagcdn.com/ie.svg",
@@ -325,6 +350,7 @@
     ],
     "region": "Americas",
     "subregion": "South America",
+    "flag": "🇵🇾",
     "flags": {
       "png": "https://flagcdn.com/w320/py.png",
       "svg": "https://flagcdn.com/py.svg",
@@ -338,6 +364,7 @@
     ],
     "region": "Asia",
     "subregion": "Southern Asia",
+    "flag": "🇱🇰",
     "flags": {
       "png": "https://flagcdn.com/w320/lk.png",
       "svg": "https://flagcdn.com/lk.svg",
@@ -353,6 +380,7 @@
     ],
     "region": "Africa",
     "subregion": "Southern Africa",
+    "flag": "🇿🇦",
     "flags": {
       "png": "https://flagcdn.com/w320/za.png",
       "svg": "https://flagcdn.com/za.svg",
@@ -366,6 +394,7 @@
     ],
     "region": "Asia",
     "subregion": "Western Asia",
+    "flag": "🇰🇼",
     "flags": {
       "png": "https://flagcdn.com/w320/kw.png",
       "svg": "https://flagcdn.com/kw.svg",
@@ -379,6 +408,7 @@
     ],
     "region": "Africa",
     "subregion": "Northern Africa",
+    "flag": "🇩🇿",
     "flags": {
       "png": "https://flagcdn.com/w320/dz.png",
       "svg": "https://flagcdn.com/dz.svg",
@@ -392,6 +422,7 @@
     ],
     "region": "Europe",
     "subregion": "Southeast Europe",
+    "flag": "🇭🇷",
     "flags": {
       "png": "https://flagcdn.com/w320/hr.png",
       "svg": "https://flagcdn.com/hr.svg",
@@ -405,6 +436,7 @@
     ],
     "region": "Americas",
     "subregion": "Caribbean",
+    "flag": "🇲🇶",
     "flags": {
       "png": "https://flagcdn.com/w320/mq.png",
       "svg": "https://flagcdn.com/mq.svg"
@@ -417,6 +449,7 @@
     ],
     "region": "Africa",
     "subregion": "Western Africa",
+    "flag": "🇸🇱",
     "flags": {
       "png": "https://flagcdn.com/w320/sl.png",
       "svg": "https://flagcdn.com/sl.svg",
@@ -430,6 +463,7 @@
     ],
     "region": "Oceania",
     "subregion": "Micronesia",
+    "flag": "🇲🇵",
     "flags": {
       "png": "https://flagcdn.com/w320/mp.png",
       "svg": "https://flagcdn.com/mp.svg"
@@ -442,6 +476,7 @@
     ],
     "region": "Africa",
     "subregion": "Eastern Africa",
+    "flag": "🇷🇼",
     "flags": {
       "png": "https://flagcdn.com/w320/rw.png",
       "svg": "https://flagcdn.com/rw.svg",
@@ -455,6 +490,7 @@
     ],
     "region": "Asia",
     "subregion": "Western Asia",
+    "flag": "🇸🇾",
     "flags": {
       "png": "https://flagcdn.com/w320/sy.png",
       "svg": "https://flagcdn.com/sy.svg",
@@ -468,6 +504,7 @@
     ],
     "region": "Americas",
     "subregion": "Caribbean",
+    "flag": "🇻🇨",
     "flags": {
       "png": "https://flagcdn.com/w320/vc.png",
       "svg": "https://flagcdn.com/vc.svg",
@@ -481,6 +518,7 @@
     ],
     "region": "Europe",
     "subregion": "Southeast Europe",
+    "flag": "🇽🇰",
     "flags": {
       "png": "https://flagcdn.com/w320/xk.png",
       "svg": "https://flagcdn.com/xk.svg"
@@ -493,6 +531,7 @@
     ],
     "region": "Americas",
     "subregion": "Caribbean",
+    "flag": "🇱🇨",
     "flags": {
       "png": "https://flagcdn.com/w320/lc.png",
       "svg": "https://flagcdn.com/lc.svg",
@@ -506,6 +545,7 @@
     ],
     "region": "Americas",
     "subregion": "Central America",
+    "flag": "🇭🇳",
     "flags": {
       "png": "https://flagcdn.com/w320/hn.png",
       "svg": "https://flagcdn.com/hn.svg",
@@ -519,6 +559,7 @@
     ],
     "region": "Asia",
     "subregion": "Western Asia",
+    "flag": "🇯🇴",
     "flags": {
       "png": "https://flagcdn.com/w320/jo.png",
       "svg": "https://flagcdn.com/jo.svg",
@@ -532,6 +573,7 @@
     ],
     "region": "Oceania",
     "subregion": "Polynesia",
+    "flag": "🇹🇻",
     "flags": {
       "png": "https://flagcdn.com/w320/tv.png",
       "svg": "https://flagcdn.com/tv.svg",
@@ -545,6 +587,7 @@
     ],
     "region": "Asia",
     "subregion": "Southern Asia",
+    "flag": "🇳🇵",
     "flags": {
       "png": "https://flagcdn.com/w320/np.png",
       "svg": "https://flagcdn.com/np.svg",
@@ -558,6 +601,7 @@
     ],
     "region": "Africa",
     "subregion": "Western Africa",
+    "flag": "🇱🇷",
     "flags": {
       "png": "https://flagcdn.com/w320/lr.png",
       "svg": "https://flagcdn.com/lr.svg",
@@ -567,6 +611,7 @@
   },
   {
     "region": "Antarctic",
+    "flag": "🇭🇲",
     "flags": {
       "png": "https://flagcdn.com/w320/hm.png",
       "svg": "https://flagcdn.com/hm.svg"
@@ -579,6 +624,7 @@
     ],
     "region": "Europe",
     "subregion": "Central Europe",
+    "flag": "🇦🇹",
     "flags": {
       "png": "https://flagcdn.com/w320/at.png",
       "svg": "https://flagcdn.com/at.svg",
@@ -592,6 +638,7 @@
     ],
     "region": "Europe",
     "subregion": "Northern Europe",
+    "flag": "🇬🇬",
     "flags": {
       "png": "https://flagcdn.com/w320/gg.png",
       "svg": "https://flagcdn.com/gg.svg"
@@ -604,6 +651,7 @@
     ],
     "region": "Africa",
     "subregion": "Middle Africa",
+    "flag": "🇨🇫",
     "flags": {
       "png": "https://flagcdn.com/w320/cf.png",
       "svg": "https://flagcdn.com/cf.svg",
@@ -617,6 +665,7 @@
     ],
     "region": "Africa",
     "subregion": "Western Africa",
+    "flag": "🇲🇷",
     "flags": {
       "png": "https://flagcdn.com/w320/mr.png",
       "svg": "https://flagcdn.com/mr.svg",
@@ -630,6 +679,7 @@
     ],
     "region": "Africa",
     "subregion": "Eastern Africa",
+    "flag": "🇩🇯",
     "flags": {
       "png": "https://flagcdn.com/w320/dj.png",
       "svg": "https://flagcdn.com/dj.svg",
@@ -643,6 +693,7 @@
     ],
     "region": "Oceania",
     "subregion": "Melanesia",
+    "flag": "🇫🇯",
     "flags": {
       "png": "https://flagcdn.com/w320/fj.png",
       "svg": "https://flagcdn.com/fj.svg",
@@ -656,6 +707,7 @@
     ],
     "region": "Europe",
     "subregion": "Northern Europe",
+    "flag": "🇳🇴",
     "flags": {
       "png": "https://flagcdn.com/w320/no.png",
       "svg": "https://flagcdn.com/no.svg",
@@ -669,6 +721,7 @@
     ],
     "region": "Europe",
     "subregion": "Northern Europe",
+    "flag": "🇱🇻",
     "flags": {
       "png": "https://flagcdn.com/w320/lv.png",
       "svg": "https://flagcdn.com/lv.svg",
@@ -682,6 +735,7 @@
     ],
     "region": "Americas",
     "subregion": "South America",
+    "flag": "🇫🇰",
     "flags": {
       "png": "https://flagcdn.com/w320/fk.png",
       "svg": "https://flagcdn.com/fk.svg"
@@ -694,6 +748,7 @@
     ],
     "region": "Asia",
     "subregion": "Central Asia",
+    "flag": "🇰🇿",
     "flags": {
       "png": "https://flagcdn.com/w320/kz.png",
       "svg": "https://flagcdn.com/kz.svg",
@@ -707,6 +762,7 @@
     ],
     "region": "Europe",
     "subregion": "Northern Europe",
+    "flag": "🇦🇽",
     "flags": {
       "png": "https://flagcdn.com/w320/ax.png",
       "svg": "https://flagcdn.com/ax.svg"
@@ -719,6 +775,7 @@
     ],
     "region": "Asia",
     "subregion": "Central Asia",
+    "flag": "🇹🇲",
     "flags": {
       "png": "https://flagcdn.com/w320/tm.png",
       "svg": "https://flagcdn.com/tm.svg",
@@ -732,6 +789,7 @@
     ],
     "region": "Oceania",
     "subregion": "Australia and New Zealand",
+    "flag": "🇨🇨",
     "flags": {
       "png": "https://flagcdn.com/w320/cc.png",
       "svg": "https://flagcdn.com/cc.svg"
@@ -744,6 +802,7 @@
     ],
     "region": "Europe",
     "subregion": "Southeast Europe",
+    "flag": "🇧🇬",
     "flags": {
       "png": "https://flagcdn.com/w320/bg.png",
       "svg": "https://flagcdn.com/bg.svg",
@@ -757,6 +816,7 @@
     ],
     "region": "Oceania",
     "subregion": "Polynesia",
+    "flag": "🇹🇰",
     "flags": {
       "png": "https://flagcdn.com/w320/tk.png",
       "svg": "https://flagcdn.com/tk.svg"
@@ -769,6 +829,7 @@
     ],
     "region": "Oceania",
     "subregion": "Melanesia",
+    "flag": "🇳🇨",
     "flags": {
       "png": "https://flagcdn.com/w320/nc.png",
       "svg": "https://flagcdn.com/nc.svg"
@@ -781,6 +842,7 @@
     ],
     "region": "Americas",
     "subregion": "Caribbean",
+    "flag": "🇧🇧",
     "flags": {
       "png": "https://flagcdn.com/w320/bb.png",
       "svg": "https://flagcdn.com/bb.svg",
@@ -794,6 +856,7 @@
     ],
     "region": "Africa",
     "subregion": "Middle Africa",
+    "flag": "🇸🇹",
     "flags": {
       "png": "https://flagcdn.com/w320/st.png",
       "svg": "https://flagcdn.com/st.svg",
@@ -803,6 +866,7 @@
   },
   {
     "region": "Antarctic",
+    "flag": "🇦🇶",
     "flags": {
       "png": "https://flagcdn.com/w320/aq.png",
       "svg": "https://flagcdn.com/aq.svg"
@@ -815,6 +879,7 @@
     ],
     "region": "Asia",
     "subregion": "South-Eastern Asia",
+    "flag": "🇧🇳",
     "flags": {
       "png": "https://flagcdn.com/w320/bn.png",
       "svg": "https://flagcdn.com/bn.svg",
@@ -828,6 +893,7 @@
     ],
     "region": "Asia",
     "subregion": "Southern Asia",
+    "flag": "🇧🇹",
     "flags": {
       "png": "https://flagcdn.com/w320/bt.png",
       "svg": "https://flagcdn.com/bt.svg",
@@ -841,6 +907,7 @@
     ],
     "region": "Africa",
     "subregion": "Middle Africa",
+    "flag": "🇨🇲",
     "flags": {
       "png": "https://flagcdn.com/w320/cm.png",
       "svg": "https://flagcdn.com/cm.svg",
@@ -854,6 +921,7 @@
     ],
     "region": "Americas",
     "subregion": "South America",
+    "flag": "🇦🇷",
     "flags": {
       "png": "https://flagcdn.com/w320/ar.png",
       "svg": "https://flagcdn.com/ar.svg",
@@ -867,6 +935,7 @@
     ],
     "region": "Asia",
     "subregion": "Western Asia",
+    "flag": "🇦🇿",
     "flags": {
       "png": "https://flagcdn.com/w320/az.png",
       "svg": "https://flagcdn.com/az.svg",
@@ -880,6 +949,7 @@
     ],
     "region": "Americas",
     "subregion": "North America",
+    "flag": "🇲🇽",
     "flags": {
       "png": "https://flagcdn.com/w320/mx.png",
       "svg": "https://flagcdn.com/mx.svg",
@@ -893,6 +963,7 @@
     ],
     "region": "Africa",
     "subregion": "Northern Africa",
+    "flag": "🇲🇦",
     "flags": {
       "png": "https://flagcdn.com/w320/ma.png",
       "svg": "https://flagcdn.com/ma.svg",
@@ -906,6 +977,7 @@
     ],
     "region": "Americas",
     "subregion": "Central America",
+    "flag": "🇬🇹",
     "flags": {
       "png": "https://flagcdn.com/w320/gt.png",
       "svg": "https://flagcdn.com/gt.svg",
@@ -919,6 +991,7 @@
     ],
     "region": "Africa",
     "subregion": "Eastern Africa",
+    "flag": "🇰🇪",
     "flags": {
       "png": "https://flagcdn.com/w320/ke.png",
       "svg": "https://flagcdn.com/ke.svg",
@@ -932,6 +1005,7 @@
     ],
     "region": "Europe",
     "subregion": "Southern Europe",
+    "flag": "🇲🇹",
     "flags": {
       "png": "https://flagcdn.com/w320/mt.png",
       "svg": "https://flagcdn.com/mt.svg",
@@ -945,6 +1019,7 @@
     ],
     "region": "Europe",
     "subregion": "Central Europe",
+    "flag": "🇨🇿",
     "flags": {
       "png": "https://flagcdn.com/w320/cz.png",
       "svg": "https://flagcdn.com/cz.svg",
@@ -958,6 +1033,7 @@
     ],
     "region": "Europe",
     "subregion": "Southern Europe",
+    "flag": "🇬🇮",
     "flags": {
       "png": "https://flagcdn.com/w320/gi.png",
       "svg": "https://flagcdn.com/gi.svg"
@@ -970,6 +1046,7 @@
     ],
     "region": "Americas",
     "subregion": "Caribbean",
+    "flag": "🇦🇼",
     "flags": {
       "png": "https://flagcdn.com/w320/aw.png",
       "svg": "https://flagcdn.com/aw.svg"
@@ -982,6 +1059,7 @@
     ],
     "region": "Americas",
     "subregion": "Caribbean",
+    "flag": "🇧🇱",
     "flags": {
       "png": "https://flagcdn.com/w320/bl.png",
       "svg": "https://flagcdn.com/bl.svg"
@@ -994,6 +1072,7 @@
     ],
     "region": "Europe",
     "subregion": "Western Europe",
+    "flag": "🇲🇨",
     "flags": {
       "png": "https://flagcdn.com/w320/mc.png",
       "svg": "https://flagcdn.com/mc.svg",
@@ -1007,6 +1086,7 @@
     ],
     "region": "Asia",
     "subregion": "Western Asia",
+    "flag": "🇦🇪",
     "flags": {
       "png": "https://flagcdn.com/w320/ae.png",
       "svg": "https://flagcdn.com/ae.svg",
@@ -1020,6 +1100,7 @@
     ],
     "region": "Africa",
     "subregion": "Middle Africa",
+    "flag": "🇸🇸",
     "flags": {
       "png": "https://flagcdn.com/w320/ss.png",
       "svg": "https://flagcdn.com/ss.svg",
@@ -1033,6 +1114,7 @@
     ],
     "region": "Americas",
     "subregion": "Caribbean",
+    "flag": "🇵🇷",
     "flags": {
       "png": "https://flagcdn.com/w320/pr.png",
       "svg": "https://flagcdn.com/pr.svg"
@@ -1045,6 +1127,7 @@
     ],
     "region": "Americas",
     "subregion": "Central America",
+    "flag": "🇸🇻",
     "flags": {
       "png": "https://flagcdn.com/w320/sv.png",
       "svg": "https://flagcdn.com/sv.svg",
@@ -1058,6 +1141,7 @@
     ],
     "region": "Europe",
     "subregion": "Western Europe",
+    "flag": "🇫🇷",
     "flags": {
       "png": "https://flagcdn.com/w320/fr.png",
       "svg": "https://flagcdn.com/fr.svg",
@@ -1071,6 +1155,7 @@
     ],
     "region": "Africa",
     "subregion": "Western Africa",
+    "flag": "🇳🇪",
     "flags": {
       "png": "https://flagcdn.com/w320/ne.png",
       "svg": "https://flagcdn.com/ne.svg",
@@ -1084,6 +1169,7 @@
     ],
     "region": "Africa",
     "subregion": "Western Africa",
+    "flag": "🇨🇮",
     "flags": {
       "png": "https://flagcdn.com/w320/ci.png",
       "svg": "https://flagcdn.com/ci.svg",
@@ -1096,6 +1182,7 @@
       "King Edward Point"
     ],
     "region": "Antarctic",
+    "flag": "🇬🇸",
     "flags": {
       "png": "https://flagcdn.com/w320/gs.png",
       "svg": "https://flagcdn.com/gs.svg"
@@ -1108,6 +1195,7 @@
     ],
     "region": "Africa",
     "subregion": "Southern Africa",
+    "flag": "🇧🇼",
     "flags": {
       "png": "https://flagcdn.com/w320/bw.png",
       "svg": "https://flagcdn.com/bw.svg",
@@ -1121,6 +1209,7 @@
     ],
     "region": "Africa",
     "subregion": "Eastern Africa",
+    "flag": "🇮🇴",
     "flags": {
       "png": "https://flagcdn.com/w320/io.png",
       "svg": "https://flagcdn.com/io.svg"
@@ -1133,6 +1222,7 @@
     ],
     "region": "Asia",
     "subregion": "Central Asia",
+    "flag": "🇺🇿",
     "flags": {
       "png": "https://flagcdn.com/w320/uz.png",
       "svg": "https://flagcdn.com/uz.svg",
@@ -1146,6 +1236,7 @@
     ],
     "region": "Africa",
     "subregion": "Northern Africa",
+    "flag": "🇹🇳",
     "flags": {
       "png": "https://flagcdn.com/w320/tn.png",
       "svg": "https://flagcdn.com/tn.svg",
@@ -1159,6 +1250,7 @@
     ],
     "region": "Asia",
     "subregion": "Eastern Asia",
+    "flag": "🇭🇰",
     "flags": {
       "png": "https://flagcdn.com/w320/hk.png",
       "svg": "https://flagcdn.com/hk.svg"
@@ -1171,6 +1263,7 @@
     ],
     "region": "Europe",
     "subregion": "Southeast Europe",
+    "flag": "🇲🇰",
     "flags": {
       "png": "https://flagcdn.com/w320/mk.png",
       "svg": "https://flagcdn.com/mk.svg",
@@ -1184,6 +1277,7 @@
     ],
     "region": "Americas",
     "subregion": "South America",
+    "flag": "🇸🇷",
     "flags": {
       "png": "https://flagcdn.com/w320/sr.png",
       "svg": "https://flagcdn.com/sr.svg",
@@ -1197,6 +1291,7 @@
     ],
     "region": "Europe",
     "subregion": "Western Europe",
+    "flag": "🇧🇪",
     "flags": {
       "png": "https://flagcdn.com/w320/be.png",
       "svg": "https://flagcdn.com/be.svg",
@@ -1210,6 +1305,7 @@
     ],
     "region": "Oceania",
     "subregion": "Polynesia",
+    "flag": "🇦🇸",
     "flags": {
       "png": "https://flagcdn.com/w320/as.png",
       "svg": "https://flagcdn.com/as.svg"
@@ -1222,6 +1318,7 @@
     ],
     "region": "Oceania",
     "subregion": "Melanesia",
+    "flag": "🇸🇧",
     "flags": {
       "png": "https://flagcdn.com/w320/sb.png",
       "svg": "https://flagcdn.com/sb.svg",
@@ -1235,6 +1332,7 @@
     ],
     "region": "Europe",
     "subregion": "Eastern Europe",
+    "flag": "🇺🇦",
     "flags": {
       "png": "https://flagcdn.com/w320/ua.png",
       "svg": "https://flagcdn.com/ua.svg",
@@ -1248,6 +1346,7 @@
     ],
     "region": "Europe",
     "subregion": "Northern Europe",
+    "flag": "🇫🇮",
     "flags": {
       "png": "https://flagcdn.com/w320/fi.png",
       "svg": "https://flagcdn.com/fi.svg",
@@ -1261,6 +1360,7 @@
     ],
     "region": "Africa",
     "subregion": "Western Africa",
+    "flag": "🇧🇫",
     "flags": {
       "png": "https://flagcdn.com/w320/bf.png",
       "svg": "https://flagcdn.com/bf.svg",
@@ -1274,6 +1374,7 @@
     ],
     "region": "Europe",
     "subregion": "Southeast Europe",
+    "flag": "🇧🇦",
     "flags": {
       "png": "https://flagcdn.com/w320/ba.png",
       "svg": "https://flagcdn.com/ba.svg",
@@ -1287,6 +1388,7 @@
     ],
     "region": "Asia",
     "subregion": "Southern Asia",
+    "flag": "🇮🇷",
     "flags": {
       "png": "https://flagcdn.com/w320/ir.png",
       "svg": "https://flagcdn.com/ir.svg",
@@ -1300,6 +1402,7 @@
     ],
     "region": "Americas",
     "subregion": "Caribbean",
+    "flag": "🇨🇺",
     "flags": {
       "png": "https://flagcdn.com/w320/cu.png",
       "svg": "https://flagcdn.com/cu.svg",
@@ -1313,6 +1416,7 @@
     ],
     "region": "Africa",
     "subregion": "Eastern Africa",
+    "flag": "🇪🇷",
     "flags": {
       "png": "https://flagcdn.com/w320/er.png",
       "svg": "https://flagcdn.com/er.svg",
@@ -1326,6 +1430,7 @@
     ],
     "region": "Europe",
     "subregion": "Central Europe",
+    "flag": "🇸🇰",
     "flags": {
       "png": "https://flagcdn.com/w320/sk.png",
       "svg": "https://flagcdn.com/sk.svg",
@@ -1339,6 +1444,7 @@
     ],
     "region": "Europe",
     "subregion": "Northern Europe",
+    "flag": "🇱🇹",
     "flags": {
       "png": "https://flagcdn.com/w320/lt.png",
       "svg": "https://flagcdn.com/lt.svg",
@@ -1352,6 +1458,7 @@
     ],
     "region": "Americas",
     "subregion": "Caribbean",
+    "flag": "🇲🇫",
     "flags": {
       "png": "https://flagcdn.com/w320/mf.png",
       "svg": "https://flagcdn.com/mf.svg"
@@ -1364,6 +1471,7 @@
     ],
     "region": "Oceania",
     "subregion": "Polynesia",
+    "flag": "🇵🇳",
     "flags": {
       "png": "https://flagcdn.com/w320/pn.png",
       "svg": "https://flagcdn.com/pn.svg"
@@ -1376,6 +1484,7 @@
     ],
     "region": "Africa",
     "subregion": "Western Africa",
+    "flag": "🇬🇼",
     "flags": {
       "png": "https://flagcdn.com/w320/gw.png",
       "svg": "https://flagcdn.com/gw.svg",
@@ -1389,6 +1498,7 @@
     ],
     "region": "Americas",
     "subregion": "Caribbean",
+    "flag": "🇲🇸",
     "flags": {
       "png": "https://flagcdn.com/w320/ms.png",
       "svg": "https://flagcdn.com/ms.svg"
@@ -1401,6 +1511,7 @@
     ],
     "region": "Asia",
     "subregion": "Western Asia",
+    "flag": "🇹🇷",
     "flags": {
       "png": "https://flagcdn.com/w320/tr.png",
       "svg": "https://flagcdn.com/tr.svg",
@@ -1414,6 +1525,7 @@
     ],
     "region": "Asia",
     "subregion": "South-Eastern Asia",
+    "flag": "🇵🇭",
     "flags": {
       "png": "https://flagcdn.com/w320/ph.png",
       "svg": "https://flagcdn.com/ph.svg",
@@ -1427,6 +1539,7 @@
     ],
     "region": "Oceania",
     "subregion": "Melanesia",
+    "flag": "🇻🇺",
     "flags": {
       "png": "https://flagcdn.com/w320/vu.png",
       "svg": "https://flagcdn.com/vu.svg",
@@ -1440,6 +1553,7 @@
     ],
     "region": "Americas",
     "subregion": "South America",
+    "flag": "🇧🇴",
     "flags": {
       "png": "https://flagcdn.com/w320/bo.png",
       "svg": "https://flagcdn.com/bo.svg",
@@ -1453,6 +1567,7 @@
     ],
     "region": "Americas",
     "subregion": "Caribbean",
+    "flag": "🇰🇳",
     "flags": {
       "png": "https://flagcdn.com/w320/kn.png",
       "svg": "https://flagcdn.com/kn.svg",
@@ -1466,6 +1581,7 @@
     ],
     "region": "Europe",
     "subregion": "Southeast Europe",
+    "flag": "🇷🇴",
     "flags": {
       "png": "https://flagcdn.com/w320/ro.png",
       "svg": "https://flagcdn.com/ro.svg",
@@ -1479,6 +1595,7 @@
     ],
     "region": "Asia",
     "subregion": "South-Eastern Asia",
+    "flag": "🇰🇭",
     "flags": {
       "png": "https://flagcdn.com/w320/kh.png",
       "svg": "https://flagcdn.com/kh.svg",
@@ -1492,6 +1609,7 @@
     ],
     "region": "Africa",
     "subregion": "Southern Africa",
+    "flag": "🇿🇼",
     "flags": {
       "png": "https://flagcdn.com/w320/zw.png",
       "svg": "https://flagcdn.com/zw.svg",
@@ -1505,6 +1623,7 @@
     ],
     "region": "Europe",
     "subregion": "Northern Europe",
+    "flag": "🇯🇪",
     "flags": {
       "png": "https://flagcdn.com/w320/je.png",
       "svg": "https://flagcdn.com/je.svg"
@@ -1517,6 +1636,7 @@
     ],
     "region": "Asia",
     "subregion": "Central Asia",
+    "flag": "🇰🇬",
     "flags": {
       "png": "https://flagcdn.com/w320/kg.png",
       "svg": "https://flagcdn.com/kg.svg",
@@ -1530,6 +1650,7 @@
     ],
     "region": "Americas",
     "subregion": "Caribbean",
+    "flag": "🇧🇶",
     "flags": {
       "png": "https://flagcdn.com/w320/bq.png",
       "svg": "https://flagcdn.com/bq.svg"
@@ -1542,6 +1663,7 @@
     ],
     "region": "Americas",
     "subregion": "South America",
+    "flag": "🇬🇾",
     "flags": {
       "png": "https://flagcdn.com/w320/gy.png",
       "svg": "https://flagcdn.com/gy.svg",
@@ -1555,6 +1677,7 @@
     ],
     "region": "Americas",
     "subregion": "North America",
+    "flag": "🇺🇲",
     "flags": {
       "png": "https://flagcdn.com/w320/um.png",
       "svg": "https://flagcdn.com/um.svg"
@@ -1567,6 +1690,7 @@
     ],
     "region": "Asia",
     "subregion": "Western Asia",
+    "flag": "🇦🇲",
     "flags": {
       "png": "https://flagcdn.com/w320/am.png",
       "svg": "https://flagcdn.com/am.svg",
@@ -1580,6 +1704,7 @@
     ],
     "region": "Asia",
     "subregion": "Western Asia",
+    "flag": "🇱🇧",
     "flags": {
       "png": "https://flagcdn.com/w320/lb.png",
       "svg": "https://flagcdn.com/lb.svg",
@@ -1593,6 +1718,7 @@
     ],
     "region": "Europe",
     "subregion": "Southeast Europe",
+    "flag": "🇲🇪",
     "flags": {
       "png": "https://flagcdn.com/w320/me.png",
       "svg": "https://flagcdn.com/me.svg",
@@ -1606,6 +1732,7 @@
     ],
     "region": "Americas",
     "subregion": "North America",
+    "flag": "🇬🇱",
     "flags": {
       "png": "https://flagcdn.com/w320/gl.png",
       "svg": "https://flagcdn.com/gl.svg"
@@ -1618,6 +1745,7 @@
     ],
     "region": "Oceania",
     "subregion": "Melanesia",
+    "flag": "🇵🇬",
     "flags": {
       "png": "https://flagcdn.com/w320/pg.png",
       "svg": "https://flagcdn.com/pg.svg",
@@ -1631,6 +1759,7 @@
     ],
     "region": "Africa",
     "subregion": "Eastern Africa",
+    "flag": "🇿🇲",
     "flags": {
       "png": "https://flagcdn.com/w320/zm.png",
       "svg": "https://flagcdn.com/zm.svg",
@@ -1644,6 +1773,7 @@
     ],
     "region": "Americas",
     "subregion": "Caribbean",
+    "flag": "🇹🇹",
     "flags": {
       "png": "https://flagcdn.com/w320/tt.png",
       "svg": "https://flagcdn.com/tt.svg",
@@ -1656,6 +1786,7 @@
       "Port-aux-Français"
     ],
     "region": "Antarctic",
+    "flag": "🇹🇫",
     "flags": {
       "png": "https://flagcdn.com/w320/tf.png",
       "svg": "https://flagcdn.com/tf.svg"
@@ -1668,6 +1799,7 @@
     ],
     "region": "Americas",
     "subregion": "South America",
+    "flag": "🇵🇪",
     "flags": {
       "png": "https://flagcdn.com/w320/pe.png",
       "svg": "https://flagcdn.com/pe.svg",
@@ -1681,6 +1813,7 @@
     ],
     "region": "Europe",
     "subregion": "Northern Europe",
+    "flag": "🇸🇪",
     "flags": {
       "png": "https://flagcdn.com/w320/se.png",
       "svg": "https://flagcdn.com/se.svg",
@@ -1694,6 +1827,7 @@
     ],
     "region": "Africa",
     "subregion": "Northern Africa",
+    "flag": "🇸🇩",
     "flags": {
       "png": "https://flagcdn.com/w320/sd.png",
       "svg": "https://flagcdn.com/sd.svg",
@@ -1707,6 +1841,7 @@
     ],
     "region": "Americas",
     "subregion": "North America",
+    "flag": "🇵🇲",
     "flags": {
       "png": "https://flagcdn.com/w320/pm.png",
       "svg": "https://flagcdn.com/pm.svg"
@@ -1719,6 +1854,7 @@
     ],
     "region": "Asia",
     "subregion": "Western Asia",
+    "flag": "🇴🇲",
     "flags": {
       "png": "https://flagcdn.com/w320/om.png",
       "svg": "https://flagcdn.com/om.svg",
@@ -1732,6 +1868,7 @@
     ],
     "region": "Asia",
     "subregion": "Southern Asia",
+    "flag": "🇮🇳",
     "flags": {
       "png": "https://flagcdn.com/w320/in.png",
       "svg": "https://flagcdn.com/in.svg",
@@ -1745,6 +1882,7 @@
     ],
     "region": "Asia",
     "subregion": "Eastern Asia",
+    "flag": "🇹🇼",
     "flags": {
       "png": "https://flagcdn.com/w320/tw.png",
       "svg": "https://flagcdn.com/tw.svg"
@@ -1757,6 +1895,7 @@
     ],
     "region": "Asia",
     "subregion": "Eastern Asia",
+    "flag": "🇲🇳",
     "flags": {
       "png": "https://flagcdn.com/w320/mn.png",
       "svg": "https://flagcdn.com/mn.svg",
@@ -1770,6 +1909,7 @@
     ],
     "region": "Africa",
     "subregion": "Western Africa",
+    "flag": "🇸🇳",
     "flags": {
       "png": "https://flagcdn.com/w320/sn.png",
       "svg": "https://flagcdn.com/sn.svg",
@@ -1783,6 +1923,7 @@
     ],
     "region": "Africa",
     "subregion": "Eastern Africa",
+    "flag": "🇹🇿",
     "flags": {
       "png": "https://flagcdn.com/w320/tz.png",
       "svg": "https://flagcdn.com/tz.svg",
@@ -1796,6 +1937,7 @@
     ],
     "region": "Americas",
     "subregion": "North America",
+    "flag": "🇨🇦",
     "flags": {
       "png": "https://flagcdn.com/w320/ca.png",
       "svg": "https://flagcdn.com/ca.svg",
@@ -1809,6 +1951,7 @@
     ],
     "region": "Americas",
     "subregion": "Central America",
+    "flag": "🇨🇷",
     "flags": {
       "png": "https://flagcdn.com/w320/cr.png",
       "svg": "https://flagcdn.com/cr.svg",
@@ -1822,6 +1965,7 @@
     ],
     "region": "Asia",
     "subregion": "Eastern Asia",
+    "flag": "🇨🇳",
     "flags": {
       "png": "https://flagcdn.com/w320/cn.png",
       "svg": "https://flagcdn.com/cn.svg",
@@ -1835,6 +1979,7 @@
     ],
     "region": "Americas",
     "subregion": "South America",
+    "flag": "🇨🇴",
     "flags": {
       "png": "https://flagcdn.com/w320/co.png",
       "svg": "https://flagcdn.com/co.svg",
@@ -1848,6 +1993,7 @@
     ],
     "region": "Asia",
     "subregion": "South-Eastern Asia",
+    "flag": "🇲🇲",
     "flags": {
       "png": "https://flagcdn.com/w320/mm.png",
       "svg": "https://flagcdn.com/mm.svg",
@@ -1861,6 +2007,7 @@
     ],
     "region": "Europe",
     "subregion": "Eastern Europe",
+    "flag": "🇷🇺",
     "flags": {
       "png": "https://flagcdn.com/w320/ru.png",
       "svg": "https://flagcdn.com/ru.svg",
@@ -1874,6 +2021,7 @@
     ],
     "region": "Asia",
     "subregion": "Eastern Asia",
+    "flag": "🇰🇵",
     "flags": {
       "png": "https://flagcdn.com/w320/kp.png",
       "svg": "https://flagcdn.com/kp.svg",
@@ -1887,6 +2035,7 @@
     ],
     "region": "Americas",
     "subregion": "Caribbean",
+    "flag": "🇰🇾",
     "flags": {
       "png": "https://flagcdn.com/w320/ky.png",
       "svg": "https://flagcdn.com/ky.svg"
@@ -1895,6 +2044,7 @@
   },
   {
     "region": "Antarctic",
+    "flag": "🇧🇻",
     "flags": {
       "png": "https://flagcdn.com/w320/bv.png",
       "svg": "https://flagcdn.com/bv.svg"
@@ -1907,6 +2057,7 @@
     ],
     "region": "Europe",
     "subregion": "Eastern Europe",
+    "flag": "🇧🇾",
     "flags": {
       "png": "https://flagcdn.com/w320/by.png",
       "svg": "https://flagcdn.com/by.svg",
@@ -1920,6 +2071,7 @@
     ],
     "region": "Europe",
     "subregion": "Southern Europe",
+    "flag": "🇵🇹",
     "flags": {
       "png": "https://flagcdn.com/w320/pt.png",
       "svg": "https://flagcdn.com/pt.svg",
@@ -1933,6 +2085,7 @@
     ],
     "region": "Africa",
     "subregion": "Southern Africa",
+    "flag": "🇸🇿",
     "flags": {
       "png": "https://flagcdn.com/w320/sz.png",
       "svg": "https://flagcdn.com/sz.svg",
@@ -1946,6 +2099,7 @@
     ],
     "region": "Europe",
     "subregion": "Central Europe",
+    "flag": "🇵🇱",
     "flags": {
       "png": "https://flagcdn.com/w320/pl.png",
       "svg": "https://flagcdn.com/pl.svg",
@@ -1959,6 +2113,7 @@
     ],
     "region": "Europe",
     "subregion": "Western Europe",
+    "flag": "🇨🇭",
     "flags": {
       "png": "https://flagcdn.com/w320/ch.png",
       "svg": "https://flagcdn.com/ch.svg",
@@ -1972,6 +2127,7 @@
     ],
     "region": "Africa",
     "subregion": "Middle Africa",
+    "flag": "🇨🇬",
     "flags": {
       "png": "https://flagcdn.com/w320/cg.png",
       "svg": "https://flagcdn.com/cg.svg",
@@ -1985,6 +2141,7 @@
     ],
     "region": "Americas",
     "subregion": "South America",
+    "flag": "🇻🇪",
     "flags": {
       "png": "https://flagcdn.com/w320/ve.png",
       "svg": "https://flagcdn.com/ve.svg",
@@ -1998,6 +2155,7 @@
     ],
     "region": "Americas",
     "subregion": "Central America",
+    "flag": "🇵🇦",
     "flags": {
       "png": "https://flagcdn.com/w320/pa.png",
       "svg": "https://flagcdn.com/pa.svg",
@@ -2011,6 +2169,7 @@
     ],
     "region": "Europe",
     "subregion": "Western Europe",
+    "flag": "🇳🇱",
     "flags": {
       "png": "https://flagcdn.com/w320/nl.png",
       "svg": "https://flagcdn.com/nl.svg",
@@ -2024,6 +2183,7 @@
     ],
     "region": "Oceania",
     "subregion": "Polynesia",
+    "flag": "🇼🇸",
     "flags": {
       "png": "https://flagcdn.com/w320/ws.png",
       "svg": "https://flagcdn.com/ws.svg",
@@ -2037,6 +2197,7 @@
     ],
     "region": "Europe",
     "subregion": "Northern Europe",
+    "flag": "🇩🇰",
     "flags": {
       "png": "https://flagcdn.com/w320/dk.png",
       "svg": "https://flagcdn.com/dk.svg",
@@ -2050,6 +2211,7 @@
     ],
     "region": "Europe",
     "subregion": "Western Europe",
+    "flag": "🇱🇺",
     "flags": {
       "png": "https://flagcdn.com/w320/lu.png",
       "svg": "https://flagcdn.com/lu.svg",
@@ -2063,6 +2225,7 @@
     ],
     "region": "Europe",
     "subregion": "Northern Europe",
+    "flag": "🇫🇴",
     "flags": {
       "png": "https://flagcdn.com/w320/fo.png",
       "svg": "https://flagcdn.com/fo.svg"
@@ -2075,6 +2238,7 @@
     ],
     "region": "Europe",
     "subregion": "Central Europe",
+    "flag": "🇸🇮",
     "flags": {
       "png": "https://flagcdn.com/w320/si.png",
       "svg": "https://flagcdn.com/si.svg",
@@ -2088,6 +2252,7 @@
     ],
     "region": "Africa",
     "subregion": "Western Africa",
+    "flag": "🇹🇬",
     "flags": {
       "png": "https://flagcdn.com/w320/tg.png",
       "svg": "https://flagcdn.com/tg.svg",
@@ -2101,6 +2266,7 @@
     ],
     "region": "Asia",
     "subregion": "South-Eastern Asia",
+    "flag": "🇹🇭",
     "flags": {
       "png": "https://flagcdn.com/w320/th.png",
       "svg": "https://flagcdn.com/th.svg",
@@ -2114,6 +2280,7 @@
     ],
     "region": "Oceania",
     "subregion": "Polynesia",
+    "flag": "🇼🇫",
     "flags": {
       "png": "https://flagcdn.com/w320/wf.png",
       "svg": "https://flagcdn.com/wf.svg"
@@ -2126,6 +2293,7 @@
     ],
     "region": "Americas",
     "subregion": "Caribbean",
+    "flag": "🇧🇸",
     "flags": {
       "png": "https://flagcdn.com/w320/bs.png",
       "svg": "https://flagcdn.com/bs.svg",
@@ -2139,6 +2307,7 @@
     ],
     "region": "Oceania",
     "subregion": "Polynesia",
+    "flag": "🇹🇴",
     "flags": {
       "png": "https://flagcdn.com/w320/to.png",
       "svg": "https://flagcdn.com/to.svg",
@@ -2152,6 +2321,7 @@
     ],
     "region": "Europe",
     "subregion": "Southern Europe",
+    "flag": "🇬🇷",
     "flags": {
       "png": "https://flagcdn.com/w320/gr.png",
       "svg": "https://flagcdn.com/gr.svg",
@@ -2165,6 +2335,7 @@
     ],
     "region": "Europe",
     "subregion": "Southern Europe",
+    "flag": "🇸🇲",
     "flags": {
       "png": "https://flagcdn.com/w320/sm.png",
       "svg": "https://flagcdn.com/sm.svg",
@@ -2178,6 +2349,7 @@
     ],
     "region": "Africa",
     "subregion": "Eastern Africa",
+    "flag": "🇷🇪",
     "flags": {
       "png": "https://flagcdn.com/w320/re.png",
       "svg": "https://flagcdn.com/re.svg"
@@ -2190,6 +2362,7 @@
     ],
     "region": "Europe",
     "subregion": "Southern Europe",
+    "flag": "🇻🇦",
     "flags": {
       "png": "https://flagcdn.com/w320/va.png",
       "svg": "https://flagcdn.com/va.svg",
@@ -2203,6 +2376,7 @@
     ],
     "region": "Africa",
     "subregion": "Eastern Africa",
+    "flag": "🇧🇮",
     "flags": {
       "png": "https://flagcdn.com/w320/bi.png",
       "svg": "https://flagcdn.com/bi.svg",
@@ -2216,6 +2390,7 @@
     ],
     "region": "Asia",
     "subregion": "Western Asia",
+    "flag": "🇧🇭",
     "flags": {
       "png": "https://flagcdn.com/w320/bh.png",
       "svg": "https://flagcdn.com/bh.svg",
@@ -2229,6 +2404,7 @@
     ],
     "region": "Oceania",
     "subregion": "Micronesia",
+    "flag": "🇲🇭",
     "flags": {
       "png": "https://flagcdn.com/w320/mh.png",
       "svg": "https://flagcdn.com/mh.svg",
@@ -2242,6 +2418,7 @@
     ],
     "region": "Americas",
     "subregion": "Caribbean",
+    "flag": "🇹🇨",
     "flags": {
       "png": "https://flagcdn.com/w320/tc.png",
       "svg": "https://flagcdn.com/tc.svg"
@@ -2254,6 +2431,7 @@
     ],
     "region": "Europe",
     "subregion": "Northern Europe",
+    "flag": "🇮🇲",
     "flags": {
       "png": "https://flagcdn.com/w320/im.png",
       "svg": "https://flagcdn.com/im.svg"
@@ -2266,6 +2444,7 @@
     ],
     "region": "Americas",
     "subregion": "Caribbean",
+    "flag": "🇭🇹",
     "flags": {
       "png": "https://flagcdn.com/w320/ht.png",
       "svg": "https://flagcdn.com/ht.svg",
@@ -2279,6 +2458,7 @@
     ],
     "region": "Asia",
     "subregion": "Southern Asia",
+    "flag": "🇦🇫",
     "flags": {
       "png": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_the_Taliban.svg/320px-Flag_of_the_Taliban.svg.png",
       "svg": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Flag_of_the_Taliban.svg",
@@ -2292,6 +2472,7 @@
     ],
     "region": "Asia",
     "subregion": "Western Asia",
+    "flag": "🇮🇱",
     "flags": {
       "png": "https://flagcdn.com/w320/il.png",
       "svg": "https://flagcdn.com/il.svg",
@@ -2305,6 +2486,7 @@
     ],
     "region": "Africa",
     "subregion": "Northern Africa",
+    "flag": "🇱🇾",
     "flags": {
       "png": "https://flagcdn.com/w320/ly.png",
       "svg": "https://flagcdn.com/ly.svg",
@@ -2318,6 +2500,7 @@
     ],
     "region": "Americas",
     "subregion": "South America",
+    "flag": "🇺🇾",
     "flags": {
       "png": "https://flagcdn.com/w320/uy.png",
       "svg": "https://flagcdn.com/uy.svg",
@@ -2331,6 +2514,7 @@
     ],
     "region": "Oceania",
     "subregion": "Australia and New Zealand",
+    "flag": "🇳🇫",
     "flags": {
       "png": "https://flagcdn.com/w320/nf.png",
       "svg": "https://flagcdn.com/nf.svg"
@@ -2343,6 +2527,7 @@
     ],
     "region": "Americas",
     "subregion": "Central America",
+    "flag": "🇳🇮",
     "flags": {
       "png": "https://flagcdn.com/w320/ni.png",
       "svg": "https://flagcdn.com/ni.svg",
@@ -2356,6 +2541,7 @@
     ],
     "region": "Oceania",
     "subregion": "Polynesia",
+    "flag": "🇨🇰",
     "flags": {
       "png": "https://flagcdn.com/w320/ck.png",
       "svg": "https://flagcdn.com/ck.svg"
@@ -2368,6 +2554,7 @@
     ],
     "region": "Asia",
     "subregion": "South-Eastern Asia",
+    "flag": "🇱🇦",
     "flags": {
       "png": "https://flagcdn.com/w320/la.png",
       "svg": "https://flagcdn.com/la.svg",
@@ -2381,6 +2568,7 @@
     ],
     "region": "Oceania",
     "subregion": "Australia and New Zealand",
+    "flag": "🇨🇽",
     "flags": {
       "png": "https://flagcdn.com/w320/cx.png",
       "svg": "https://flagcdn.com/cx.svg"
@@ -2393,6 +2581,7 @@
     ],
     "region": "Africa",
     "subregion": "Western Africa",
+    "flag": "🇸🇭",
     "flags": {
       "png": "https://flagcdn.com/w320/sh.png",
       "svg": "https://flagcdn.com/sh.svg"
@@ -2405,6 +2594,7 @@
     ],
     "region": "Americas",
     "subregion": "Caribbean",
+    "flag": "🇦🇮",
     "flags": {
       "png": "https://flagcdn.com/w320/ai.png",
       "svg": "https://flagcdn.com/ai.svg"
@@ -2417,6 +2607,7 @@
     ],
     "region": "Oceania",
     "subregion": "Micronesia",
+    "flag": "🇫🇲",
     "flags": {
       "png": "https://flagcdn.com/w320/fm.png",
       "svg": "https://flagcdn.com/fm.svg",
@@ -2430,6 +2621,7 @@
     ],
     "region": "Europe",
     "subregion": "Western Europe",
+    "flag": "🇩🇪",
     "flags": {
       "png": "https://flagcdn.com/w320/de.png",
       "svg": "https://flagcdn.com/de.svg",
@@ -2443,6 +2635,7 @@
     ],
     "region": "Oceania",
     "subregion": "Micronesia",
+    "flag": "🇬🇺",
     "flags": {
       "png": "https://flagcdn.com/w320/gu.png",
       "svg": "https://flagcdn.com/gu.svg"
@@ -2455,6 +2648,7 @@
     ],
     "region": "Oceania",
     "subregion": "Micronesia",
+    "flag": "🇰🇮",
     "flags": {
       "png": "https://flagcdn.com/w320/ki.png",
       "svg": "https://flagcdn.com/ki.svg",
@@ -2468,6 +2662,7 @@
     ],
     "region": "Americas",
     "subregion": "Caribbean",
+    "flag": "🇸🇽",
     "flags": {
       "png": "https://flagcdn.com/w320/sx.png",
       "svg": "https://flagcdn.com/sx.svg"
@@ -2480,6 +2675,7 @@
     ],
     "region": "Europe",
     "subregion": "Southern Europe",
+    "flag": "🇪🇸",
     "flags": {
       "png": "https://flagcdn.com/w320/es.png",
       "svg": "https://flagcdn.com/es.svg",
@@ -2493,6 +2689,7 @@
     ],
     "region": "Americas",
     "subregion": "Caribbean",
+    "flag": "🇯🇲",
     "flags": {
       "png": "https://flagcdn.com/w320/jm.png",
       "svg": "https://flagcdn.com/jm.svg",
@@ -2507,6 +2704,7 @@
     ],
     "region": "Asia",
     "subregion": "Western Asia",
+    "flag": "🇵🇸",
     "flags": {
       "png": "https://flagcdn.com/w320/ps.png",
       "svg": "https://flagcdn.com/ps.svg"
@@ -2519,6 +2717,7 @@
     ],
     "region": "Americas",
     "subregion": "South America",
+    "flag": "🇬🇫",
     "flags": {
       "png": "https://flagcdn.com/w320/gf.png",
       "svg": "https://flagcdn.com/gf.svg"
@@ -2531,6 +2730,7 @@
     ],
     "region": "Europe",
     "subregion": "Southern Europe",
+    "flag": "🇦🇩",
     "flags": {
       "png": "https://flagcdn.com/w320/ad.png",
       "svg": "https://flagcdn.com/ad.svg",
@@ -2544,6 +2744,7 @@
     ],
     "region": "Americas",
     "subregion": "South America",
+    "flag": "🇨🇱",
     "flags": {
       "png": "https://flagcdn.com/w320/cl.png",
       "svg": "https://flagcdn.com/cl.svg",
@@ -2557,6 +2758,7 @@
     ],
     "region": "Africa",
     "subregion": "Southern Africa",
+    "flag": "🇱🇸",
     "flags": {
       "png": "https://flagcdn.com/w320/ls.png",
       "svg": "https://flagcdn.com/ls.svg",
@@ -2570,6 +2772,7 @@
     ],
     "region": "Oceania",
     "subregion": "Australia and New Zealand",
+    "flag": "🇦🇺",
     "flags": {
       "png": "https://flagcdn.com/w320/au.png",
       "svg": "https://flagcdn.com/au.svg",
@@ -2583,6 +2786,7 @@
     ],
     "region": "Americas",
     "subregion": "Caribbean",
+    "flag": "🇬🇩",
     "flags": {
       "png": "https://flagcdn.com/w320/gd.png",
       "svg": "https://flagcdn.com/gd.svg",
@@ -2596,6 +2800,7 @@
     ],
     "region": "Africa",
     "subregion": "Western Africa",
+    "flag": "🇬🇭",
     "flags": {
       "png": "https://flagcdn.com/w320/gh.png",
       "svg": "https://flagcdn.com/gh.svg",
@@ -2609,6 +2814,7 @@
     ],
     "region": "Africa",
     "subregion": "Eastern Africa",
+    "flag": "🇸🇨",
     "flags": {
       "png": "https://flagcdn.com/w320/sc.png",
       "svg": "https://flagcdn.com/sc.svg",
@@ -2622,6 +2828,7 @@
     ],
     "region": "Africa",
     "subregion": "Middle Africa",
+    "flag": "🇦🇴",
     "flags": {
       "png": "https://flagcdn.com/w320/ao.png",
       "svg": "https://flagcdn.com/ao.svg",
@@ -2635,6 +2842,7 @@
     ],
     "region": "Americas",
     "subregion": "North America",
+    "flag": "🇧🇲",
     "flags": {
       "png": "https://flagcdn.com/w320/bm.png",
       "svg": "https://flagcdn.com/bm.svg"
@@ -2647,6 +2855,7 @@
     ],
     "region": "Asia",
     "subregion": "Southern Asia",
+    "flag": "🇵🇰",
     "flags": {
       "png": "https://flagcdn.com/w320/pk.png",
       "svg": "https://flagcdn.com/pk.svg",
@@ -2660,6 +2869,7 @@
     ],
     "region": "Africa",
     "subregion": "Western Africa",
+    "flag": "🇲🇱",
     "flags": {
       "png": "https://flagcdn.com/w320/ml.png",
       "svg": "https://flagcdn.com/ml.svg",
@@ -2673,6 +2883,7 @@
     ],
     "region": "Asia",
     "subregion": "Western Asia",
+    "flag": "🇸🇦",
     "flags": {
       "png": "https://flagcdn.com/w320/sa.png",
       "svg": "https://flagcdn.com/sa.svg",
@@ -2686,6 +2897,7 @@
     ],
     "region": "Americas",
     "subregion": "Caribbean",
+    "flag": "🇨🇼",
     "flags": {
       "png": "https://flagcdn.com/w320/cw.png",
       "svg": "https://flagcdn.com/cw.svg"
@@ -2698,6 +2910,7 @@
     ],
     "region": "Asia",
     "subregion": "Eastern Asia",
+    "flag": "🇰🇷",
     "flags": {
       "png": "https://flagcdn.com/w320/kr.png",
       "svg": "https://flagcdn.com/kr.svg",
@@ -2711,6 +2924,7 @@
     ],
     "region": "Africa",
     "subregion": "Eastern Africa",
+    "flag": "🇪🇹",
     "flags": {
       "png": "https://flagcdn.com/w320/et.png",
       "svg": "https://flagcdn.com/et.svg",
@@ -2724,6 +2938,7 @@
     ],
     "region": "Americas",
     "subregion": "Caribbean",
+    "flag": "🇬🇵",
     "flags": {
       "png": "https://flagcdn.com/w320/gp.png",
       "svg": "https://flagcdn.com/gp.svg"
@@ -2736,6 +2951,7 @@
     ],
     "region": "Asia",
     "subregion": "Southern Asia",
+    "flag": "🇧🇩",
     "flags": {
       "png": "https://flagcdn.com/w320/bd.png",
       "svg": "https://flagcdn.com/bd.svg",
@@ -2749,6 +2965,7 @@
     ],
     "region": "Oceania",
     "subregion": "Australia and New Zealand",
+    "flag": "🇳🇿",
     "flags": {
       "png": "https://flagcdn.com/w320/nz.png",
       "svg": "https://flagcdn.com/nz.svg",
@@ -2762,6 +2979,7 @@
     ],
     "region": "Africa",
     "subregion": "Eastern Africa",
+    "flag": "🇰🇲",
     "flags": {
       "png": "https://flagcdn.com/w320/km.png",
       "svg": "https://flagcdn.com/km.svg",
@@ -2775,6 +2993,7 @@
     ],
     "region": "Americas",
     "subregion": "Central America",
+    "flag": "🇧🇿",
     "flags": {
       "png": "https://flagcdn.com/w320/bz.png",
       "svg": "https://flagcdn.com/bz.svg",
@@ -2788,6 +3007,7 @@
     ],
     "region": "Africa",
     "subregion": "Eastern Africa",
+    "flag": "🇺🇬",
     "flags": {
       "png": "https://flagcdn.com/w320/ug.png",
       "svg": "https://flagcdn.com/ug.svg",
@@ -2801,6 +3021,7 @@
     ],
     "region": "Asia",
     "subregion": "South-Eastern Asia",
+    "flag": "🇸🇬",
     "flags": {
       "png": "https://flagcdn.com/w320/sg.png",
       "svg": "https://flagcdn.com/sg.svg",
@@ -2814,6 +3035,7 @@
     ],
     "region": "Europe",
     "subregion": "Western Europe",
+    "flag": "🇱🇮",
     "flags": {
       "png": "https://flagcdn.com/w320/li.png",
       "svg": "https://flagcdn.com/li.svg",
@@ -2827,6 +3049,7 @@
     ],
     "region": "Europe",
     "subregion": "Central Europe",
+    "flag": "🇭🇺",
     "flags": {
       "png": "https://flagcdn.com/w320/hu.png",
       "svg": "https://flagcdn.com/hu.svg",
@@ -2840,6 +3063,7 @@
     ],
     "region": "Europe",
     "subregion": "Northern Europe",
+    "flag": "🇮🇸",
     "flags": {
       "png": "https://flagcdn.com/w320/is.png",
       "svg": "https://flagcdn.com/is.svg",
@@ -2853,6 +3077,7 @@
     ],
     "region": "Asia",
     "subregion": "Central Asia",
+    "flag": "🇹🇯",
     "flags": {
       "png": "https://flagcdn.com/w320/tj.png",
       "svg": "https://flagcdn.com/tj.svg",
@@ -2866,6 +3091,7 @@
     ],
     "region": "Africa",
     "subregion": "Southern Africa",
+    "flag": "🇳🇦",
     "flags": {
       "png": "https://flagcdn.com/w320/na.png",
       "svg": "https://flagcdn.com/na.svg",
@@ -2879,6 +3105,7 @@
     ],
     "region": "Asia",
     "subregion": "South-Eastern Asia",
+    "flag": "🇹🇱",
     "flags": {
       "png": "https://flagcdn.com/w320/tl.png",
       "svg": "https://flagcdn.com/tl.svg",
@@ -2892,6 +3119,7 @@
     ],
     "region": "Africa",
     "subregion": "Northern Africa",
+    "flag": "🇪🇬",
     "flags": {
       "png": "https://flagcdn.com/w320/eg.png",
       "svg": "https://flagcdn.com/eg.svg",
@@ -2905,6 +3133,7 @@
     ],
     "region": "Europe",
     "subregion": "Southeast Europe",
+    "flag": "🇷🇸",
     "flags": {
       "png": "https://flagcdn.com/w320/rs.png",
       "svg": "https://flagcdn.com/rs.svg",
@@ -2918,6 +3147,7 @@
     ],
     "region": "Africa",
     "subregion": "Eastern Africa",
+    "flag": "🇲🇺",
     "flags": {
       "png": "https://flagcdn.com/w320/mu.png",
       "svg": "https://flagcdn.com/mu.svg",
@@ -2928,6 +3158,7 @@
   {
     "region": "Asia",
     "subregion": "Eastern Asia",
+    "flag": "🇲🇴",
     "flags": {
       "png": "https://flagcdn.com/w320/mo.png",
       "svg": "https://flagcdn.com/mo.svg"
@@ -2940,6 +3171,7 @@
     ],
     "region": "Oceania",
     "subregion": "Polynesia",
+    "flag": "🇵🇫",
     "flags": {
       "png": "https://flagcdn.com/w320/pf.png",
       "svg": "https://flagcdn.com/pf.svg"
@@ -2952,6 +3184,7 @@
     ],
     "region": "Asia",
     "subregion": "Southern Asia",
+    "flag": "🇲🇻",
     "flags": {
       "png": "https://flagcdn.com/w320/mv.png",
       "svg": "https://flagcdn.com/mv.svg",
@@ -2965,6 +3198,7 @@
     ],
     "region": "Asia",
     "subregion": "South-Eastern Asia",
+    "flag": "🇮🇩",
     "flags": {
       "png": "https://flagcdn.com/w320/id.png",
       "svg": "https://flagcdn.com/id.svg",
@@ -2978,6 +3212,7 @@
     ],
     "region": "Africa",
     "subregion": "Middle Africa",
+    "flag": "🇨🇩",
     "flags": {
       "png": "https://flagcdn.com/w320/cd.png",
       "svg": "https://flagcdn.com/cd.svg",
@@ -2991,6 +3226,7 @@
     ],
     "region": "Europe",
     "subregion": "Northern Europe",
+    "flag": "🇪🇪",
     "flags": {
       "png": "https://flagcdn.com/w320/ee.png",
       "svg": "https://flagcdn.com/ee.svg",
@@ -3004,6 +3240,7 @@
     ],
     "region": "Asia",
     "subregion": "South-Eastern Asia",
+    "flag": "🇻🇳",
     "flags": {
       "png": "https://flagcdn.com/w320/vn.png",
       "svg": "https://flagcdn.com/vn.svg",
@@ -3017,6 +3254,7 @@
     ],
     "region": "Europe",
     "subregion": "Southern Europe",
+    "flag": "🇮🇹",
     "flags": {
       "png": "https://flagcdn.com/w320/it.png",
       "svg": "https://flagcdn.com/it.svg",
@@ -3030,6 +3268,7 @@
     ],
     "region": "Africa",
     "subregion": "Western Africa",
+    "flag": "🇬🇳",
     "flags": {
       "png": "https://flagcdn.com/w320/gn.png",
       "svg": "https://flagcdn.com/gn.svg",
@@ -3043,6 +3282,7 @@
     ],
     "region": "Africa",
     "subregion": "Middle Africa",
+    "flag": "🇹🇩",
     "flags": {
       "png": "https://flagcdn.com/w320/td.png",
       "svg": "https://flagcdn.com/td.svg",
@@ -3056,6 +3296,7 @@
     ],
     "region": "Americas",
     "subregion": "South America",
+    "flag": "🇪🇨",
     "flags": {
       "png": "https://flagcdn.com/w320/ec.png",
       "svg": "https://flagcdn.com/ec.svg",
@@ -3069,6 +3310,7 @@
     ],
     "region": "Asia",
     "subregion": "Western Asia",
+    "flag": "🇬🇪",
     "flags": {
       "png": "https://flagcdn.com/w320/ge.png",
       "svg": "https://flagcdn.com/ge.svg",
@@ -3082,6 +3324,7 @@
     ],
     "region": "Africa",
     "subregion": "Eastern Africa",
+    "flag": "🇲🇼",
     "flags": {
       "png": "https://flagcdn.com/w320/mw.png",
       "svg": "https://flagcdn.com/mw.svg",
@@ -3095,6 +3338,7 @@
     ],
     "region": "Asia",
     "subregion": "Western Asia",
+    "flag": "🇮🇶",
     "flags": {
       "png": "https://flagcdn.com/w320/iq.png",
       "svg": "https://flagcdn.com/iq.svg",
@@ -3108,6 +3352,7 @@
     ],
     "region": "Europe",
     "subregion": "Northern Europe",
+    "flag": "🇸🇯",
     "flags": {
       "png": "https://flagcdn.com/w320/sj.png",
       "svg": "https://flagcdn.com/sj.svg"
@@ -3120,6 +3365,7 @@
     ],
     "region": "Africa",
     "subregion": "Western Africa",
+    "flag": "🇧🇯",
     "flags": {
       "png": "https://flagcdn.com/w320/bj.png",
       "svg": "https://flagcdn.com/bj.svg",
@@ -3133,6 +3379,7 @@
     ],
     "region": "Asia",
     "subregion": "Eastern Asia",
+    "flag": "🇯🇵",
     "flags": {
       "png": "https://flagcdn.com/w320/jp.png",
       "svg": "https://flagcdn.com/jp.svg",
@@ -3146,6 +3393,7 @@
     ],
     "region": "Americas",
     "subregion": "Caribbean",
+    "flag": "🇩🇴",
     "flags": {
       "png": "https://flagcdn.com/w320/do.png",
       "svg": "https://flagcdn.com/do.svg",
@@ -3159,6 +3407,7 @@
     ],
     "region": "Asia",
     "subregion": "Western Asia",
+    "flag": "🇶🇦",
     "flags": {
       "png": "https://flagcdn.com/w320/qa.png",
       "svg": "https://flagcdn.com/qa.svg",
@@ -3172,6 +3421,7 @@
     ],
     "region": "Africa",
     "subregion": "Middle Africa",
+    "flag": "🇬🇦",
     "flags": {
       "png": "https://flagcdn.com/w320/ga.png",
       "svg": "https://flagcdn.com/ga.svg",

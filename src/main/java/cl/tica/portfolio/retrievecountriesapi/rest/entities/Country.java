@@ -1,23 +1,17 @@
 package cl.tica.portfolio.retrievecountriesapi.rest.entities;
 
-import jakarta.persistence.CollectionTable;
 import jakarta.persistence.Column;
-import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Index;
-import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -35,10 +29,10 @@ public class Country {
     @Column(nullable = false)
     private String name;
 
-    @ElementCollection(fetch = FetchType.EAGER)
-    @CollectionTable(name = "capitals", joinColumns = @JoinColumn(name = "country_id"))
-    @Column(name = "capital")
-    private List<String> capitals = new ArrayList<>();
+    @NotBlank
+    @Size(max = 80)
+    @Column(nullable = false)
+    private String capital;
 
     @NotBlank
     @Size(max = 80)
@@ -53,6 +47,11 @@ public class Country {
     @OneToMany(mappedBy = "country")
     private Set<City> cities;
 
+    @NotBlank
+    @Size(max = 20)
+    @Column(nullable = false)
+    private String flag;
+
     @OneToMany(mappedBy = "country")
     private Set<Flag> flags;
 
@@ -65,12 +64,13 @@ public class Country {
         this.name = name;
     }
 
-    public List<String> getCapitals() {
-        return capitals;
+    public @NotBlank @Size(max = 80) String getCapital() {
+        return capital;
     }
 
-    public void setCapitals(List<String> capitals) {
-        this.capitals = capitals;
+    public void setCapital(
+            @NotBlank @Size(max = 80) String capital) {
+        this.capital = capital;
     }
 
     public @NotBlank @Size(max = 80) String getRegion() {
@@ -97,6 +97,15 @@ public class Country {
 
     public void setCities(Set<City> cities) {
         this.cities = cities;
+    }
+
+    public @NotBlank @Size(max = 20) String getFlag() {
+        return flag;
+    }
+
+    public void setFlag(
+            @NotBlank @Size(max = 20) String flag) {
+        this.flag = flag;
     }
 
     public Set<Flag> getFlags() {
