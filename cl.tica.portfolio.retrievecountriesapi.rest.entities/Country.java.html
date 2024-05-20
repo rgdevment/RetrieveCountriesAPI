@@ -48,7 +48,7 @@ import java.util.Set;
     private Set&lt;City&gt; cities;
 
     @NotBlank
-    @Size(max = 20)
+    @Size(max = 40)
     @Column(nullable = false)
     private String flag;
 
@@ -61,8 +61,8 @@ import java.util.Set;
 
     public void setName(
             @NotBlank @Size(max = 80) String name) {
-<span class="nc" id="L64">        this.name = name;</span>
-<span class="nc" id="L65">    }</span>
+<span class="fc" id="L64">        this.name = name;</span>
+<span class="fc" id="L65">    }</span>
 
     public @NotBlank @Size(max = 80) String getCapital() {
 <span class="nc" id="L68">        return capital;</span>
@@ -70,8 +70,8 @@ import java.util.Set;
 
     public void setCapital(
             @NotBlank @Size(max = 80) String capital) {
-<span class="nc" id="L73">        this.capital = capital;</span>
-<span class="nc" id="L74">    }</span>
+<span class="fc" id="L73">        this.capital = capital;</span>
+<span class="fc" id="L74">    }</span>
 
     public @NotBlank @Size(max = 80) String getRegion() {
 <span class="nc" id="L77">        return region;</span>
@@ -79,8 +79,8 @@ import java.util.Set;
 
     public void setRegion(
             @NotBlank @Size(max = 80) String region) {
-<span class="nc" id="L82">        this.region = region;</span>
-<span class="nc" id="L83">    }</span>
+<span class="fc" id="L82">        this.region = region;</span>
+<span class="fc" id="L83">    }</span>
 
     public @NotBlank @Size(max = 80) String getSubregion() {
 <span class="nc" id="L86">        return subregion;</span>
@@ -88,32 +88,32 @@ import java.util.Set;
 
     public void setSubregion(
             @NotBlank @Size(max = 80) String subregion) {
-<span class="nc" id="L91">        this.subregion = subregion;</span>
-<span class="nc" id="L92">    }</span>
+<span class="fc" id="L91">        this.subregion = subregion;</span>
+<span class="fc" id="L92">    }</span>
 
     public Set&lt;City&gt; getCities() {
 <span class="nc" id="L95">        return cities;</span>
     }
 
     public void setCities(Set&lt;City&gt; cities) {
-<span class="nc" id="L99">        this.cities = cities;</span>
-<span class="nc" id="L100">    }</span>
+<span class="fc" id="L99">        this.cities = cities;</span>
+<span class="fc" id="L100">    }</span>
 
-    public @NotBlank @Size(max = 20) String getFlag() {
+    public @NotBlank @Size(max = 40) String getFlag() {
 <span class="nc" id="L103">        return flag;</span>
     }
 
     public void setFlag(
-            @NotBlank @Size(max = 20) String flag) {
-<span class="nc" id="L108">        this.flag = flag;</span>
-<span class="nc" id="L109">    }</span>
+            @NotBlank @Size(max = 40) String flag) {
+<span class="fc" id="L108">        this.flag = flag;</span>
+<span class="fc" id="L109">    }</span>
 
     public Set&lt;Flag&gt; getFlags() {
 <span class="nc" id="L112">        return flags;</span>
     }
 
     public void setFlags(Set&lt;Flag&gt; flags) {
-<span class="nc" id="L116">        this.flags = flags;</span>
-<span class="nc" id="L117">    }</span>
+<span class="fc" id="L116">        this.flags = flags;</span>
+<span class="fc" id="L117">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

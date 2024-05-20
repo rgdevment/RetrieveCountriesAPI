@@ -37,63 +37,63 @@ public class DatabasePopulationService {
 
     @Transactional
     public void populateDatabase() {
-<span class="nc" id="L40">        List&lt;CountryData&gt; countryDataList = dataService.fetchCountryData();</span>
-<span class="nc" id="L41">        Map&lt;String, List&lt;String&gt;&gt; countryCitiesMap = dataService.fetchCountryCitiesData().stream()</span>
-<span class="nc" id="L42">                .collect(Collectors.toMap(CountryCities::country, CountryCities::cities));</span>
+<span class="fc" id="L40">        List&lt;CountryData&gt; countryDataList = dataService.fetchCountryData();</span>
+<span class="fc" id="L41">        Map&lt;String, List&lt;String&gt;&gt; countryCitiesMap = dataService.fetchCountryCitiesData().stream()</span>
+<span class="fc" id="L42">                .collect(Collectors.toMap(CountryCities::country, CountryCities::cities));</span>
 
-<span class="nc bnc" id="L44" title="All 2 branches missed.">        for (CountryData countryData : countryDataList) {</span>
-<span class="nc" id="L45">            Country country = new Country();</span>
-<span class="nc" id="L46">            country.setName(countryData.name().getCommon());</span>
-<span class="nc" id="L47">            country.setRegion(countryData.region());</span>
+<span class="fc bfc" id="L44" title="All 2 branches covered.">        for (CountryData countryData : countryDataList) {</span>
+<span class="fc" id="L45">            Country country = new Country();</span>
+<span class="fc" id="L46">            country.setName(countryData.name().getCommon());</span>
+<span class="fc" id="L47">            country.setRegion(countryData.region());</span>
 
-<span class="nc" id="L49">            country.setCapital(Optional.ofNullable(countryData.capital())</span>
-<span class="nc bnc" id="L50" title="All 2 branches missed.">                    .filter(capital -&gt; !capital.isEmpty())</span>
-<span class="nc" id="L51">                    .map(List::getFirst)</span>
-<span class="nc" id="L52">                    .orElse(&quot;N/A&quot;));</span>
+<span class="fc" id="L49">            country.setCapital(Optional.ofNullable(countryData.capital())</span>
+<span class="fc bfc" id="L50" title="All 2 branches covered.">                    .filter(capital -&gt; !capital.isEmpty())</span>
+<span class="fc" id="L51">                    .map(List::getFirst)</span>
+<span class="fc" id="L52">                    .orElse(&quot;N/A&quot;));</span>
 
-<span class="nc" id="L54">            country.setSubregion(Optional.ofNullable(countryData.subregion())</span>
-<span class="nc bnc" id="L55" title="All 2 branches missed.">                    .filter(subregion -&gt; !subregion.isBlank())</span>
-<span class="nc" id="L56">                    .orElse(&quot;N/A&quot;));</span>
+<span class="fc" id="L54">            country.setSubregion(Optional.ofNullable(countryData.subregion())</span>
+<span class="fc bfc" id="L55" title="All 2 branches covered.">                    .filter(subregion -&gt; !subregion.isBlank())</span>
+<span class="fc" id="L56">                    .orElse(&quot;N/A&quot;));</span>
 
-<span class="nc" id="L58">            country.setFlag(countryData.flag());</span>
+<span class="fc" id="L58">            country.setFlag(countryData.flag());</span>
 
-<span class="nc" id="L60">            Flag flagPNG = new Flag();</span>
-<span class="nc" id="L61">            flagPNG.setFormat(FlagFormat.PNG);</span>
-<span class="nc" id="L62">            flagPNG.setPath(countryData.flags().png());</span>
-<span class="nc" id="L63">            flagPNG.setDescription(countryData.flags().alt());</span>
-<span class="nc" id="L64">            flagPNG.setCountry(country);</span>
+<span class="fc" id="L60">            Flag flagPNG = new Flag();</span>
+<span class="fc" id="L61">            flagPNG.setFormat(FlagFormat.PNG);</span>
+<span class="fc" id="L62">            flagPNG.setPath(countryData.flags().png());</span>
+<span class="fc" id="L63">            flagPNG.setDescription(countryData.flags().alt());</span>
+<span class="fc" id="L64">            flagPNG.setCountry(country);</span>
 
-<span class="nc" id="L66">            Flag flagSVG = new Flag();</span>
-<span class="nc" id="L67">            flagSVG.setFormat(FlagFormat.SVG);</span>
-<span class="nc" id="L68">            flagSVG.setPath(countryData.flags().svg());</span>
-<span class="nc" id="L69">            flagSVG.setDescription(countryData.flags().alt());</span>
-<span class="nc" id="L70">            flagSVG.setCountry(country);</span>
+<span class="fc" id="L66">            Flag flagSVG = new Flag();</span>
+<span class="fc" id="L67">            flagSVG.setFormat(FlagFormat.SVG);</span>
+<span class="fc" id="L68">            flagSVG.setPath(countryData.flags().svg());</span>
+<span class="fc" id="L69">            flagSVG.setDescription(countryData.flags().alt());</span>
+<span class="fc" id="L70">            flagSVG.setCountry(country);</span>
 
-<span class="nc" id="L72">            Set&lt;Flag&gt; flags = new HashSet&lt;&gt;();</span>
-<span class="nc" id="L73">            flags.add(flagPNG);</span>
-<span class="nc" id="L74">            flags.add(flagSVG);</span>
+<span class="fc" id="L72">            Set&lt;Flag&gt; flags = new HashSet&lt;&gt;();</span>
+<span class="fc" id="L73">            flags.add(flagPNG);</span>
+<span class="fc" id="L74">            flags.add(flagSVG);</span>
 
-<span class="nc" id="L76">            country.setFlags(flags);</span>
+<span class="fc" id="L76">            country.setFlags(flags);</span>
 
-<span class="nc" id="L78">            countryRepository.save(country);</span>
+<span class="fc" id="L78">            countryRepository.save(country);</span>
 
-<span class="nc" id="L80">            List&lt;String&gt; cities = countryCitiesMap.get(countryData.name().getCommon());</span>
-<span class="nc bnc" id="L81" title="All 2 branches missed.">            if (cities != null) {</span>
-<span class="nc" id="L82">                Set&lt;City&gt; citiesSet = new HashSet&lt;&gt;();</span>
-<span class="nc bnc" id="L83" title="All 2 branches missed.">                for (String cityName : cities) {</span>
-<span class="nc" id="L84">                    City city = new City();</span>
-<span class="nc" id="L85">                    city.setName(cityName);</span>
-<span class="nc" id="L86">                    city.setCountry(country);</span>
-<span class="nc" id="L87">                    cityRepository.save(city);</span>
-<span class="nc" id="L88">                    citiesSet.add(city);</span>
-<span class="nc" id="L89">                }</span>
-<span class="nc" id="L90">                country.setCities(citiesSet);</span>
+<span class="fc" id="L80">            List&lt;String&gt; cities = countryCitiesMap.get(countryData.name().getCommon());</span>
+<span class="fc bfc" id="L81" title="All 2 branches covered.">            if (cities != null) {</span>
+<span class="fc" id="L82">                Set&lt;City&gt; citiesSet = new HashSet&lt;&gt;();</span>
+<span class="fc bfc" id="L83" title="All 2 branches covered.">                for (String cityName : cities) {</span>
+<span class="fc" id="L84">                    City city = new City();</span>
+<span class="fc" id="L85">                    city.setName(cityName);</span>
+<span class="fc" id="L86">                    city.setCountry(country);</span>
+<span class="fc" id="L87">                    cityRepository.save(city);</span>
+<span class="fc" id="L88">                    citiesSet.add(city);</span>
+<span class="fc" id="L89">                }</span>
+<span class="fc" id="L90">                country.setCities(citiesSet);</span>
             }
 
-<span class="nc" id="L93">            countryRepository.save(country);</span>
-<span class="nc" id="L94">            flagRepository.save(flagPNG);</span>
-<span class="nc" id="L95">            flagRepository.save(flagSVG);</span>
-<span class="nc" id="L96">        }</span>
-<span class="nc" id="L97">    }</span>
+<span class="fc" id="L93">            countryRepository.save(country);</span>
+<span class="fc" id="L94">            flagRepository.save(flagPNG);</span>
+<span class="fc" id="L95">            flagRepository.save(flagSVG);</span>
+<span class="fc" id="L96">        }</span>
+<span class="fc" id="L97">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>
