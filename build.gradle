@@ -32,6 +32,11 @@ dependencies {
     runtimeOnly 'com.h2database:h2'
 }
 
+def exclusions = [
+        "cl/tica/portfolio/retrievecountriesapi/populate/Populate.class",
+        "cl/tica/portfolio/retrievecountriesapi/RetrieveCountriesApiApplication.class"
+]
+
 pmd {
     ruleSetFiles = files("codequality/ruleset.xml")
 }
@@ -42,6 +47,11 @@ checkstyle {
 
 jacocoTestReport {
     dependsOn test
+    afterEvaluate {
+        classDirectories.setFrom(files(classDirectories.files.collect {
+            fileTree(dir: it, exclude: exclusions)
+        }))
+    }
     reports {
         csv.required = true
         xml.required = true
@@ -49,18 +59,23 @@ jacocoTestReport {
 }
 
 jacocoTestCoverageVerification {
+    afterEvaluate {
+        classDirectories.setFrom(files(classDirectories.files.collect {
+            fileTree(dir: it, exclude: exclusions)
+        }))
+    }
     violationRules {
         rule {
             limit {
                 counter = 'LINE'
-                minimum = 0.0
+                minimum = 0.8
             }
         }
 
         rule {
             limit {
                 counter = 'BRANCH'
-                minimum = 0.0
+                minimum = 0.8
             }
         }
     }
@@ -79,6 +94,10 @@ sonar {
         property "sonar.coverage.jacoco.xmlReportPaths", "build/reports/jacoco/test/jacocoTestReport.xml"
 
         property "sonar.java.coveragePlugin", "jacoco"
+        property "sonar.coverage.exclusions", [
+                "src/**/populate/Populate.java",
+                "src/**/RetrieveCountriesApiApplication.java"
+        ].join(",")
     }
 }
 
