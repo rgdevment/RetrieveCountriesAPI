@@ -14,7 +14,7 @@ public class Name {
     public Name(JsonNode jsonNode) {
         if (jsonNode.isTextual()) {
             this.common = jsonNode.asText();
-        } else if (jsonNode.isObject()) {
+        } else {
             this.common = jsonNode.get("common").asText();
         }
     }

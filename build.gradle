@@ -28,6 +28,7 @@ dependencies {
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     runtimeOnly 'org.postgresql:postgresql'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'net.datafaker:datafaker:2.2.2'
     runtimeOnly 'com.h2database:h2'
 }
 

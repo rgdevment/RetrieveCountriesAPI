@@ -1,5 +1,6 @@
 package cl.tica.portfolio.retrievecountriesapi.populate.services;
 
+import cl.tica.portfolio.retrievecountriesapi.populate.exceptions.FetchDataException;
 import cl.tica.portfolio.retrievecountriesapi.populate.models.CountryCities;
 import cl.tica.portfolio.retrievecountriesapi.populate.models.CountryCitiesData;
 import cl.tica.portfolio.retrievecountriesapi.populate.models.CountryData;
@@ -8,11 +9,11 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import java.io.IOException;
 import java.io.InputStream;
 import java.util.Arrays;
 import java.util.List;
@@ -22,6 +23,7 @@ import java.util.Objects;
 public class DataService {
 
     private final RestTemplate restTemplate;
+    private final ObjectMapper objectMapper;
 
     @Value("${countries.json_file}")
     private String countriesApiUrl;
@@ -29,8 +31,9 @@ public class DataService {
     @Value("${cities.json_file}")
     private String countriesCitiesApiUrl;
 
-    public DataService(RestTemplateBuilder restTemplateBuilder) {
+    public DataService(RestTemplateBuilder restTemplateBuilder, ObjectMapper objectMapper) {
         this.restTemplate = restTemplateBuilder.build();
+        this.objectMapper = objectMapper;
     }
 
     public List<CountryData> fetchCountryData() {
@@ -43,11 +46,10 @@ public class DataService {
                 String resourcePath = countriesApiUrl.replaceFirst("classpath:", "");
                 Resource resource = new ClassPathResource(resourcePath);
                 InputStream inputStream = resource.getInputStream();
-                ObjectMapper objectMapper = new ObjectMapper();
-                return Arrays.asList(objectMapper.readValue(inputStream, CountryData[].class));
+                return Arrays.asList(this.objectMapper.readValue(inputStream, CountryData[].class));
             }
-        } catch (IOException e) {
-            throw new RuntimeException("Failed to fetch country data", e);
+        } catch (Exception e) {
+            throw new FetchDataException(HttpStatus.GATEWAY_TIMEOUT, "Failed to fetch country data");
         }
     }
 
@@ -61,12 +63,11 @@ public class DataService {
                 String resourcePath = countriesCitiesApiUrl.replaceFirst("classpath:", "");
                 Resource resource = new ClassPathResource(resourcePath);
                 InputStream inputStream = resource.getInputStream();
-                ObjectMapper objectMapper = new ObjectMapper();
-                CountryCitiesData countryCitiesData = objectMapper.readValue(inputStream, CountryCitiesData.class);
+                CountryCitiesData countryCitiesData = this.objectMapper.readValue(inputStream, CountryCitiesData.class);
                 return countryCitiesData.data();
             }
-        } catch (IOException e) {
-            throw new RuntimeException("Failed to fetch country cities data", e);
+        } catch (Exception e) {
+            throw new FetchDataException(HttpStatus.GATEWAY_TIMEOUT, "Failed to fetch country cities data");
         }
     }
 
