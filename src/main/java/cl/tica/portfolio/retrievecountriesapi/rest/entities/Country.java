@@ -48,7 +48,7 @@ public class Country {
     private Set<City> cities;
 
     @NotBlank
-    @Size(max = 20)
+    @Size(max = 40)
     @Column(nullable = false)
     private String flag;
 
@@ -99,12 +99,12 @@ public class Country {
         this.cities = cities;
     }
 
-    public @NotBlank @Size(max = 20) String getFlag() {
+    public @NotBlank @Size(max = 40) String getFlag() {
         return flag;
     }
 
     public void setFlag(
-            @NotBlank @Size(max = 20) String flag) {
+            @NotBlank @Size(max = 40) String flag) {
         this.flag = flag;
     }
 
