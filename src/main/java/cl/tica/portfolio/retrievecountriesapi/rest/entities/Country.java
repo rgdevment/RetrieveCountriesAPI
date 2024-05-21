@@ -1,7 +1,10 @@
 package cl.tica.portfolio.retrievecountriesapi.rest.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -13,6 +16,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Entity
 @Table(name = "countries", indexes = {
@@ -44,7 +48,7 @@ public class Country {
     @Column(nullable = false)
     private String subregion;
 
-    @OneToMany(mappedBy = "country")
+    @OneToMany(mappedBy = "country", fetch = FetchType.EAGER)
     private Set<City> cities;
 
     @NotBlank
@@ -52,7 +56,7 @@ public class Country {
     @Column(nullable = false)
     private String flag;
 
-    @OneToMany(mappedBy = "country")
+    @OneToMany(mappedBy = "country", fetch = FetchType.EAGER)
     private Set<Flag> flags;
 
     public @NotBlank @Size(max = 80) String getName() {
@@ -91,8 +95,16 @@ public class Country {
         this.subregion = subregion;
     }
 
+    @JsonIgnore
     public Set<City> getCities() {
         return cities;
+    }
+
+    @JsonProperty("cities")
+    public Set<String> getCityNames() {
+        return cities.stream()
+                .map(City::getName)
+                .collect(Collectors.toSet());
     }
 
     public void setCities(Set<City> cities) {

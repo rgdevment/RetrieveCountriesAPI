@@ -1,6 +1,8 @@
 package cl.tica.portfolio.retrievecountriesapi.rest.entities;
 
 import cl.tica.portfolio.retrievecountriesapi.rest.enums.FlagFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -27,6 +29,7 @@ public class Flag {
     @NotNull
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
+    @JsonIgnore
     private FlagFormat format;
 
     @NotBlank
@@ -35,10 +38,12 @@ public class Flag {
     private String path;
 
     @Size(max = 2048)
+    @JsonProperty("alt")
     private String description;
 
     @ManyToOne
     @JoinColumn(name = "country_id", nullable = false)
+    @JsonIgnore
     private Country country;
 
     public @NotNull FlagFormat getFormat() {
