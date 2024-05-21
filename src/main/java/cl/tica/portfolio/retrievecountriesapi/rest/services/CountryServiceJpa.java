@@ -25,14 +25,23 @@ public class CountryServiceJpa implements CountryService {
         return repository.findAll();
     }
 
-    @Transactional(readOnly = true)
-    public List<Country> findAllNoCache() {
-        return repository.findAll();
+    @Override
+    public Country findByName(String name) {
+        return repository.findCountriesByNameIgnoreCase(name);
     }
 
-    @CacheEvict(allEntries = true, value = {"countries"})
-    @Scheduled(fixedRate = 86400000) // 24 hours
-    public void refreshCache() {
-        this.findAllNoCache();
+    @Override
+    public Country findByCapital(String name) {
+        return repository.findCountriesByCapitalIgnoreCase(name);
+    }
+
+    @Override
+    public List<Country> findByRegion(String region) {
+        return repository.findCountriesByRegionIgnoreCase(region);
+    }
+
+    @Override
+    public List<Country> findBySubregion(String subregion) {
+        return repository.findCountriesBySubregionIgnoreCase(subregion);
     }
 }
