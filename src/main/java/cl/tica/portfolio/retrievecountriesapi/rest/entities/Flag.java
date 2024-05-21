@@ -39,6 +39,7 @@ public class Flag {
 
     @Size(max = 2048)
     @JsonProperty("alt")
+    @JsonIgnore
     private String description;
 
     @ManyToOne

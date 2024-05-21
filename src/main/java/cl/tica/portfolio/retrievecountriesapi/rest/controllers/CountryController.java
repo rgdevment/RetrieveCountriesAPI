@@ -1,5 +1,6 @@
 package cl.tica.portfolio.retrievecountriesapi.rest.controllers;
 
+import cl.tica.portfolio.retrievecountriesapi.rest.dto.response.CountryWithoutCities;
 import cl.tica.portfolio.retrievecountriesapi.rest.entities.Country;
 import cl.tica.portfolio.retrievecountriesapi.rest.services.CountryService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -11,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -25,18 +27,27 @@ public class CountryController {
         this.service = service;
     }
 
-    @Operation(summary = "Get all country data.",
-            description = "This operation retrieves all countries from the database.")
+    @GetMapping
+    @Operation(summary = "Get all country data with an option to exclude cities.",
+            description = "This operation retrieves all countries from the database. If excludeCities is true, the cities will not be included.")
     @ApiResponse(responseCode = "200", description = "Successful operation",
             content = @Content(mediaType = "application/json", schema = @Schema(implementation = Country.class)))
     @ApiResponse(responseCode = "204", description = "No content", content = @Content)
-    @GetMapping
-    public ResponseEntity<List<Country>> getCountries() {
-        List<Country> countries = this.service.findAll();
-        if (countries.isEmpty()) {
-            return ResponseEntity.noContent().build();
+    public ResponseEntity<Object> getCountries(@RequestParam(required = false) Boolean excludeCities) {
+        if (Boolean.TRUE.equals(excludeCities)) {
+            List<CountryWithoutCities> countries = this.service.findAllExcludeCities();
+            if (countries.isEmpty()) {
+                return ResponseEntity.noContent().build();
+            } else {
+                return ResponseEntity.ok(countries);
+            }
         } else {
-            return ResponseEntity.ok(countries);
+            List<Country> countries = this.service.findAll();
+            if (countries.isEmpty()) {
+                return ResponseEntity.noContent().build();
+            } else {
+                return ResponseEntity.ok(countries);
+            }
         }
     }
 
