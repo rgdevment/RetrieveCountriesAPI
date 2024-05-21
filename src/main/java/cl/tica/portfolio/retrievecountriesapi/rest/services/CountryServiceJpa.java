@@ -24,21 +24,29 @@ public class CountryServiceJpa implements CountryService {
     }
 
     @Override
+    @Transactional(readOnly = true)
+    @Cacheable("countries_by_name")
     public Country findByName(String name) {
         return repository.findCountriesByNameIgnoreCase(name);
     }
 
     @Override
+    @Transactional(readOnly = true)
+    @Cacheable("countries_by_capital")
     public Country findByCapital(String name) {
         return repository.findCountriesByCapitalIgnoreCase(name);
     }
 
     @Override
+    @Transactional(readOnly = true)
+    @Cacheable("countries_by_region")
     public List<Country> findByRegion(String region) {
         return repository.findCountriesByRegionIgnoreCase(region);
     }
 
     @Override
+    @Transactional(readOnly = true)
+    @Cacheable("countries_by_subregion")
     public List<Country> findBySubregion(String subregion) {
         return repository.findCountriesBySubregionIgnoreCase(subregion);
     }
