@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Country.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">RetrieveCountriesAPI</a> &gt; <a href="index.source.html" class="el_package">cl.tica.portfolio.retrievecountriesapi.rest.entities</a> &gt; <span class="el_source">Country.java</span></div><h1>Country.java</h1><pre class="source lang-java linenums">package cl.tica.portfolio.retrievecountriesapi.rest.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -13,12 +16,13 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Entity
 @Table(name = &quot;countries&quot;, indexes = {
         @Index(name = &quot;idx_name&quot;, columnList = &quot;name&quot;)
 })
-<span class="fc" id="L21">public class Country {</span>
+<span class="fc" id="L25">public class Country {</span>
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = &quot;countries_seq&quot;)
     @SequenceGenerator(name = &quot;countries_seq&quot;, allocationSize = 1)
@@ -44,7 +48,7 @@ import java.util.Set;
     @Column(nullable = false)
     private String subregion;
 
-    @OneToMany(mappedBy = &quot;country&quot;)
+    @OneToMany(mappedBy = &quot;country&quot;, fetch = FetchType.EAGER)
     private Set&lt;City&gt; cities;
 
     @NotBlank
@@ -52,68 +56,76 @@ import java.util.Set;
     @Column(nullable = false)
     private String flag;
 
-    @OneToMany(mappedBy = &quot;country&quot;)
+    @OneToMany(mappedBy = &quot;country&quot;, fetch = FetchType.EAGER)
     private Set&lt;Flag&gt; flags;
 
     public @NotBlank @Size(max = 80) String getName() {
-<span class="nc" id="L59">        return name;</span>
+<span class="nc" id="L63">        return name;</span>
     }
 
     public void setName(
             @NotBlank @Size(max = 80) String name) {
-<span class="fc" id="L64">        this.name = name;</span>
-<span class="fc" id="L65">    }</span>
+<span class="fc" id="L68">        this.name = name;</span>
+<span class="fc" id="L69">    }</span>
 
     public @NotBlank @Size(max = 80) String getCapital() {
-<span class="nc" id="L68">        return capital;</span>
+<span class="nc" id="L72">        return capital;</span>
     }
 
     public void setCapital(
             @NotBlank @Size(max = 80) String capital) {
-<span class="fc" id="L73">        this.capital = capital;</span>
-<span class="fc" id="L74">    }</span>
+<span class="fc" id="L77">        this.capital = capital;</span>
+<span class="fc" id="L78">    }</span>
 
     public @NotBlank @Size(max = 80) String getRegion() {
-<span class="nc" id="L77">        return region;</span>
+<span class="nc" id="L81">        return region;</span>
     }
 
     public void setRegion(
             @NotBlank @Size(max = 80) String region) {
-<span class="fc" id="L82">        this.region = region;</span>
-<span class="fc" id="L83">    }</span>
+<span class="fc" id="L86">        this.region = region;</span>
+<span class="fc" id="L87">    }</span>
 
     public @NotBlank @Size(max = 80) String getSubregion() {
-<span class="nc" id="L86">        return subregion;</span>
+<span class="nc" id="L90">        return subregion;</span>
     }
 
     public void setSubregion(
             @NotBlank @Size(max = 80) String subregion) {
-<span class="fc" id="L91">        this.subregion = subregion;</span>
-<span class="fc" id="L92">    }</span>
+<span class="fc" id="L95">        this.subregion = subregion;</span>
+<span class="fc" id="L96">    }</span>
 
+    @JsonIgnore
     public Set&lt;City&gt; getCities() {
-<span class="nc" id="L95">        return cities;</span>
+<span class="nc" id="L100">        return cities;</span>
+    }
+
+    @JsonProperty(&quot;cities&quot;)
+    public Set&lt;String&gt; getCityNames() {
+<span class="nc" id="L105">        return cities.stream()</span>
+<span class="nc" id="L106">                .map(City::getName)</span>
+<span class="nc" id="L107">                .collect(Collectors.toSet());</span>
     }
 
     public void setCities(Set&lt;City&gt; cities) {
-<span class="fc" id="L99">        this.cities = cities;</span>
-<span class="fc" id="L100">    }</span>
+<span class="fc" id="L111">        this.cities = cities;</span>
+<span class="fc" id="L112">    }</span>
 
     public @NotBlank @Size(max = 40) String getFlag() {
-<span class="nc" id="L103">        return flag;</span>
+<span class="nc" id="L115">        return flag;</span>
     }
 
     public void setFlag(
             @NotBlank @Size(max = 40) String flag) {
-<span class="fc" id="L108">        this.flag = flag;</span>
-<span class="fc" id="L109">    }</span>
+<span class="fc" id="L120">        this.flag = flag;</span>
+<span class="fc" id="L121">    }</span>
 
     public Set&lt;Flag&gt; getFlags() {
-<span class="nc" id="L112">        return flags;</span>
+<span class="nc" id="L124">        return flags;</span>
     }
 
     public void setFlags(Set&lt;Flag&gt; flags) {
-<span class="fc" id="L116">        this.flags = flags;</span>
-<span class="fc" id="L117">    }</span>
+<span class="fc" id="L128">        this.flags = flags;</span>
+<span class="fc" id="L129">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>
