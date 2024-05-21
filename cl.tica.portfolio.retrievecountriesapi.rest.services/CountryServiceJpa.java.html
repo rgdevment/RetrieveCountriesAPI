@@ -24,23 +24,31 @@ public class CountryServiceJpa implements CountryService {
     }
 
     @Override
+    @Transactional(readOnly = true)
+    @Cacheable(&quot;countries_by_name&quot;)
     public Country findByName(String name) {
-<span class="fc" id="L28">        return repository.findCountriesByNameIgnoreCase(name);</span>
+<span class="fc" id="L30">        return repository.findCountriesByNameIgnoreCase(name);</span>
     }
 
     @Override
+    @Transactional(readOnly = true)
+    @Cacheable(&quot;countries_by_capital&quot;)
     public Country findByCapital(String name) {
-<span class="fc" id="L33">        return repository.findCountriesByCapitalIgnoreCase(name);</span>
+<span class="fc" id="L37">        return repository.findCountriesByCapitalIgnoreCase(name);</span>
     }
 
     @Override
+    @Transactional(readOnly = true)
+    @Cacheable(&quot;countries_by_region&quot;)
     public List&lt;Country&gt; findByRegion(String region) {
-<span class="fc" id="L38">        return repository.findCountriesByRegionIgnoreCase(region);</span>
+<span class="fc" id="L44">        return repository.findCountriesByRegionIgnoreCase(region);</span>
     }
 
     @Override
+    @Transactional(readOnly = true)
+    @Cacheable(&quot;countries_by_subregion&quot;)
     public List&lt;Country&gt; findBySubregion(String subregion) {
-<span class="fc" id="L43">        return repository.findCountriesBySubregionIgnoreCase(subregion);</span>
+<span class="fc" id="L51">        return repository.findCountriesBySubregionIgnoreCase(subregion);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>
