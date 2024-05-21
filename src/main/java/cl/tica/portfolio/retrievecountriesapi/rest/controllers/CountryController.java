@@ -60,8 +60,8 @@ public class CountryController {
             content = @Content(mediaType = "application/json", schema = @Schema(implementation = Country.class)))
     @ApiResponse(responseCode = "204", description = "No content", content = @Content)
     @GetMapping("/capital/{name}")
-    public ResponseEntity<MappingJacksonValue> getCountryByCapital(@PathVariable String name,
-                                                                   @RequestParam(required = false) Boolean excludeCities) {
+    public ResponseEntity<MappingJacksonValue> getCountryByCapital(
+            @PathVariable String name, @RequestParam(required = false) Boolean excludeCities) {
         Country country = this.service.findByCapital(name);
         return getMappingJacksonValueResponseEntity(excludeCities, country);
     }
@@ -73,21 +73,21 @@ public class CountryController {
             content = @Content(mediaType = "application/json", schema = @Schema(implementation = Country.class)))
     @ApiResponse(responseCode = "204", description = "No content", content = @Content)
     @GetMapping("/region/{region}")
-    public ResponseEntity<MappingJacksonValue> getCountriesByRegion(@PathVariable String region,
-                                                                    @RequestParam(required = false) Boolean excludeCities) {
+    public ResponseEntity<MappingJacksonValue> getCountriesByRegion(
+            @PathVariable String region, @RequestParam(required = false) Boolean excludeCities) {
         List<Country> countries = service.findByRegion(region);
         return getMappingJacksonValueResponseListEntity(excludeCities, countries);
     }
 
     @Operation(summary = "Get countries by subregion.",
-            description = "This operation retrieves countries from the database by subregion. If excludeCities is true, "
-                    + "the cities will not be included.")
+            description = "This operation retrieves countries from the database by subregion. If excludeCities is true,"
+                    + " the cities will not be included.")
     @ApiResponse(responseCode = "200", description = "Successful operation",
             content = @Content(mediaType = "application/json", schema = @Schema(implementation = Country.class)))
     @ApiResponse(responseCode = "204", description = "No content", content = @Content)
     @GetMapping("/subregion/{subregion}")
-    public ResponseEntity<MappingJacksonValue> getCountriesBySubregion(@PathVariable String subregion,
-                                                                 @RequestParam(required = false) Boolean excludeCities) {
+    public ResponseEntity<MappingJacksonValue> getCountriesBySubregion(
+            @PathVariable String subregion, @RequestParam(required = false) Boolean excludeCities) {
         List<Country> countries = service.findBySubregion(subregion);
         return getMappingJacksonValueResponseListEntity(excludeCities, countries);
     }
