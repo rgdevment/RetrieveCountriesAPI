@@ -5,7 +5,6 @@ import cl.tica.portfolio.retrievecountriesapi.populate.models.CountryData;
 import cl.tica.portfolio.retrievecountriesapi.rest.entities.City;
 import cl.tica.portfolio.retrievecountriesapi.rest.entities.Country;
 import cl.tica.portfolio.retrievecountriesapi.rest.entities.Flag;
-import cl.tica.portfolio.retrievecountriesapi.rest.enums.FlagFormat;
 import cl.tica.portfolio.retrievecountriesapi.rest.repositories.CityRepository;
 import cl.tica.portfolio.retrievecountriesapi.rest.repositories.CountryRepository;
 import cl.tica.portfolio.retrievecountriesapi.rest.repositories.FlagRepository;
@@ -55,25 +54,14 @@ public class DatabasePopulationService {
                     .filter(subregion -> !subregion.isBlank())
                     .orElse("N/A"));
 
-            country.setFlag(countryData.flag());
+            Flag flags = new Flag();
+            flags.setIco(countryData.flag());
+            flags.setPng(countryData.flags().png());
+            flags.setSvg(countryData.flags().svg());
+            flags.setDescription(countryData.flags().alt());
+            flags.setCountry(country);
 
-            Flag flagPNG = new Flag();
-            flagPNG.setFormat(FlagFormat.PNG);
-            flagPNG.setPath(countryData.flags().png());
-            flagPNG.setDescription(countryData.flags().alt());
-            flagPNG.setCountry(country);
-
-            Flag flagSVG = new Flag();
-            flagSVG.setFormat(FlagFormat.SVG);
-            flagSVG.setPath(countryData.flags().svg());
-            flagSVG.setDescription(countryData.flags().alt());
-            flagSVG.setCountry(country);
-
-            Set<Flag> flags = new HashSet<>();
-            flags.add(flagPNG);
-            flags.add(flagSVG);
-
-            country.setFlags(flags);
+            country.setFlag(flags);
 
             countryRepository.save(country);
 
@@ -91,8 +79,7 @@ public class DatabasePopulationService {
             }
 
             countryRepository.save(country);
-            flagRepository.save(flagPNG);
-            flagRepository.save(flagSVG);
+            flagRepository.save(flags);
         }
     }
 }
