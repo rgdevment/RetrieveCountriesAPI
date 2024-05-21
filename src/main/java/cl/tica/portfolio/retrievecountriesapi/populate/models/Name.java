@@ -22,8 +22,4 @@ public class Name {
     public String getCommon() {
         return common;
     }
-
-    public void setCommon(String common) {
-        this.common = common;
-    }
 }
