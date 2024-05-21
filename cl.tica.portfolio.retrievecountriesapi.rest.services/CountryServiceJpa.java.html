@@ -20,27 +20,27 @@ public class CountryServiceJpa implements CountryService {
     @Transactional(readOnly = true)
     @Cacheable(&quot;countries&quot;)
     public List&lt;Country&gt; findAll() {
-<span class="nc" id="L23">        return repository.findAll();</span>
+<span class="fc" id="L23">        return repository.findAll();</span>
     }
 
     @Override
     public Country findByName(String name) {
-<span class="nc" id="L28">        return repository.findCountriesByNameIgnoreCase(name);</span>
+<span class="fc" id="L28">        return repository.findCountriesByNameIgnoreCase(name);</span>
     }
 
     @Override
     public Country findByCapital(String name) {
-<span class="nc" id="L33">        return repository.findCountriesByCapitalIgnoreCase(name);</span>
+<span class="fc" id="L33">        return repository.findCountriesByCapitalIgnoreCase(name);</span>
     }
 
     @Override
     public List&lt;Country&gt; findByRegion(String region) {
-<span class="nc" id="L38">        return repository.findCountriesByRegionIgnoreCase(region);</span>
+<span class="fc" id="L38">        return repository.findCountriesByRegionIgnoreCase(region);</span>
     }
 
     @Override
     public List&lt;Country&gt; findBySubregion(String subregion) {
-<span class="nc" id="L43">        return repository.findCountriesBySubregionIgnoreCase(subregion);</span>
+<span class="fc" id="L43">        return repository.findCountriesBySubregionIgnoreCase(subregion);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

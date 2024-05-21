@@ -18,7 +18,7 @@ public class CacheServiceCaffeine {
     @CacheEvict(allEntries = true, value = {&quot;countries&quot;})
     @Scheduled(fixedRate = 3600000 * 20) // 24 hours
     public void refreshCache() {
-<span class="nc" id="L21">        repository.findAll();</span>
-<span class="nc" id="L22">    }</span>
+<span class="fc" id="L21">        repository.findAll();</span>
+<span class="fc" id="L22">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>
