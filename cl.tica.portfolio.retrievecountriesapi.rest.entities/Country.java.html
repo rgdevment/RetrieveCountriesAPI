@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Country.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">RetrieveCountriesAPI</a> &gt; <a href="index.source.html" class="el_package">cl.tica.portfolio.retrievecountriesapi.rest.entities</a> &gt; <span class="el_source">Country.java</span></div><h1>Country.java</h1><pre class="source lang-java linenums">package cl.tica.portfolio.retrievecountriesapi.rest.entities;
 
+import cl.tica.portfolio.retrievecountriesapi.rest.Views;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonView;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -9,7 +11,9 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Index;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
@@ -22,7 +26,7 @@ import java.util.stream.Collectors;
 @Table(name = &quot;countries&quot;, indexes = {
         @Index(name = &quot;idx_name&quot;, columnList = &quot;name&quot;)
 })
-<span class="fc" id="L25">public class Country {</span>
+<span class="fc" id="L29">public class Country {</span>
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = &quot;countries_seq&quot;)
     @SequenceGenerator(name = &quot;countries_seq&quot;, allocationSize = 1)
@@ -31,101 +35,94 @@ import java.util.stream.Collectors;
     @NotBlank
     @Size(max = 80)
     @Column(nullable = false)
+    @JsonView(Views.Single.class)
     private String name;
 
     @NotBlank
     @Size(max = 80)
     @Column(nullable = false)
+    @JsonView(Views.Single.class)
     private String capital;
 
     @NotBlank
     @Size(max = 80)
     @Column(nullable = false)
+    @JsonView(Views.Single.class)
     private String region;
 
     @NotBlank
     @Size(max = 80)
     @Column(nullable = false)
+    @JsonView(Views.Single.class)
     private String subregion;
 
     @OneToMany(mappedBy = &quot;country&quot;, fetch = FetchType.EAGER)
+    @JsonView(Views.Complete.class)
     private Set&lt;City&gt; cities;
 
-    @NotBlank
-    @Size(max = 40)
-    @Column(nullable = false)
-    private String flag;
-
-    @OneToMany(mappedBy = &quot;country&quot;, fetch = FetchType.EAGER)
-    private Set&lt;Flag&gt; flags;
-
-    public @NotBlank @Size(max = 80) String getName() {
-<span class="nc" id="L63">        return name;</span>
-    }
-
-    public void setName(
-            @NotBlank @Size(max = 80) String name) {
-<span class="fc" id="L68">        this.name = name;</span>
-<span class="fc" id="L69">    }</span>
-
-    public @NotBlank @Size(max = 80) String getCapital() {
-<span class="nc" id="L72">        return capital;</span>
-    }
-
-    public void setCapital(
-            @NotBlank @Size(max = 80) String capital) {
-<span class="fc" id="L77">        this.capital = capital;</span>
-<span class="fc" id="L78">    }</span>
-
-    public @NotBlank @Size(max = 80) String getRegion() {
-<span class="nc" id="L81">        return region;</span>
-    }
-
-    public void setRegion(
-            @NotBlank @Size(max = 80) String region) {
-<span class="fc" id="L86">        this.region = region;</span>
-<span class="fc" id="L87">    }</span>
-
-    public @NotBlank @Size(max = 80) String getSubregion() {
-<span class="nc" id="L90">        return subregion;</span>
-    }
-
-    public void setSubregion(
-            @NotBlank @Size(max = 80) String subregion) {
-<span class="fc" id="L95">        this.subregion = subregion;</span>
-<span class="fc" id="L96">    }</span>
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = &quot;flag_id&quot;)
+    @JsonView(Views.Single.class)
+    private Flag flag;
 
     @JsonIgnore
     public Set&lt;City&gt; getCities() {
-<span class="nc" id="L100">        return cities;</span>
+<span class="nc" id="L70">        return cities;</span>
     }
 
     @JsonProperty(&quot;cities&quot;)
     public Set&lt;String&gt; getCityNames() {
-<span class="nc" id="L105">        return cities.stream()</span>
-<span class="nc" id="L106">                .map(City::getName)</span>
-<span class="nc" id="L107">                .collect(Collectors.toSet());</span>
+<span class="fc" id="L75">        return cities.stream()</span>
+<span class="fc" id="L76">                .map(City::getName)</span>
+<span class="fc" id="L77">                .collect(Collectors.toSet());</span>
     }
+
+    public @NotBlank @Size(max = 80) String getName() {
+<span class="fc" id="L81">        return name;</span>
+    }
+
+    public void setName(
+            @NotBlank @Size(max = 80) String name) {
+<span class="fc" id="L86">        this.name = name;</span>
+<span class="fc" id="L87">    }</span>
+
+    public @NotBlank @Size(max = 80) String getCapital() {
+<span class="fc" id="L90">        return capital;</span>
+    }
+
+    public void setCapital(
+            @NotBlank @Size(max = 80) String capital) {
+<span class="fc" id="L95">        this.capital = capital;</span>
+<span class="fc" id="L96">    }</span>
+
+    public @NotBlank @Size(max = 80) String getRegion() {
+<span class="fc" id="L99">        return region;</span>
+    }
+
+    public void setRegion(
+            @NotBlank @Size(max = 80) String region) {
+<span class="fc" id="L104">        this.region = region;</span>
+<span class="fc" id="L105">    }</span>
+
+    public @NotBlank @Size(max = 80) String getSubregion() {
+<span class="fc" id="L108">        return subregion;</span>
+    }
+
+    public void setSubregion(
+            @NotBlank @Size(max = 80) String subregion) {
+<span class="fc" id="L113">        this.subregion = subregion;</span>
+<span class="fc" id="L114">    }</span>
 
     public void setCities(Set&lt;City&gt; cities) {
-<span class="fc" id="L111">        this.cities = cities;</span>
-<span class="fc" id="L112">    }</span>
+<span class="fc" id="L117">        this.cities = cities;</span>
+<span class="fc" id="L118">    }</span>
 
-    public @NotBlank @Size(max = 40) String getFlag() {
-<span class="nc" id="L115">        return flag;</span>
+    public Flag getFlag() {
+<span class="fc" id="L121">        return flag;</span>
     }
 
-    public void setFlag(
-            @NotBlank @Size(max = 40) String flag) {
-<span class="fc" id="L120">        this.flag = flag;</span>
-<span class="fc" id="L121">    }</span>
-
-    public Set&lt;Flag&gt; getFlags() {
-<span class="nc" id="L124">        return flags;</span>
-    }
-
-    public void setFlags(Set&lt;Flag&gt; flags) {
-<span class="fc" id="L128">        this.flags = flags;</span>
-<span class="fc" id="L129">    }</span>
+    public void setFlag(Flag flag) {
+<span class="fc" id="L125">        this.flag = flag;</span>
+<span class="fc" id="L126">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

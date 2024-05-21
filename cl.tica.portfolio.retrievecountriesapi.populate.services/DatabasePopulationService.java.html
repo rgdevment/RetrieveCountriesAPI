@@ -5,7 +5,6 @@ import cl.tica.portfolio.retrievecountriesapi.populate.models.CountryData;
 import cl.tica.portfolio.retrievecountriesapi.rest.entities.City;
 import cl.tica.portfolio.retrievecountriesapi.rest.entities.Country;
 import cl.tica.portfolio.retrievecountriesapi.rest.entities.Flag;
-import cl.tica.portfolio.retrievecountriesapi.rest.enums.FlagFormat;
 import cl.tica.portfolio.retrievecountriesapi.rest.repositories.CityRepository;
 import cl.tica.portfolio.retrievecountriesapi.rest.repositories.CountryRepository;
 import cl.tica.portfolio.retrievecountriesapi.rest.repositories.FlagRepository;
@@ -28,72 +27,60 @@ public class DatabasePopulationService {
     private final FlagRepository flagRepository;
 
     public DatabasePopulationService(DataService dataService, CountryRepository countryRepository,
-<span class="fc" id="L31">                                     CityRepository cityRepository, FlagRepository flagRepository) {</span>
-<span class="fc" id="L32">        this.dataService = dataService;</span>
-<span class="fc" id="L33">        this.countryRepository = countryRepository;</span>
-<span class="fc" id="L34">        this.cityRepository = cityRepository;</span>
-<span class="fc" id="L35">        this.flagRepository = flagRepository;</span>
-<span class="fc" id="L36">    }</span>
+<span class="fc" id="L30">                                     CityRepository cityRepository, FlagRepository flagRepository) {</span>
+<span class="fc" id="L31">        this.dataService = dataService;</span>
+<span class="fc" id="L32">        this.countryRepository = countryRepository;</span>
+<span class="fc" id="L33">        this.cityRepository = cityRepository;</span>
+<span class="fc" id="L34">        this.flagRepository = flagRepository;</span>
+<span class="fc" id="L35">    }</span>
 
     @Transactional
     public void populateDatabase() {
-<span class="fc" id="L40">        List&lt;CountryData&gt; countryDataList = dataService.fetchCountryData();</span>
-<span class="fc" id="L41">        Map&lt;String, List&lt;String&gt;&gt; countryCitiesMap = dataService.fetchCountryCitiesData().stream()</span>
-<span class="fc" id="L42">                .collect(Collectors.toMap(CountryCities::country, CountryCities::cities));</span>
+<span class="fc" id="L39">        List&lt;CountryData&gt; countryDataList = dataService.fetchCountryData();</span>
+<span class="fc" id="L40">        Map&lt;String, List&lt;String&gt;&gt; countryCitiesMap = dataService.fetchCountryCitiesData().stream()</span>
+<span class="fc" id="L41">                .collect(Collectors.toMap(CountryCities::country, CountryCities::cities));</span>
 
-<span class="fc bfc" id="L44" title="All 2 branches covered.">        for (CountryData countryData : countryDataList) {</span>
-<span class="fc" id="L45">            Country country = new Country();</span>
-<span class="fc" id="L46">            country.setName(countryData.name().getCommon());</span>
-<span class="fc" id="L47">            country.setRegion(countryData.region());</span>
+<span class="fc bfc" id="L43" title="All 2 branches covered.">        for (CountryData countryData : countryDataList) {</span>
+<span class="fc" id="L44">            Country country = new Country();</span>
+<span class="fc" id="L45">            country.setName(countryData.name().getCommon());</span>
+<span class="fc" id="L46">            country.setRegion(countryData.region());</span>
 
-<span class="fc" id="L49">            country.setCapital(Optional.ofNullable(countryData.capital())</span>
-<span class="fc bfc" id="L50" title="All 2 branches covered.">                    .filter(capital -&gt; !capital.isEmpty())</span>
-<span class="fc" id="L51">                    .map(List::getFirst)</span>
-<span class="fc" id="L52">                    .orElse(&quot;N/A&quot;));</span>
+<span class="fc" id="L48">            country.setCapital(Optional.ofNullable(countryData.capital())</span>
+<span class="fc bfc" id="L49" title="All 2 branches covered.">                    .filter(capital -&gt; !capital.isEmpty())</span>
+<span class="fc" id="L50">                    .map(List::getFirst)</span>
+<span class="fc" id="L51">                    .orElse(&quot;N/A&quot;));</span>
 
-<span class="fc" id="L54">            country.setSubregion(Optional.ofNullable(countryData.subregion())</span>
-<span class="fc bfc" id="L55" title="All 2 branches covered.">                    .filter(subregion -&gt; !subregion.isBlank())</span>
-<span class="fc" id="L56">                    .orElse(&quot;N/A&quot;));</span>
+<span class="fc" id="L53">            country.setSubregion(Optional.ofNullable(countryData.subregion())</span>
+<span class="fc bfc" id="L54" title="All 2 branches covered.">                    .filter(subregion -&gt; !subregion.isBlank())</span>
+<span class="fc" id="L55">                    .orElse(&quot;N/A&quot;));</span>
 
-<span class="fc" id="L58">            country.setFlag(countryData.flag());</span>
+<span class="fc" id="L57">            Flag flags = new Flag();</span>
+<span class="fc" id="L58">            flags.setIco(countryData.flag());</span>
+<span class="fc" id="L59">            flags.setPng(countryData.flags().png());</span>
+<span class="fc" id="L60">            flags.setSvg(countryData.flags().svg());</span>
+<span class="fc" id="L61">            flags.setDescription(countryData.flags().alt());</span>
+<span class="fc" id="L62">            flags.setCountry(country);</span>
 
-<span class="fc" id="L60">            Flag flagPNG = new Flag();</span>
-<span class="fc" id="L61">            flagPNG.setFormat(FlagFormat.PNG);</span>
-<span class="fc" id="L62">            flagPNG.setPath(countryData.flags().png());</span>
-<span class="fc" id="L63">            flagPNG.setDescription(countryData.flags().alt());</span>
-<span class="fc" id="L64">            flagPNG.setCountry(country);</span>
+<span class="fc" id="L64">            country.setFlag(flags);</span>
 
-<span class="fc" id="L66">            Flag flagSVG = new Flag();</span>
-<span class="fc" id="L67">            flagSVG.setFormat(FlagFormat.SVG);</span>
-<span class="fc" id="L68">            flagSVG.setPath(countryData.flags().svg());</span>
-<span class="fc" id="L69">            flagSVG.setDescription(countryData.flags().alt());</span>
-<span class="fc" id="L70">            flagSVG.setCountry(country);</span>
+<span class="fc" id="L66">            countryRepository.save(country);</span>
 
-<span class="fc" id="L72">            Set&lt;Flag&gt; flags = new HashSet&lt;&gt;();</span>
-<span class="fc" id="L73">            flags.add(flagPNG);</span>
-<span class="fc" id="L74">            flags.add(flagSVG);</span>
-
-<span class="fc" id="L76">            country.setFlags(flags);</span>
-
-<span class="fc" id="L78">            countryRepository.save(country);</span>
-
-<span class="fc" id="L80">            List&lt;String&gt; cities = countryCitiesMap.get(countryData.name().getCommon());</span>
-<span class="fc bfc" id="L81" title="All 2 branches covered.">            if (cities != null) {</span>
-<span class="fc" id="L82">                Set&lt;City&gt; citiesSet = new HashSet&lt;&gt;();</span>
-<span class="fc bfc" id="L83" title="All 2 branches covered.">                for (String cityName : cities) {</span>
-<span class="fc" id="L84">                    City city = new City();</span>
-<span class="fc" id="L85">                    city.setName(cityName);</span>
-<span class="fc" id="L86">                    city.setCountry(country);</span>
-<span class="fc" id="L87">                    cityRepository.save(city);</span>
-<span class="fc" id="L88">                    citiesSet.add(city);</span>
-<span class="fc" id="L89">                }</span>
-<span class="fc" id="L90">                country.setCities(citiesSet);</span>
+<span class="fc" id="L68">            List&lt;String&gt; cities = countryCitiesMap.get(countryData.name().getCommon());</span>
+<span class="fc bfc" id="L69" title="All 2 branches covered.">            if (cities != null) {</span>
+<span class="fc" id="L70">                Set&lt;City&gt; citiesSet = new HashSet&lt;&gt;();</span>
+<span class="fc bfc" id="L71" title="All 2 branches covered.">                for (String cityName : cities) {</span>
+<span class="fc" id="L72">                    City city = new City();</span>
+<span class="fc" id="L73">                    city.setName(cityName);</span>
+<span class="fc" id="L74">                    city.setCountry(country);</span>
+<span class="fc" id="L75">                    cityRepository.save(city);</span>
+<span class="fc" id="L76">                    citiesSet.add(city);</span>
+<span class="fc" id="L77">                }</span>
+<span class="fc" id="L78">                country.setCities(citiesSet);</span>
             }
 
-<span class="fc" id="L93">            countryRepository.save(country);</span>
-<span class="fc" id="L94">            flagRepository.save(flagPNG);</span>
-<span class="fc" id="L95">            flagRepository.save(flagSVG);</span>
-<span class="fc" id="L96">        }</span>
-<span class="fc" id="L97">    }</span>
+<span class="fc" id="L81">            countryRepository.save(country);</span>
+<span class="fc" id="L82">            flagRepository.save(flags);</span>
+<span class="fc" id="L83">        }</span>
+<span class="fc" id="L84">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>
