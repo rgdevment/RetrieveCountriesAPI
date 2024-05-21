@@ -16,7 +16,7 @@ public class CacheServiceCaffeine {
 
     @Transactional(readOnly = true)
     @CacheEvict(allEntries = true, value = {"countries"})
-    @Scheduled(fixedRate = 86400000) // 24 hours
+    @Scheduled(fixedRate = 3600000 * 20) // 24 hours
     public void refreshCache() {
         repository.findAll();
     }
