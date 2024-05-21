@@ -37,6 +37,64 @@ public class CountryController {
     @ApiResponse(responseCode = "204", description = "No content", content = @Content)
     public ResponseEntity<MappingJacksonValue> getCountries(@RequestParam(required = false) Boolean excludeCities) {
         List<Country> countries = service.findAll();
+        return getMappingJacksonValueResponseListEntity(excludeCities, countries);
+    }
+
+    @Operation(summary = "Get country data by name.",
+            description = "This operation retrieves a country from the database by its name. If excludeCities is true, "
+                    + "the cities will not be included.")
+    @ApiResponse(responseCode = "200", description = "Successful operation",
+            content = @Content(mediaType = "application/json", schema = @Schema(implementation = Country.class)))
+    @ApiResponse(responseCode = "204", description = "No content", content = @Content)
+    @GetMapping("/{name}")
+    public ResponseEntity<MappingJacksonValue> getCountryByName(@PathVariable String name,
+                                                                @RequestParam(required = false) Boolean excludeCities) {
+        Country country = this.service.findByName(name);
+        return getMappingJacksonValueResponseEntity(excludeCities, country);
+    }
+
+    @Operation(summary = "Get country data by capital.",
+            description = "This operation retrieves a country from the database by its capital. If excludeCities is "
+                    + "true the cities will not be included.")
+    @ApiResponse(responseCode = "200", description = "Successful operation",
+            content = @Content(mediaType = "application/json", schema = @Schema(implementation = Country.class)))
+    @ApiResponse(responseCode = "204", description = "No content", content = @Content)
+    @GetMapping("/capital/{name}")
+    public ResponseEntity<MappingJacksonValue> getCountryByCapital(@PathVariable String name,
+                                                                   @RequestParam(required = false) Boolean excludeCities) {
+        Country country = this.service.findByCapital(name);
+        return getMappingJacksonValueResponseEntity(excludeCities, country);
+    }
+
+    @Operation(summary = "Get countries by region.",
+            description = "This operation retrieves countries from the database by region. If excludeCities is true, "
+                    + "the cities will not be included.")
+    @ApiResponse(responseCode = "200", description = "Successful operation",
+            content = @Content(mediaType = "application/json", schema = @Schema(implementation = Country.class)))
+    @ApiResponse(responseCode = "204", description = "No content", content = @Content)
+    @GetMapping("/region/{region}")
+    public ResponseEntity<MappingJacksonValue> getCountriesByRegion(@PathVariable String region,
+                                                                    @RequestParam(required = false) Boolean excludeCities) {
+        List<Country> countries = service.findByRegion(region);
+        return getMappingJacksonValueResponseListEntity(excludeCities, countries);
+    }
+
+    @Operation(summary = "Get countries by subregion.",
+            description = "This operation retrieves countries from the database by subregion. If excludeCities is true, "
+                    + "the cities will not be included.")
+    @ApiResponse(responseCode = "200", description = "Successful operation",
+            content = @Content(mediaType = "application/json", schema = @Schema(implementation = Country.class)))
+    @ApiResponse(responseCode = "204", description = "No content", content = @Content)
+    @GetMapping("/subregion/{subregion}")
+    public ResponseEntity<MappingJacksonValue> getCountriesBySubregion(@PathVariable String subregion,
+                                                                 @RequestParam(required = false) Boolean excludeCities) {
+        List<Country> countries = service.findBySubregion(subregion);
+        return getMappingJacksonValueResponseListEntity(excludeCities, countries);
+    }
+
+    private ResponseEntity<MappingJacksonValue> getMappingJacksonValueResponseListEntity(
+            @RequestParam(required = false) Boolean excludeCities,
+            List<Country> countries) {
         if (countries.isEmpty()) {
             return ResponseEntity.noContent().build();
         } else {
@@ -50,16 +108,9 @@ public class CountryController {
         }
     }
 
-    @Operation(summary = "Get country data by name.",
-            description = "This operation retrieves a country from the database by its name. If excludeCities is true, "
-                    + "the cities will not be included.")
-    @ApiResponse(responseCode = "200", description = "Successful operation",
-            content = @Content(mediaType = "application/json", schema = @Schema(implementation = Country.class)))
-    @ApiResponse(responseCode = "204", description = "No content", content = @Content)
-    @GetMapping("/{name}")
-    public ResponseEntity<MappingJacksonValue> getCountryByName(@PathVariable String name,
-                                                                @RequestParam(required = false) Boolean excludeCities) {
-        Country country = this.service.findByName(name);
+    private ResponseEntity<MappingJacksonValue> getMappingJacksonValueResponseEntity(
+            @RequestParam(required = false) Boolean excludeCities,
+            Country country) {
         if (country == null) {
             return ResponseEntity.noContent().build();
         } else {
@@ -70,51 +121,6 @@ public class CountryController {
                 mappingJacksonValue.setSerializationView(Views.Complete.class);
             }
             return ResponseEntity.ok(mappingJacksonValue);
-        }
-    }
-
-    @Operation(summary = "Get country data by capital.",
-            description = "This operation retrieves a country from the database by its capital.")
-    @ApiResponse(responseCode = "200", description = "Successful operation",
-            content = @Content(mediaType = "application/json", schema = @Schema(implementation = Country.class)))
-    @ApiResponse(responseCode = "204", description = "No content", content = @Content)
-    @GetMapping("/capital/{name}")
-    public ResponseEntity<Country> getCountryByCapital(@PathVariable String name) {
-        Country country = this.service.findByCapital(name);
-        if (country == null) {
-            return ResponseEntity.noContent().build();
-        } else {
-            return ResponseEntity.ok(country);
-        }
-    }
-
-    @Operation(summary = "Get countries by region.",
-            description = "This operation retrieves countries from the database by region.")
-    @ApiResponse(responseCode = "200", description = "Successful operation",
-            content = @Content(mediaType = "application/json", schema = @Schema(implementation = Country.class)))
-    @ApiResponse(responseCode = "204", description = "No content", content = @Content)
-    @GetMapping("/region/{region}")
-    public ResponseEntity<List<Country>> getCountriesByRegion(@PathVariable String region) {
-        List<Country> countries = this.service.findByRegion(region);
-        if (countries.isEmpty()) {
-            return ResponseEntity.noContent().build();
-        } else {
-            return ResponseEntity.ok(countries);
-        }
-    }
-
-    @Operation(summary = "Get countries by subregion.",
-            description = "This operation retrieves countries from the database by subregion.")
-    @ApiResponse(responseCode = "200", description = "Successful operation",
-            content = @Content(mediaType = "application/json", schema = @Schema(implementation = Country.class)))
-    @ApiResponse(responseCode = "204", description = "No content", content = @Content)
-    @GetMapping("/subregion/{subregion}")
-    public ResponseEntity<List<Country>> getCountriesBySubregion(@PathVariable String subregion) {
-        List<Country> countries = this.service.findBySubregion(subregion);
-        if (countries.isEmpty()) {
-            return ResponseEntity.noContent().build();
-        } else {
-            return ResponseEntity.ok(countries);
         }
     }
 }
