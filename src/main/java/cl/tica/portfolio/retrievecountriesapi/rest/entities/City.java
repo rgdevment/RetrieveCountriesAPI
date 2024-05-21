@@ -1,5 +1,6 @@
 package cl.tica.portfolio.retrievecountriesapi.rest.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -30,6 +31,7 @@ public class City {
 
     @ManyToOne
     @JoinColumn(name = "country_id", nullable = false)
+    @JsonIgnore
     private Country country;
 
     public @NotBlank @Size(max = 80) String getName() {

@@ -1,18 +1,26 @@
 package cl.tica.portfolio.retrievecountriesapi.rest.entities;
 
+import cl.tica.portfolio.retrievecountriesapi.rest.Views;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonView;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Index;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Entity
 @Table(name = "countries", indexes = {
@@ -27,33 +35,47 @@ public class Country {
     @NotBlank
     @Size(max = 80)
     @Column(nullable = false)
+    @JsonView(Views.Single.class)
     private String name;
 
     @NotBlank
     @Size(max = 80)
     @Column(nullable = false)
+    @JsonView(Views.Single.class)
     private String capital;
 
     @NotBlank
     @Size(max = 80)
     @Column(nullable = false)
+    @JsonView(Views.Single.class)
     private String region;
 
     @NotBlank
     @Size(max = 80)
     @Column(nullable = false)
+    @JsonView(Views.Single.class)
     private String subregion;
 
-    @OneToMany(mappedBy = "country")
+    @OneToMany(mappedBy = "country", fetch = FetchType.EAGER)
+    @JsonView(Views.Complete.class)
     private Set<City> cities;
 
-    @NotBlank
-    @Size(max = 40)
-    @Column(nullable = false)
-    private String flag;
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "flag_id")
+    @JsonView(Views.Single.class)
+    private Flag flag;
 
-    @OneToMany(mappedBy = "country")
-    private Set<Flag> flags;
+    @JsonIgnore
+    public Set<City> getCities() {
+        return cities;
+    }
+
+    @JsonProperty("cities")
+    public Set<String> getCityNames() {
+        return cities.stream()
+                .map(City::getName)
+                .collect(Collectors.toSet());
+    }
 
     public @NotBlank @Size(max = 80) String getName() {
         return name;
@@ -91,28 +113,15 @@ public class Country {
         this.subregion = subregion;
     }
 
-    public Set<City> getCities() {
-        return cities;
-    }
-
     public void setCities(Set<City> cities) {
         this.cities = cities;
     }
 
-    public @NotBlank @Size(max = 40) String getFlag() {
+    public Flag getFlag() {
         return flag;
     }
 
-    public void setFlag(
-            @NotBlank @Size(max = 40) String flag) {
+    public void setFlag(Flag flag) {
         this.flag = flag;
-    }
-
-    public Set<Flag> getFlags() {
-        return flags;
-    }
-
-    public void setFlags(Set<Flag> flags) {
-        this.flags = flags;
     }
 }

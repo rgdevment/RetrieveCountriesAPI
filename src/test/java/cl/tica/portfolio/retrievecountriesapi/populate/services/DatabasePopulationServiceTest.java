@@ -67,7 +67,7 @@ class DatabasePopulationServiceTest {
         verify(dataService, times(1)).fetchCountryCitiesData();
 
         verify(countryRepository, times(countryDataList.size() * 2)).save(any(Country.class));
-        verify(flagRepository, times(countryDataList.size() * 2)).save(any(Flag.class));
+        verify(flagRepository, times(countryDataList.size())).save(any(Flag.class));
 
         verify(cityRepository, times(3)).save(any(City.class));
     }

@@ -1,15 +1,15 @@
 package cl.tica.portfolio.retrievecountriesapi.rest.entities;
 
-import cl.tica.portfolio.retrievecountriesapi.rest.enums.FlagFormat;
+import cl.tica.portfolio.retrievecountriesapi.rest.Views;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonView;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
@@ -26,37 +26,56 @@ public class Flag {
 
     @NotNull
     @Column(nullable = false)
-    @Enumerated(EnumType.STRING)
-    private FlagFormat format;
+    @Size(max = 40)
+    @JsonView(Views.Single.class)
+    private String ico;
 
     @NotBlank
     @Size(max = 256)
     @Column(nullable = false)
-    private String path;
+    @JsonView(Views.Single.class)
+    private String png;
+
+    @NotBlank
+    @Size(max = 256)
+    @Column(nullable = false)
+    @JsonView(Views.Single.class)
+    private String svg;
 
     @Size(max = 2048)
+    @JsonProperty("alt")
+    @JsonView(Views.Single.class)
     private String description;
 
-    @ManyToOne
-    @JoinColumn(name = "country_id", nullable = false)
+    @OneToOne(mappedBy = "flag")
+    @JsonIgnore
     private Country country;
 
-    public @NotNull FlagFormat getFormat() {
-        return format;
+    public @NotNull @Size(max = 40) String getIco() {
+        return ico;
     }
 
-    public void setFormat(
-            @NotNull FlagFormat format) {
-        this.format = format;
+    public void setIco(
+            @NotNull @Size(max = 40) String ico) {
+        this.ico = ico;
     }
 
-    public @NotBlank @Size(max = 256) String getPath() {
-        return path;
+    public @NotBlank @Size(max = 256) String getPng() {
+        return png;
     }
 
-    public void setPath(
-            @NotBlank @Size(max = 256) String path) {
-        this.path = path;
+    public void setPng(
+            @NotBlank @Size(max = 256) String png) {
+        this.png = png;
+    }
+
+    public @NotBlank @Size(max = 256) String getSvg() {
+        return svg;
+    }
+
+    public void setSvg(
+            @NotBlank @Size(max = 256) String svg) {
+        this.svg = svg;
     }
 
     public @Size(max = 2048) String getDescription() {
