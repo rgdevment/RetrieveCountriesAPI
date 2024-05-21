@@ -55,7 +55,7 @@ public class CountryController {
 
     @Operation(summary = "Get country data by capital.",
             description = "This operation retrieves a country from the database by its capital. If excludeCities is "
-                    + "true the cities will not be included.")
+                    + "true, the cities will not be included.")
     @ApiResponse(responseCode = "200", description = "Successful operation",
             content = @Content(mediaType = "application/json", schema = @Schema(implementation = Country.class)))
     @ApiResponse(responseCode = "204", description = "No content", content = @Content)
