@@ -1,4 +1,4 @@
-package cl.tica.portfolio.retrievecountriesapi.entities;
+package cl.tica.portfolio.retrievecountriesapi.models;
 
 import net.datafaker.Faker;
 
@@ -11,7 +11,7 @@ public class CountryTestStub {
             String capital,
             String region,
             String subregion,
-            List<City> cities,
+            List<String> cities,
             Flag flags
     ) {
         Country country = new Country();
@@ -27,7 +27,11 @@ public class CountryTestStub {
 
     public static Country random() {
         Faker faker = new Faker();
-        List<City> cities = CityTestStub.randomList(6);
+        List<String> cities = new ArrayList<>();
+        for (int i = 0; i < 3; i++) {
+            cities.add(faker.address().city());
+        }
+
         Flag flags = FlagTestStub.random();
         return create(
                 faker.country().name(),

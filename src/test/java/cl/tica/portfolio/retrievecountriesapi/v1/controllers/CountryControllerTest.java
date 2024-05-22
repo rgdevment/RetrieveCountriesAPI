@@ -1,7 +1,7 @@
 package cl.tica.portfolio.retrievecountriesapi.v1.controllers;
 
-import cl.tica.portfolio.retrievecountriesapi.entities.Country;
-import cl.tica.portfolio.retrievecountriesapi.entities.CountryTestStub;
+import cl.tica.portfolio.retrievecountriesapi.models.Country;
+import cl.tica.portfolio.retrievecountriesapi.models.CountryTestStub;
 import cl.tica.portfolio.retrievecountriesapi.services.CountryService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

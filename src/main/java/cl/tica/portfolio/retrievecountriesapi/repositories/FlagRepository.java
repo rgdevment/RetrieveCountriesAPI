@@ -1,7 +1,7 @@
 package cl.tica.portfolio.retrievecountriesapi.repositories;
 
-import cl.tica.portfolio.retrievecountriesapi.entities.Flag;
-import org.springframework.data.jpa.repository.JpaRepository;
+import cl.tica.portfolio.retrievecountriesapi.models.Flag;
+import org.springframework.data.mongodb.repository.MongoRepository;
 
-public interface FlagRepository extends JpaRepository<Flag, Long> {
+public interface FlagRepository extends MongoRepository<Flag, String> {
 }

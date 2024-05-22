@@ -1,11 +1,11 @@
 package cl.tica.portfolio.retrievecountriesapi.repositories;
 
-import cl.tica.portfolio.retrievecountriesapi.entities.Country;
-import org.springframework.data.jpa.repository.JpaRepository;
+import cl.tica.portfolio.retrievecountriesapi.models.Country;
+import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.List;
 
-public interface CountryRepository extends JpaRepository<Country, Long> {
+public interface CountryRepository extends MongoRepository<Country, String> {
     Country findCountriesByNameIgnoreCase(String name);
 
     Country findCountriesByCapitalIgnoreCase(String capital);
