@@ -2,13 +2,10 @@
 
 import cl.tica.portfolio.retrievecountriesapi.populate.models.CountryCities;
 import cl.tica.portfolio.retrievecountriesapi.populate.models.CountryData;
-import cl.tica.portfolio.retrievecountriesapi.entities.City;
-import cl.tica.portfolio.retrievecountriesapi.entities.Country;
-import cl.tica.portfolio.retrievecountriesapi.entities.Flag;
-import cl.tica.portfolio.retrievecountriesapi.repositories.CityRepository;
+import cl.tica.portfolio.retrievecountriesapi.models.Country;
+import cl.tica.portfolio.retrievecountriesapi.models.Flag;
 import cl.tica.portfolio.retrievecountriesapi.repositories.CountryRepository;
 import cl.tica.portfolio.retrievecountriesapi.repositories.FlagRepository;
-import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -22,64 +19,51 @@ public class DatabasePopulationService {
 
     private final DataService dataService;
     private final CountryRepository countryRepository;
-    private final CityRepository cityRepository;
     private final FlagRepository flagRepository;
 
     public DatabasePopulationService(DataService dataService, CountryRepository countryRepository,
-<span class="fc" id="L29">                                     CityRepository cityRepository, FlagRepository flagRepository) {</span>
-<span class="fc" id="L30">        this.dataService = dataService;</span>
-<span class="fc" id="L31">        this.countryRepository = countryRepository;</span>
-<span class="fc" id="L32">        this.cityRepository = cityRepository;</span>
-<span class="fc" id="L33">        this.flagRepository = flagRepository;</span>
-<span class="fc" id="L34">    }</span>
+<span class="fc" id="L25">                                     FlagRepository flagRepository) {</span>
+<span class="fc" id="L26">        this.dataService = dataService;</span>
+<span class="fc" id="L27">        this.countryRepository = countryRepository;</span>
+<span class="fc" id="L28">        this.flagRepository = flagRepository;</span>
+<span class="fc" id="L29">    }</span>
 
-    @Transactional
     public void populateDatabase() {
-<span class="fc" id="L38">        List&lt;CountryData&gt; countryDataList = dataService.fetchCountryData();</span>
-<span class="fc" id="L39">        Map&lt;String, List&lt;String&gt;&gt; countryCitiesMap = dataService.fetchCountryCitiesData().stream()</span>
-<span class="fc" id="L40">                .collect(Collectors.toMap(CountryCities::country, CountryCities::cities));</span>
+<span class="fc" id="L32">        List&lt;CountryData&gt; countryDataList = dataService.fetchCountryData();</span>
+<span class="fc" id="L33">        Map&lt;String, List&lt;String&gt;&gt; countryCitiesMap = dataService.fetchCountryCitiesData().stream()</span>
+<span class="fc" id="L34">                .collect(Collectors.toMap(CountryCities::country, CountryCities::cities));</span>
 
-<span class="fc bfc" id="L42" title="All 2 branches covered.">        for (CountryData countryData : countryDataList) {</span>
-<span class="fc" id="L43">            Country country = new Country();</span>
-<span class="fc" id="L44">            country.setName(countryData.name().getCommon());</span>
-<span class="fc" id="L45">            country.setRegion(countryData.region());</span>
+<span class="fc bfc" id="L36" title="All 2 branches covered.">        for (CountryData countryData : countryDataList) {</span>
+<span class="fc" id="L37">            Country country = new Country();</span>
+<span class="fc" id="L38">            country.setName(countryData.name().getCommon());</span>
+<span class="fc" id="L39">            country.setRegion(countryData.region());</span>
 
-<span class="fc" id="L47">            country.setCapital(Optional.ofNullable(countryData.capital())</span>
-<span class="fc bfc" id="L48" title="All 2 branches covered.">                    .filter(capital -&gt; !capital.isEmpty())</span>
-<span class="fc" id="L49">                    .map(List::getFirst)</span>
-<span class="fc" id="L50">                    .orElse(&quot;N/A&quot;));</span>
+<span class="fc" id="L41">            country.setCapital(Optional.ofNullable(countryData.capital())</span>
+<span class="fc bfc" id="L42" title="All 2 branches covered.">                    .filter(capital -&gt; !capital.isEmpty())</span>
+<span class="fc" id="L43">                    .map(List::getFirst)</span>
+<span class="fc" id="L44">                    .orElse(&quot;N/A&quot;));</span>
 
-<span class="fc" id="L52">            country.setSubregion(Optional.ofNullable(countryData.subregion())</span>
-<span class="fc bfc" id="L53" title="All 2 branches covered.">                    .filter(subregion -&gt; !subregion.isBlank())</span>
-<span class="fc" id="L54">                    .orElse(&quot;N/A&quot;));</span>
+<span class="fc" id="L46">            country.setSubregion(Optional.ofNullable(countryData.subregion())</span>
+<span class="fc bfc" id="L47" title="All 2 branches covered.">                    .filter(subregion -&gt; !subregion.isBlank())</span>
+<span class="fc" id="L48">                    .orElse(&quot;N/A&quot;));</span>
 
-<span class="fc" id="L56">            Flag flags = new Flag();</span>
-<span class="fc" id="L57">            flags.setIco(countryData.flag());</span>
-<span class="fc" id="L58">            flags.setPng(countryData.flags().png());</span>
-<span class="fc" id="L59">            flags.setSvg(countryData.flags().svg());</span>
-<span class="fc" id="L60">            flags.setDescription(countryData.flags().alt());</span>
-<span class="fc" id="L61">            flags.setCountry(country);</span>
+<span class="fc" id="L50">            Flag flags = new Flag();</span>
+<span class="fc" id="L51">            flags.setIco(countryData.flag());</span>
+<span class="fc" id="L52">            flags.setPng(countryData.flags().png());</span>
+<span class="fc" id="L53">            flags.setSvg(countryData.flags().svg());</span>
+<span class="fc" id="L54">            flags.setDescription(countryData.flags().alt());</span>
 
-<span class="fc" id="L63">            country.setFlag(flags);</span>
+<span class="fc" id="L56">            country.setFlag(flags);</span>
 
-<span class="fc" id="L65">            countryRepository.save(country);</span>
-
-<span class="fc" id="L67">            List&lt;String&gt; cities = countryCitiesMap.get(countryData.name().getCommon());</span>
-<span class="fc bfc" id="L68" title="All 2 branches covered.">            if (cities != null) {</span>
-<span class="fc" id="L69">                List&lt;City&gt; citiesSet = new ArrayList&lt;&gt;();</span>
-<span class="fc bfc" id="L70" title="All 2 branches covered.">                for (String cityName : cities) {</span>
-<span class="fc" id="L71">                    City city = new City();</span>
-<span class="fc" id="L72">                    city.setName(cityName);</span>
-<span class="fc" id="L73">                    city.setCountry(country);</span>
-<span class="fc" id="L74">                    cityRepository.save(city);</span>
-<span class="fc" id="L75">                    citiesSet.add(city);</span>
-<span class="fc" id="L76">                }</span>
-<span class="fc" id="L77">                country.setCities(citiesSet);</span>
+<span class="fc" id="L58">            List&lt;String&gt; cities = countryCitiesMap.get(countryData.name().getCommon());</span>
+<span class="fc bfc" id="L59" title="All 2 branches covered.">            if (cities != null) {</span>
+<span class="fc" id="L60">                List&lt;String&gt; citiesList = new ArrayList&lt;&gt;(cities);</span>
+<span class="fc" id="L61">                country.setCities(citiesList);</span>
             }
 
-<span class="fc" id="L80">            countryRepository.save(country);</span>
-<span class="fc" id="L81">            flagRepository.save(flags);</span>
-<span class="fc" id="L82">        }</span>
-<span class="fc" id="L83">    }</span>
+<span class="fc" id="L64">            flagRepository.save(flags);</span>
+<span class="fc" id="L65">            countryRepository.save(country);</span>
+<span class="fc" id="L66">        }</span>
+<span class="fc" id="L67">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

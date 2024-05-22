@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Country.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">RetrieveCountriesAPI</a> &gt; <a href="index.source.html" class="el_package">cl.tica.portfolio.retrievecountriesapi.models</a> &gt; <span class="el_source">Country.java</span></div><h1>Country.java</h1><pre class="source lang-java linenums">package cl.tica.portfolio.retrievecountriesapi.models;
+
+import cl.tica.portfolio.retrievecountriesapi.v1.Views;
+import com.fasterxml.jackson.annotation.JsonView;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.DBRef;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+import java.util.List;
+
+@Document(collection = &quot;countries&quot;)
+<span class="fc" id="L15">public class Country {</span>
+    @Id
+    private String id;
+
+    @NotBlank
+    @Size(max = 80)
+    @Indexed
+    @JsonView(Views.Single.class)
+    private String name;
+
+    @NotBlank
+    @Size(max = 80)
+    @JsonView(Views.Single.class)
+    private String capital;
+
+    @NotBlank
+    @Size(max = 80)
+    @JsonView(Views.Single.class)
+    private String region;
+
+    @NotBlank
+    @Size(max = 80)
+    @JsonView(Views.Single.class)
+    private String subregion;
+
+    @JsonView(Views.Complete.class)
+    private List&lt;String&gt; cities;
+
+    @DBRef
+    @JsonView(Views.Single.class)
+    private Flag flag;
+
+    public @NotBlank @Size(max = 80) String getName() {
+<span class="fc" id="L48">        return name;</span>
+    }
+
+    public void setName(
+            @NotBlank @Size(max = 80) String name) {
+<span class="fc" id="L53">        this.name = name;</span>
+<span class="fc" id="L54">    }</span>
+
+    public @NotBlank @Size(max = 80) String getCapital() {
+<span class="fc" id="L57">        return capital;</span>
+    }
+
+    public void setCapital(
+            @NotBlank @Size(max = 80) String capital) {
+<span class="fc" id="L62">        this.capital = capital;</span>
+<span class="fc" id="L63">    }</span>
+
+    public @NotBlank @Size(max = 80) String getRegion() {
+<span class="fc" id="L66">        return region;</span>
+    }
+
+    public void setRegion(
+            @NotBlank @Size(max = 80) String region) {
+<span class="fc" id="L71">        this.region = region;</span>
+<span class="fc" id="L72">    }</span>
+
+    public @NotBlank @Size(max = 80) String getSubregion() {
+<span class="fc" id="L75">        return subregion;</span>
+    }
+
+    public void setSubregion(
+            @NotBlank @Size(max = 80) String subregion) {
+<span class="fc" id="L80">        this.subregion = subregion;</span>
+<span class="fc" id="L81">    }</span>
+
+    public List&lt;String&gt; getCities() {
+<span class="fc" id="L84">        return cities;</span>
+    }
+
+    public void setCities(List&lt;String&gt; cities) {
+<span class="fc" id="L88">        this.cities = cities;</span>
+<span class="fc" id="L89">    }</span>
+
+    public Flag getFlag() {
+<span class="fc" id="L92">        return flag;</span>
+    }
+
+    public void setFlag(Flag flag) {
+<span class="fc" id="L96">        this.flag = flag;</span>
+<span class="fc" id="L97">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>
