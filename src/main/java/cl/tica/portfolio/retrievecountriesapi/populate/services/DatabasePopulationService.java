@@ -2,20 +2,19 @@ package cl.tica.portfolio.retrievecountriesapi.populate.services;
 
 import cl.tica.portfolio.retrievecountriesapi.populate.models.CountryCities;
 import cl.tica.portfolio.retrievecountriesapi.populate.models.CountryData;
-import cl.tica.portfolio.retrievecountriesapi.rest.entities.City;
-import cl.tica.portfolio.retrievecountriesapi.rest.entities.Country;
-import cl.tica.portfolio.retrievecountriesapi.rest.entities.Flag;
-import cl.tica.portfolio.retrievecountriesapi.rest.repositories.CityRepository;
-import cl.tica.portfolio.retrievecountriesapi.rest.repositories.CountryRepository;
-import cl.tica.portfolio.retrievecountriesapi.rest.repositories.FlagRepository;
+import cl.tica.portfolio.retrievecountriesapi.entities.City;
+import cl.tica.portfolio.retrievecountriesapi.entities.Country;
+import cl.tica.portfolio.retrievecountriesapi.entities.Flag;
+import cl.tica.portfolio.retrievecountriesapi.repositories.CityRepository;
+import cl.tica.portfolio.retrievecountriesapi.repositories.CountryRepository;
+import cl.tica.portfolio.retrievecountriesapi.repositories.FlagRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
-import java.util.HashSet;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
@@ -67,7 +66,7 @@ public class DatabasePopulationService {
 
             List<String> cities = countryCitiesMap.get(countryData.name().getCommon());
             if (cities != null) {
-                Set<City> citiesSet = new HashSet<>();
+                List<City> citiesSet = new ArrayList<>();
                 for (String cityName : cities) {
                     City city = new City();
                     city.setName(cityName);

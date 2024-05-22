@@ -1,15 +1,14 @@
-package cl.tica.portfolio.retrievecountriesapi.rest.services;
+package cl.tica.portfolio.retrievecountriesapi.services;
 
-import cl.tica.portfolio.retrievecountriesapi.rest.entities.City;
-import cl.tica.portfolio.retrievecountriesapi.rest.entities.Country;
-import cl.tica.portfolio.retrievecountriesapi.rest.entities.CountryTestStub;
-import cl.tica.portfolio.retrievecountriesapi.rest.repositories.CountryRepository;
+import cl.tica.portfolio.retrievecountriesapi.entities.City;
+import cl.tica.portfolio.retrievecountriesapi.entities.Country;
+import cl.tica.portfolio.retrievecountriesapi.entities.CountryTestStub;
+import cl.tica.portfolio.retrievecountriesapi.repositories.CountryRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.mock;
@@ -75,8 +74,8 @@ class CountryServiceJpaTest {
         ).thenReturn(countriesExpected);
 
         List<Country> countries = service.findByRegion(countriesExpected.getFirst().getRegion());
-        Set<City> cities = countriesExpected.getFirst().getCities();
-        Set<City> citiesExpected = countries.getFirst().getCities();
+        List<City> cities = countriesExpected.getFirst().getCities();
+        List<City> citiesExpected = countries.getFirst().getCities();
 
         assertEquals(countriesExpected.getFirst().getName(), countries.getFirst().getName());
         assertEquals(countriesExpected.getFirst().getCapital(), countries.getFirst().getCapital());

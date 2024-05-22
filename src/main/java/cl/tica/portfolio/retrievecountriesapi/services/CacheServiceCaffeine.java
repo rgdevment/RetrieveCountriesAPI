@@ -1,6 +1,6 @@
-package cl.tica.portfolio.retrievecountriesapi.rest.services;
+package cl.tica.portfolio.retrievecountriesapi.services;
 
-import cl.tica.portfolio.retrievecountriesapi.rest.repositories.CountryRepository;
+import cl.tica.portfolio.retrievecountriesapi.repositories.CountryRepository;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;

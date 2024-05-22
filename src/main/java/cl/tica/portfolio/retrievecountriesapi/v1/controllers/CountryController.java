@@ -1,8 +1,8 @@
-package cl.tica.portfolio.retrievecountriesapi.rest.controllers;
+package cl.tica.portfolio.retrievecountriesapi.v1.controllers;
 
-import cl.tica.portfolio.retrievecountriesapi.rest.Views;
-import cl.tica.portfolio.retrievecountriesapi.rest.entities.Country;
-import cl.tica.portfolio.retrievecountriesapi.rest.services.CountryService;
+import cl.tica.portfolio.retrievecountriesapi.v1.Views;
+import cl.tica.portfolio.retrievecountriesapi.entities.Country;
+import cl.tica.portfolio.retrievecountriesapi.services.CountryService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;

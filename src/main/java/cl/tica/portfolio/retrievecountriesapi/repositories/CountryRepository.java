@@ -1,6 +1,6 @@
-package cl.tica.portfolio.retrievecountriesapi.rest.repositories;
+package cl.tica.portfolio.retrievecountriesapi.repositories;
 
-import cl.tica.portfolio.retrievecountriesapi.rest.entities.Country;
+import cl.tica.portfolio.retrievecountriesapi.entities.Country;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

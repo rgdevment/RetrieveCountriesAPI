@@ -1,6 +1,6 @@
-package cl.tica.portfolio.retrievecountriesapi.rest.entities;
+package cl.tica.portfolio.retrievecountriesapi.entities;
 
-import cl.tica.portfolio.retrievecountriesapi.rest.Views;
+import cl.tica.portfolio.retrievecountriesapi.v1.Views;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonView;
