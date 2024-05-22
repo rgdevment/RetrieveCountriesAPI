@@ -1,6 +1,7 @@
 package cl.tica.portfolio.retrievecountriesapi.populate.services;
 
 import cl.tica.portfolio.retrievecountriesapi.populate.exceptions.FetchDataException;
+import cl.tica.portfolio.retrievecountriesapi.populate.models.CountriesWrapper;
 import cl.tica.portfolio.retrievecountriesapi.populate.models.CountryCities;
 import cl.tica.portfolio.retrievecountriesapi.populate.models.CountryCitiesData;
 import cl.tica.portfolio.retrievecountriesapi.populate.models.CountryData;
@@ -46,10 +47,11 @@ public class DataService {
                 String resourcePath = countriesApiUrl.replaceFirst("classpath:", "");
                 Resource resource = new ClassPathResource(resourcePath);
                 InputStream inputStream = resource.getInputStream();
-                return Arrays.asList(this.objectMapper.readValue(inputStream, CountryData[].class));
+                CountriesWrapper countriesWrapper = this.objectMapper.readValue(inputStream, CountriesWrapper.class);
+                return countriesWrapper.countries();
             }
         } catch (Exception e) {
-            throw new FetchDataException(HttpStatus.GATEWAY_TIMEOUT, "Failed to fetch country data");
+            throw new FetchDataException(HttpStatus.INTERNAL_SERVER_ERROR, "Failed to fetch country data.");
         }
     }
 
