@@ -1,6 +1,6 @@
-package cl.tica.portfolio.retrievecountriesapi.rest.services;
+package cl.tica.portfolio.retrievecountriesapi.services;
 
-import cl.tica.portfolio.retrievecountriesapi.rest.repositories.CountryRepository;
+import cl.tica.portfolio.retrievecountriesapi.repositories.CountryRepository;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;

@@ -1,6 +1,6 @@
-package cl.tica.portfolio.retrievecountriesapi.rest.entities;
+package cl.tica.portfolio.retrievecountriesapi.entities;
 
-import cl.tica.portfolio.retrievecountriesapi.rest.Views;
+import cl.tica.portfolio.retrievecountriesapi.v1.Views;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonView;
@@ -19,8 +19,7 @@ import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
-import java.util.Set;
-import java.util.stream.Collectors;
+import java.util.List;
 
 @Entity
 @Table(name = "countries", indexes = {
@@ -58,7 +57,7 @@ public class Country {
 
     @OneToMany(mappedBy = "country", fetch = FetchType.EAGER)
     @JsonView(Views.Complete.class)
-    private Set<City> cities;
+    private List<City> cities;
 
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "flag_id")
@@ -66,15 +65,15 @@ public class Country {
     private Flag flag;
 
     @JsonIgnore
-    public Set<City> getCities() {
+    public List<City> getCities() {
         return cities;
     }
 
     @JsonProperty("cities")
-    public Set<String> getCityNames() {
+    public List<String> getCityNames() {
         return cities.stream()
                 .map(City::getName)
-                .collect(Collectors.toSet());
+                .toList();
     }
 
     public @NotBlank @Size(max = 80) String getName() {
@@ -113,7 +112,7 @@ public class Country {
         this.subregion = subregion;
     }
 
-    public void setCities(Set<City> cities) {
+    public void setCities(List<City> cities) {
         this.cities = cities;
     }
 

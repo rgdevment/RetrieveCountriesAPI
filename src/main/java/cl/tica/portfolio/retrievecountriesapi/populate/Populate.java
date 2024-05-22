@@ -20,6 +20,8 @@ import org.springframework.context.ConfigurableApplicationContext;
  * http://example.com/api/cities
  * }</pre>
  *
+ * <p>or you can just use the example files in the resources folder of this repository</p>
+ *
  * <h2>Usage example:</h2>
  * <pre>{@code
  * // Command to populate your database

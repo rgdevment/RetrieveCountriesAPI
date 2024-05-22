@@ -1,4 +1,4 @@
-package cl.tica.portfolio.retrievecountriesapi.rest;
+package cl.tica.portfolio.retrievecountriesapi.v1;
 
 public final class Views {
     public interface Single {

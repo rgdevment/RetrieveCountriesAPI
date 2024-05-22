@@ -1,7 +1,7 @@
-package cl.tica.portfolio.retrievecountriesapi.rest.services;
+package cl.tica.portfolio.retrievecountriesapi.services;
 
-import cl.tica.portfolio.retrievecountriesapi.rest.entities.Country;
-import cl.tica.portfolio.retrievecountriesapi.rest.repositories.CountryRepository;
+import cl.tica.portfolio.retrievecountriesapi.entities.Country;
+import cl.tica.portfolio.retrievecountriesapi.repositories.CountryRepository;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

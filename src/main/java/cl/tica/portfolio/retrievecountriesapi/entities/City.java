@@ -1,4 +1,4 @@
-package cl.tica.portfolio.retrievecountriesapi.rest.entities;
+package cl.tica.portfolio.retrievecountriesapi.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Column;

@@ -1,8 +1,8 @@
-package cl.tica.portfolio.retrievecountriesapi.rest.controllers;
+package cl.tica.portfolio.retrievecountriesapi.v1.controllers;
 
-import cl.tica.portfolio.retrievecountriesapi.rest.entities.Country;
-import cl.tica.portfolio.retrievecountriesapi.rest.entities.CountryTestStub;
-import cl.tica.portfolio.retrievecountriesapi.rest.services.CountryService;
+import cl.tica.portfolio.retrievecountriesapi.entities.Country;
+import cl.tica.portfolio.retrievecountriesapi.entities.CountryTestStub;
+import cl.tica.portfolio.retrievecountriesapi.services.CountryService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
