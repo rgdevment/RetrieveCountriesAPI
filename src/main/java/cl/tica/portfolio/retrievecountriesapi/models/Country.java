@@ -1,80 +1,48 @@
-package cl.tica.portfolio.retrievecountriesapi.entities;
+package cl.tica.portfolio.retrievecountriesapi.models;
 
 import cl.tica.portfolio.retrievecountriesapi.v1.Views;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonView;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Index;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.SequenceGenerator;
-import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.DBRef;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
 
-@Entity
-@Table(name = "countries", indexes = {
-        @Index(name = "idx_name", columnList = "name")
-})
+@Document(collection = "countries")
 public class Country {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "countries_seq")
-    @SequenceGenerator(name = "countries_seq", allocationSize = 1)
-    private Long id;
+    private String id;
 
     @NotBlank
     @Size(max = 80)
-    @Column(nullable = false)
+    @Indexed
     @JsonView(Views.Single.class)
     private String name;
 
     @NotBlank
     @Size(max = 80)
-    @Column(nullable = false)
     @JsonView(Views.Single.class)
     private String capital;
 
     @NotBlank
     @Size(max = 80)
-    @Column(nullable = false)
     @JsonView(Views.Single.class)
     private String region;
 
     @NotBlank
     @Size(max = 80)
-    @Column(nullable = false)
     @JsonView(Views.Single.class)
     private String subregion;
 
-    @OneToMany(mappedBy = "country", fetch = FetchType.EAGER)
     @JsonView(Views.Complete.class)
-    private List<City> cities;
+    private List<String> cities;
 
-    @OneToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "flag_id")
+    @DBRef
     @JsonView(Views.Single.class)
     private Flag flag;
-
-    @JsonIgnore
-    public List<City> getCities() {
-        return cities;
-    }
-
-    @JsonProperty("cities")
-    public List<String> getCityNames() {
-        return cities.stream()
-                .map(City::getName)
-                .toList();
-    }
 
     public @NotBlank @Size(max = 80) String getName() {
         return name;
@@ -112,7 +80,11 @@ public class Country {
         this.subregion = subregion;
     }
 
-    public void setCities(List<City> cities) {
+    public List<String> getCities() {
+        return cities;
+    }
+
+    public void setCities(List<String> cities) {
         this.cities = cities;
     }
 

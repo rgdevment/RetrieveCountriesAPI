@@ -1,13 +1,11 @@
 package cl.tica.portfolio.retrievecountriesapi.services;
 
-import cl.tica.portfolio.retrievecountriesapi.entities.City;
-import cl.tica.portfolio.retrievecountriesapi.entities.Country;
-import cl.tica.portfolio.retrievecountriesapi.entities.CountryTestStub;
+import cl.tica.portfolio.retrievecountriesapi.models.Country;
+import cl.tica.portfolio.retrievecountriesapi.models.CountryTestStub;
 import cl.tica.portfolio.retrievecountriesapi.repositories.CountryRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -74,8 +72,8 @@ class CountryServiceJpaTest {
         ).thenReturn(countriesExpected);
 
         List<Country> countries = service.findByRegion(countriesExpected.getFirst().getRegion());
-        List<City> cities = countriesExpected.getFirst().getCities();
-        List<City> citiesExpected = countries.getFirst().getCities();
+        List<String> cities = countriesExpected.getFirst().getCities();
+        List<String> citiesExpected = countries.getFirst().getCities();
 
         assertEquals(countriesExpected.getFirst().getName(), countries.getFirst().getName());
         assertEquals(countriesExpected.getFirst().getCapital(), countries.getFirst().getCapital());
@@ -83,14 +81,6 @@ class CountryServiceJpaTest {
         assertEquals(countriesExpected.getFirst().getSubregion(), countries.getFirst().getSubregion());
         assertEquals(cities, citiesExpected);
         assertEquals(countriesExpected.getFirst().getFlag(), countries.getFirst().getFlag());
-
-        List<City> cityList = new ArrayList<>(cities);
-        City firstCity = cityList.getFirst();
-
-        List<City> cityExpectedList = new ArrayList<>(citiesExpected);
-        City firstExpectedCity = cityExpectedList.getFirst();
-
-        assertEquals(firstCity.getCountry(), firstExpectedCity.getCountry());
 
         verify(repository, times(1))
                 .findCountriesByRegionIgnoreCase(countriesExpected.getFirst().getRegion());
@@ -111,8 +101,6 @@ class CountryServiceJpaTest {
         assertEquals(countriesExpected.getFirst().getSubregion(), countries.getFirst().getSubregion());
         assertEquals(countriesExpected.getFirst().getCities(), countries.getFirst().getCities());
         assertEquals(countriesExpected.getFirst().getFlag(), countries.getFirst().getFlag());
-
-        assertEquals(countriesExpected.getFirst().getFlag().getCountry(), countries.getFirst().getFlag().getCountry());
 
         verify(repository, times(1))
                 .findCountriesBySubregionIgnoreCase(countriesExpected.getFirst().getSubregion());

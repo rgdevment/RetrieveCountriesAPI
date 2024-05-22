@@ -1,12 +1,16 @@
 services:
-  postgres:
-    container_name: countries_postgres
-    image: postgres:16.2-alpine
-    ports:
-      - "54321:5432"
-    volumes:
-      - ~/databases/postgres/countries:/var/lib/postgresql/data
+  mongodb:
+    container_name: mongo_db
+    image: mongo:latest
+    restart: always
+    command:
+      - --storageEngine
+      - wiredTiger
+      - --auth
     environment:
-      - POSTGRES_PASSWORD=S3cr3t0
-      - POSTGRES_USER=countries
-      - POSTGRES_DB=db_countries
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=S3cr3t0
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./data/mongo:/data/db

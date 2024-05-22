@@ -4,10 +4,8 @@ import cl.tica.portfolio.retrievecountriesapi.populate.models.CountryCities;
 import cl.tica.portfolio.retrievecountriesapi.populate.models.CountryData;
 import cl.tica.portfolio.retrievecountriesapi.populate.models.Flags;
 import cl.tica.portfolio.retrievecountriesapi.populate.models.Name;
-import cl.tica.portfolio.retrievecountriesapi.entities.City;
-import cl.tica.portfolio.retrievecountriesapi.entities.Country;
-import cl.tica.portfolio.retrievecountriesapi.entities.Flag;
-import cl.tica.portfolio.retrievecountriesapi.repositories.CityRepository;
+import cl.tica.portfolio.retrievecountriesapi.models.Country;
+import cl.tica.portfolio.retrievecountriesapi.models.Flag;
 import cl.tica.portfolio.retrievecountriesapi.repositories.CountryRepository;
 import cl.tica.portfolio.retrievecountriesapi.repositories.FlagRepository;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -32,7 +30,6 @@ import static org.mockito.Mockito.when;
 @SpringBootTest
 class DatabasePopulationServiceTest {
     private CountryRepository countryRepository;
-    private CityRepository cityRepository;
     private FlagRepository flagRepository;
 
     private DataService dataService;
@@ -41,11 +38,10 @@ class DatabasePopulationServiceTest {
     @BeforeEach
     void setUp() {
         this.countryRepository = mock(CountryRepository.class);
-        this.cityRepository = mock(CityRepository.class);
         this.flagRepository = mock(FlagRepository.class);
         this.dataService = mock(DataService.class);
 
-        this.service = new DatabasePopulationService(dataService, countryRepository, cityRepository, flagRepository);
+        this.service = new DatabasePopulationService(dataService, countryRepository, flagRepository);
     }
 
     @Test
@@ -66,10 +62,8 @@ class DatabasePopulationServiceTest {
         verify(dataService, times(1)).fetchCountryData();
         verify(dataService, times(1)).fetchCountryCitiesData();
 
-        verify(countryRepository, times(countryDataList.size() * 2)).save(any(Country.class));
+        verify(countryRepository, times(countryDataList.size())).save(any(Country.class));
         verify(flagRepository, times(countryDataList.size())).save(any(Flag.class));
-
-        verify(cityRepository, times(3)).save(any(City.class));
     }
 
     private static ArrayList<CountryData> getCountryData() throws JsonProcessingException {

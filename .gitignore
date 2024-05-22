@@ -38,3 +38,6 @@ out/
 
 ### Profiles ###
 application-secret.properties
+
+### Documents Volume ###
+/data/

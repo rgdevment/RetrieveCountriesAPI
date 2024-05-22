@@ -2,13 +2,10 @@ package cl.tica.portfolio.retrievecountriesapi.populate.services;
 
 import cl.tica.portfolio.retrievecountriesapi.populate.models.CountryCities;
 import cl.tica.portfolio.retrievecountriesapi.populate.models.CountryData;
-import cl.tica.portfolio.retrievecountriesapi.entities.City;
-import cl.tica.portfolio.retrievecountriesapi.entities.Country;
-import cl.tica.portfolio.retrievecountriesapi.entities.Flag;
-import cl.tica.portfolio.retrievecountriesapi.repositories.CityRepository;
+import cl.tica.portfolio.retrievecountriesapi.models.Country;
+import cl.tica.portfolio.retrievecountriesapi.models.Flag;
 import cl.tica.portfolio.retrievecountriesapi.repositories.CountryRepository;
 import cl.tica.portfolio.retrievecountriesapi.repositories.FlagRepository;
-import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -22,18 +19,15 @@ public class DatabasePopulationService {
 
     private final DataService dataService;
     private final CountryRepository countryRepository;
-    private final CityRepository cityRepository;
     private final FlagRepository flagRepository;
 
     public DatabasePopulationService(DataService dataService, CountryRepository countryRepository,
-                                     CityRepository cityRepository, FlagRepository flagRepository) {
+                                     FlagRepository flagRepository) {
         this.dataService = dataService;
         this.countryRepository = countryRepository;
-        this.cityRepository = cityRepository;
         this.flagRepository = flagRepository;
     }
 
-    @Transactional
     public void populateDatabase() {
         List<CountryData> countryDataList = dataService.fetchCountryData();
         Map<String, List<String>> countryCitiesMap = dataService.fetchCountryCitiesData().stream()
@@ -58,27 +52,17 @@ public class DatabasePopulationService {
             flags.setPng(countryData.flags().png());
             flags.setSvg(countryData.flags().svg());
             flags.setDescription(countryData.flags().alt());
-            flags.setCountry(country);
 
             country.setFlag(flags);
 
-            countryRepository.save(country);
-
             List<String> cities = countryCitiesMap.get(countryData.name().getCommon());
             if (cities != null) {
-                List<City> citiesSet = new ArrayList<>();
-                for (String cityName : cities) {
-                    City city = new City();
-                    city.setName(cityName);
-                    city.setCountry(country);
-                    cityRepository.save(city);
-                    citiesSet.add(city);
-                }
-                country.setCities(citiesSet);
+                List<String> citiesList = new ArrayList<>(cities);
+                country.setCities(citiesList);
             }
 
-            countryRepository.save(country);
             flagRepository.save(flags);
+            countryRepository.save(country);
         }
     }
 }

@@ -1,44 +1,31 @@
-package cl.tica.portfolio.retrievecountriesapi.entities;
+package cl.tica.portfolio.retrievecountriesapi.models;
 
 import cl.tica.portfolio.retrievecountriesapi.v1.Views;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonView;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.SequenceGenerator;
-import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@Entity
-@Table(name = "flags")
+@Document(collection = "flags")
 public class Flag {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "flags_seq")
-    @SequenceGenerator(name = "flags_seq", allocationSize = 1)
-    private Long id;
+    private String id;
 
     @NotNull
-    @Column(nullable = false)
     @Size(max = 40)
     @JsonView(Views.Single.class)
     private String ico;
 
     @NotBlank
     @Size(max = 256)
-    @Column(nullable = false)
     @JsonView(Views.Single.class)
     private String png;
 
     @NotBlank
     @Size(max = 256)
-    @Column(nullable = false)
     @JsonView(Views.Single.class)
     private String svg;
 
@@ -46,10 +33,6 @@ public class Flag {
     @JsonProperty("alt")
     @JsonView(Views.Single.class)
     private String description;
-
-    @OneToOne(mappedBy = "flag")
-    @JsonIgnore
-    private Country country;
 
     public @NotNull @Size(max = 40) String getIco() {
         return ico;
@@ -84,13 +67,5 @@ public class Flag {
 
     public void setDescription(@Size(max = 2048) String description) {
         this.description = description;
-    }
-
-    public Country getCountry() {
-        return country;
-    }
-
-    public void setCountry(Country country) {
-        this.country = country;
     }
 }

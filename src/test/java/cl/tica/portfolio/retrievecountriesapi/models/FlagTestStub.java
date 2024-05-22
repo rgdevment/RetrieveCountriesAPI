@@ -1,4 +1,4 @@
-package cl.tica.portfolio.retrievecountriesapi.entities;
+package cl.tica.portfolio.retrievecountriesapi.models;
 
 import net.datafaker.Faker;
 
