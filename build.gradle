@@ -114,9 +114,9 @@ test {
     jvmArgs("-XX:+EnableDynamicAgentLoading", "-Xshare:off")
 }
 
-/*tasks.register('populate', JavaExec) {
+tasks.register('populate', JavaExec) {
     javaLauncher = javaToolchains.launcherFor(javaLauncherSpec -> javaLauncherSpec.getLanguageVersion()
             .set(JavaLanguageVersion.of(21)))
     classpath = sourceSets.main.runtimeClasspath
     mainClass.set('cl.tica.portfolio.retrievecountriesapi.populate.Populate')
-}*/
+}

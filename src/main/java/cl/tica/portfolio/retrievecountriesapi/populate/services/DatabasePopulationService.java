@@ -29,6 +29,8 @@ public class DatabasePopulationService {
     }
 
     public void populateDatabase() {
+        this.cleanDatabase();
+
         List<CountryData> countryDataList = dataService.fetchCountryData();
         Map<String, List<String>> countryCitiesMap = dataService.fetchCountryCitiesData().stream()
                 .collect(Collectors.toMap(CountryCities::country, CountryCities::cities));
@@ -64,5 +66,10 @@ public class DatabasePopulationService {
             flagRepository.save(flags);
             countryRepository.save(country);
         }
+    }
+
+    private void cleanDatabase() {
+        this.countryRepository.deleteAll();
+        this.flagRepository.deleteAll();
     }
 }
