@@ -23,8 +23,6 @@ Retrieves all country data with an option to exclude cities.
 
 - `excludeCities` (optional): boolean
 
-**Example Usage:**
-
 ```sh
 curl -X GET "https://countries.tica.cl/v1/countries"
 ```
