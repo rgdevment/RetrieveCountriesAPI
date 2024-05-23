@@ -1,0 +1,40 @@
+def exclusions = [
+        "cl/tica/portfolio/retrievecountriesapi/populate/Populate.class",
+        "cl/tica/portfolio/retrievecountriesapi/RetrieveCountriesApiApplication.class"
+]
+
+jacocoTestReport {
+    dependsOn test
+    afterEvaluate {
+        classDirectories.setFrom(files(classDirectories.files.collect {
+            fileTree(dir: it, exclude: exclusions)
+        }))
+    }
+    reports {
+        csv.required = true
+        xml.required = true
+    }
+}
+
+jacocoTestCoverageVerification {
+    afterEvaluate {
+        classDirectories.setFrom(files(classDirectories.files.collect {
+            fileTree(dir: it, exclude: exclusions)
+        }))
+    }
+    violationRules {
+        rule {
+            limit {
+                counter = 'LINE'
+                minimum = 0.8
+            }
+        }
+
+        rule {
+            limit {
+                counter = 'BRANCH'
+                minimum = 0.8
+            }
+        }
+    }
+}

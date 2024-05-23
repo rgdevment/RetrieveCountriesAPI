@@ -1,0 +1,35 @@
+name: Deploy to Production
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
+      - name: Build with Gradle
+        run: ./gradlew build jib --stacktrace
+
+      - name: Deploy to Google Cloud Run
+        uses: google-github-actions/deploy-cloudrun@v2
+        with:
+          service: ${{ secrets.GCP_SERVICE }}
+          image: "gcr.io/${{ secrets.GCP_PROJECT }}/retrieve-countries-api"
+          credentials: ${{ secrets.GCP_SA_KEY }}
+          region: us-central1
+          platform: managed

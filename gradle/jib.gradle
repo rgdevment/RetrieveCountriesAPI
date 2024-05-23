@@ -1,0 +1,17 @@
+jib {
+    from {
+        image = 'eclipse-temurin:21-alpine'
+    }
+    to {
+        image = "gcr.io/${System.getenv('GCP_PROJECT')}/retrieve-countries-api"
+        auth {
+            username = '_json_key'
+            password = ${System.getenv('GCP_SA_KEY')}
+        }
+        tags = ['latest', project.version.toString()]
+    }
+    container {
+        jvmFlags = ['-Xms256m', '-Xmx256m']
+        mainClass = 'cl.tica.portfolio.retrievecountriesapi.RetrieveCountriesApiApplication'
+    }
+}
