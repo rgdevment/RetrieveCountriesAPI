@@ -20,7 +20,7 @@ import java.util.List;
 
 @Tag(name = &quot;Countries&quot;)
 @RestController
-@RequestMapping(&quot;/v1/countries&quot;)
+@RequestMapping(&quot;/v1&quot;)
 public class CountryController {
     private final CountryService service;
 
@@ -28,7 +28,7 @@ public class CountryController {
 <span class="fc" id="L28">        this.service = service;</span>
 <span class="fc" id="L29">    }</span>
 
-    @GetMapping
+    @GetMapping(&quot;/all&quot;)
     @Operation(summary = &quot;Get all country data with an option to exclude cities.&quot;,
             description = &quot;This operation retrieves all countries from the database. If excludeCities is true, the &quot;
                     + &quot;cities will not be included.&quot;)

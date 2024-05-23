@@ -23,7 +23,7 @@ import java.util.List;
 
     @Bean
     OpenAPI openApi() {
-<span class="fc" id="L26">        License apacheLicence = new License()</span>
+<span class="fc" id="L26">        License mitLicence = new License()</span>
 <span class="fc" id="L27">                .name(&quot;MIT License&quot;)</span>
 <span class="fc" id="L28">                .url(&quot;https://choosealicense.com/licenses/mit/&quot;);</span>
 
@@ -36,9 +36,9 @@ import java.util.List;
 <span class="fc" id="L36">        return new OpenAPI()</span>
 <span class="fc" id="L37">                .info(new Info().title(&quot;Retrieve Countries API&quot;)</span>
 <span class="fc" id="L38">                        .description(&quot;API to retrieve countries and their information.&quot;)</span>
-<span class="fc" id="L39">                        .version(&quot;0.0.1-SNAPSHOT&quot;)</span>
+<span class="fc" id="L39">                        .version(&quot;0.0.2-SNAPSHOT&quot;)</span>
 <span class="fc" id="L40">                        .contact(contact)</span>
-<span class="fc" id="L41">                        .license(apacheLicence)</span>
+<span class="fc" id="L41">                        .license(mitLicence)</span>
 <span class="fc" id="L42">                ).servers(List.of(server));</span>
     }
 }
