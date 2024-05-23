@@ -1,0 +1,3 @@
+pmd {
+    ruleSetFiles = files("codequality/ruleset.xml")
+}

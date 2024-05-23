@@ -1,0 +1,3 @@
+checkstyle {
+    configFile = 'codequality/checkstyle.xml' as File
+}
