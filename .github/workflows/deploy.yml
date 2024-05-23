@@ -34,7 +34,7 @@ jobs:
         uses: google-github-actions/deploy-cloudrun@v2
         with:
           service: ${{ secrets.GCP_SERVICE }}
-          image: "gcr.io/${{ secrets.GCP_PROJECT }}/retrieve-countries-api"
+          image: "gcr.io/${{ secrets.GCP_PROJECT }}/${{ secrets.GCP_SERVICE }}"
           platform: managed
           max_instances: ${{ secrets.INSTANCE_MAX }}
           memory: ${{ secrets.INSTANCE_MEMORY }}
