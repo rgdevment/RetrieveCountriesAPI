@@ -1,8 +1,5 @@
 package cl.tica.portfolio.retrievecountriesapi.application.models;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.ObjectNode;
-
 import java.time.LocalDateTime;
 
 public class ExceptionWrappingError {
@@ -32,17 +29,5 @@ public class ExceptionWrappingError {
 
     public String getInstance() {
         return instance;
-    }
-
-    public String toJSONString() {
-        ObjectMapper mapper = new ObjectMapper();
-
-        ObjectNode node = mapper.createObjectNode();
-        node.put("timespan", getTimespan().toString());
-        node.put("title", getTitle());
-        node.put("details", getDetails());
-        node.put("instance", getInstance());
-
-        return node.toString();
     }
 }
