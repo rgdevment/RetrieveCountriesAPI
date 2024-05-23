@@ -38,5 +38,5 @@ jobs:
           service: ${{ secrets.GCP_SERVICE }}
           image: "gcr.io/${{ secrets.GCP_PROJECT }}/retrieve-countries-api"
           platform: managed
-          env_vars: SPRING_DATA_MONGODB_DATABASE=${{ secrets.SPRING_DATA_MONGODB_DATABASE }},SPRING_DATA_MONGODB_USERNAME=${{ secrets.SPRING_DATA_MONGODB_USERNAME }},SPRING_DATA_MONGODB_PASSWORD=${{ secrets.SPRING_DATA_MONGODB_PASSWORD }}
+          env_vars: SPRING_DATA_MONGODB_DATABASE=${{ secrets.SPRING_DATA_MONGODB_DATABASE }},SPRING_DATA_MONGODB_USERNAME=${{ secrets.SPRING_DATA_MONGODB_USERNAME }},SPRING_DATA_MONGODB_PASSWORD=${{ secrets.SPRING_DATA_MONGODB_PASSWORD }},SPRING_DATA_MONGODB_URI=${{ secrets.SPRING_DATA_MONGODB_URI }}
           allow_unauthenticated: true
