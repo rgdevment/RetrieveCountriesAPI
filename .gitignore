@@ -41,3 +41,6 @@ application-secret.properties
 
 ### Documents Volume ###
 /data/
+
+# Ignore generated credentials from google-github-actions/auth
+gha-creds-*.json

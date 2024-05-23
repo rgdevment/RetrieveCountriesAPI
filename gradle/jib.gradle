@@ -5,8 +5,8 @@ jib {
     to {
         image = "gcr.io/${System.getenv('GCP_PROJECT')}/retrieve-countries-api"
         auth {
-            username = '_json_key'
-            password = ${System.getenv('GCP_SA_KEY')}
+            username = 'oauth2accesstoken'
+            password = 'gcloud auth print-access-token'.execute().text.trim()
         }
         tags = ['latest', project.version.toString()]
     }
