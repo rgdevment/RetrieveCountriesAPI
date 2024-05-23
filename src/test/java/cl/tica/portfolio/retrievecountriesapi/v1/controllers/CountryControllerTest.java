@@ -35,7 +35,7 @@ class CountryControllerTest {
 
         when(service.findAll()).thenReturn(countries);
 
-        mockMvc.perform(MockMvcRequestBuilders.get("/v1/countries")
+        mockMvc.perform(MockMvcRequestBuilders.get("/v1/all")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
@@ -55,7 +55,7 @@ class CountryControllerTest {
 
         when(service.findAll()).thenReturn(countries);
 
-        mockMvc.perform(MockMvcRequestBuilders.get("/v1/countries?excludeCities=true")
+        mockMvc.perform(MockMvcRequestBuilders.get("/v1/all?excludeCities=true")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
@@ -73,7 +73,7 @@ class CountryControllerTest {
     void testGetCountriesNoContent() throws Exception {
         when(service.findAll()).thenReturn(Collections.emptyList());
 
-        mockMvc.perform(MockMvcRequestBuilders.get("/v1/countries")
+        mockMvc.perform(MockMvcRequestBuilders.get("/v1/all")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isNoContent());
 
@@ -84,7 +84,7 @@ class CountryControllerTest {
     void testGetCountryByNameNoContent() throws Exception {
         when(service.findByName("faker")).thenReturn(null);
 
-        mockMvc.perform(MockMvcRequestBuilders.get("/v1/countries/faker")
+        mockMvc.perform(MockMvcRequestBuilders.get("/v1/faker")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isNoContent());
 
@@ -97,7 +97,7 @@ class CountryControllerTest {
 
         when(service.findByName(country.getName())).thenReturn(country);
 
-        mockMvc.perform(MockMvcRequestBuilders.get("/v1/countries/" + country.getName())
+        mockMvc.perform(MockMvcRequestBuilders.get("/v1/" + country.getName())
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.name").value(country.getName()))
@@ -116,7 +116,7 @@ class CountryControllerTest {
 
         when(service.findByCapital(country.getCapital())).thenReturn(country);
 
-        mockMvc.perform(MockMvcRequestBuilders.get("/v1/countries/capital/" + country.getCapital())
+        mockMvc.perform(MockMvcRequestBuilders.get("/v1/capital/" + country.getCapital())
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.name").value(country.getName()))
@@ -135,7 +135,7 @@ class CountryControllerTest {
 
         when(service.findByName(country.getName())).thenReturn(country);
 
-        mockMvc.perform(MockMvcRequestBuilders.get("/v1/countries/" + country.getName()
+        mockMvc.perform(MockMvcRequestBuilders.get("/v1/" + country.getName()
                                 + "?excludeCities=true")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
@@ -155,7 +155,7 @@ class CountryControllerTest {
 
         when(service.findByRegion(countries.getFirst().getRegion())).thenReturn(countries);
 
-        mockMvc.perform(MockMvcRequestBuilders.get("/v1/countries/region/" + countries.getFirst().getRegion())
+        mockMvc.perform(MockMvcRequestBuilders.get("/v1/region/" + countries.getFirst().getRegion())
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
@@ -175,7 +175,7 @@ class CountryControllerTest {
 
         when(service.findBySubregion(countries.getFirst().getSubregion())).thenReturn(countries);
 
-        mockMvc.perform(MockMvcRequestBuilders.get("/v1/countries/subregion/"
+        mockMvc.perform(MockMvcRequestBuilders.get("/v1/subregion/"
                                 + countries.getFirst().getSubregion())
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
