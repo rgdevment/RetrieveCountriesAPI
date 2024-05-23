@@ -23,7 +23,7 @@ public class SwaggerConfig {
 
     @Bean
     OpenAPI openApi() {
-        License apacheLicence = new License()
+        License mitLicence = new License()
                 .name("MIT License")
                 .url("https://choosealicense.com/licenses/mit/");
 
@@ -36,9 +36,9 @@ public class SwaggerConfig {
         return new OpenAPI()
                 .info(new Info().title("Retrieve Countries API")
                         .description("API to retrieve countries and their information.")
-                        .version("0.0.1-SNAPSHOT")
+                        .version("0.0.2-SNAPSHOT")
                         .contact(contact)
-                        .license(apacheLicence)
+                        .license(mitLicence)
                 ).servers(List.of(server));
     }
 }
