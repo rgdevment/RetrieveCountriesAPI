@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - main
-  pull_request:
-    branches: [ "main" ]
 
 jobs:
   build-and-deploy:
@@ -38,5 +36,7 @@ jobs:
           service: ${{ secrets.GCP_SERVICE }}
           image: "gcr.io/${{ secrets.GCP_PROJECT }}/retrieve-countries-api"
           platform: managed
+          max_instances: ${{ secrets.INSTANCE_MAX }}
+          memory: ${{ secrets.INSTANCE_MEMORY }}
+          concurrency: ${{ secrets.CONCURRENCY_MAX }}
           env_vars: SPRING_DATA_MONGODB_DATABASE=${{ secrets.SPRING_DATA_MONGODB_DATABASE }},SPRING_DATA_MONGODB_USERNAME=${{ secrets.SPRING_DATA_MONGODB_USERNAME }},SPRING_DATA_MONGODB_PASSWORD=${{ secrets.SPRING_DATA_MONGODB_PASSWORD }},SPRING_DATA_MONGODB_URI=${{ secrets.SPRING_DATA_MONGODB_URI }}
-          allow_unauthenticated: true
