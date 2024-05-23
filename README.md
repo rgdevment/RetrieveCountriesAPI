@@ -1,26 +1,43 @@
 [![Build Status](https://github.com/rgdevment/RetrieveCountriesAPI/actions/workflows/main.yml/badge.svg)](https://github.com/rgdevment/RetrieveCountriesAPI/actions/workflows/main.yml)
 [![Coverage](https://rgdevment.github.io/RetrieveCountriesAPI/badges/jacoco.svg)](https://rgdevment.github.io/RetrieveCountriesAPI) [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=rgdevment_RetrieveCountriesAPI&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=rgdevment_RetrieveCountriesAPI)
 
-
 # RetrieveCountriesAPI
 
-RetrieveCountriesAPI is an open-source REST API designed to provide easy access to data about countries and cities worldwide. With an MIT license allowing free distribution and modification, our API is an ideal solution for developers needing to integrate geographical information into their applications simply and efficiently.
+Retrieve Countries API is an open-source REST API licensed under MIT that allows you to query data about countries,
+cities, and other relevant information worldwide. This API is continuously developing and growing.
 
-## Key Features:
+## Documentation
 
-- Quick and easy queries to obtain information about countries and cities.
-- Up-to-date and accurate data sourced from reliable providers.
-- Dockerized implementation for easy deployment and scalability.
-- MIT license allowing usage in both commercial and non-commercial projects.
+- [Swagger Documentation](https://countries.tica.cl/docs)
+- [Postman API Documentation](https://www.postman.com/rgdevment/workspace/retrievecountriesapi/overview)
 
-## Usage:
+## Example Usage
 
-To get started with RetrieveCountriesAPI, simply clone the repository and follow our installation instructions. Once deployed, you can perform queries on country names, cities, and their associated attributes quickly and efficiently.
+### Get All Countries
 
-## Contributions:
+#### GET /v1/countries
 
-Contributions are welcome! If you find any bugs, wish to enhance existing functionality, or add new features, feel free to submit a pull request. Together, we can make RetrieveCountriesAPI even better.
+Retrieves all country data with an option to exclude cities.
 
-## License:
+**Parameters:**
 
-RetrieveCountriesAPI is distributed under the MIT License, meaning you can freely use it in your projects, both commercial and non-commercial.
+- `excludeCities` (optional): boolean
+
+**Example Usage:**
+
+```sh
+curl -X GET "https://countries.tica.cl/v1/countries"
+```
+
+or exclude cities
+
+```sh
+curl -X GET "https://countries.tica.cl/v1/countries?excludeCities=true"
+```
+
+For more information and other endpoints, please refer to the Postman API Documentation or Swagger Documentation.
+
+## License
+
+This project is licensed under the [MIT License](https://choosealicense.com/licenses/mit/). See
+the [LICENSE](LICENSE.md) file for more details.
