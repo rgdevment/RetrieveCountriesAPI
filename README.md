@@ -24,13 +24,13 @@ Retrieves all country data with an option to exclude cities.
 - `excludeCities` (optional): boolean
 
 ```sh
-curl -X GET "https://countries.tica.cl/v1/countries"
+curl -X GET "https://countries.tica.cl/v1/all"
 ```
 
 or exclude cities
 
 ```sh
-curl -X GET "https://countries.tica.cl/v1/countries?excludeCities=true"
+curl -X GET "https://countries.tica.cl/v1/all?excludeCities=true"
 ```
 
 For more information and other endpoints, please refer to the Postman API Documentation or Swagger Documentation.
