@@ -8,7 +8,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Name {
     @JsonAlias({"common", "name"})
-    private String common;
+    private final String common;
 
     @JsonCreator
     public Name(JsonNode jsonNode) {

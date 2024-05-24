@@ -1,6 +1,6 @@
 package cl.tica.portfolio.retrievecountriesapi.repositories;
 
-import cl.tica.portfolio.retrievecountriesapi.models.Country;
+import cl.tica.portfolio.retrievecountriesapi.documents.Country;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.List;

@@ -1,6 +1,6 @@
 package cl.tica.portfolio.retrievecountriesapi.services;
 
-import cl.tica.portfolio.retrievecountriesapi.models.Country;
+import cl.tica.portfolio.retrievecountriesapi.documents.Country;
 
 import java.util.List;
 

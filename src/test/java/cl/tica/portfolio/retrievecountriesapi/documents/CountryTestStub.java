@@ -1,4 +1,4 @@
-package cl.tica.portfolio.retrievecountriesapi.models;
+package cl.tica.portfolio.retrievecountriesapi.documents;
 
 import net.datafaker.Faker;
 

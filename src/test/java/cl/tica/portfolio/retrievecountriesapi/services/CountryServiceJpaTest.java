@@ -1,7 +1,7 @@
 package cl.tica.portfolio.retrievecountriesapi.services;
 
-import cl.tica.portfolio.retrievecountriesapi.models.Country;
-import cl.tica.portfolio.retrievecountriesapi.models.CountryTestStub;
+import cl.tica.portfolio.retrievecountriesapi.documents.Country;
+import cl.tica.portfolio.retrievecountriesapi.documents.CountryTestStub;
 import cl.tica.portfolio.retrievecountriesapi.repositories.CountryRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
