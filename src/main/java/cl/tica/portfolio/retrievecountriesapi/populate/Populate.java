@@ -6,7 +6,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
 /**
- * This class is used to populate the database with information about countries and cities.
+ * This class is used to populate database with information about countries and cities.
  * You might need to modify the models to match your JSON format before proceeding.
  *
  * <p><strong>Note:</strong> Use this class only in a development environment. After populating your development

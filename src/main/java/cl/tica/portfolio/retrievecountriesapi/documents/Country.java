@@ -1,4 +1,4 @@
-package cl.tica.portfolio.retrievecountriesapi.models;
+package cl.tica.portfolio.retrievecountriesapi.documents;
 
 import cl.tica.portfolio.retrievecountriesapi.v1.Views;
 import com.fasterxml.jackson.annotation.JsonView;
