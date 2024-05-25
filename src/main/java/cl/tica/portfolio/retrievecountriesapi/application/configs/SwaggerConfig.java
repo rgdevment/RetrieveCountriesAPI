@@ -31,7 +31,7 @@ public class SwaggerConfig {
         contact.name("Retrieve Countries API");
 
         Server server = new Server();
-        server.url("https://countries.tica.cl");
+        server.url("https://countries.restapi.cl");
 
         return new OpenAPI()
                 .info(new Info().title("Retrieve Countries API")
