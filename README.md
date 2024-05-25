@@ -8,7 +8,7 @@ cities, and other relevant information worldwide. This API is continuously devel
 
 ## Documentation
 
-- [Swagger Documentation](https://countries.tica.cl/docs)
+- [Swagger Documentation](https://countries.restapi.cl/docs)
 - [Postman API Documentation](https://www.postman.com/rgdevment/workspace/retrievecountriesapi/overview)
 
 ## Example Usage
@@ -24,13 +24,13 @@ Retrieves all country data with an option to exclude cities.
 - `excludeCities` (optional): boolean
 
 ```sh
-curl -X GET "https://countries.tica.cl/v1/all"
+curl -X GET "https://countries.restapi.cl/v1/all"
 ```
 
 or exclude cities
 
 ```sh
-curl -X GET "https://countries.tica.cl/v1/all?excludeCities=true"
+curl -X GET "https://countries.restapi.cl/v1/all?excludeCities=true"
 ```
 
 For more information and other endpoints, please refer to the Postman API Documentation or Swagger Documentation.
