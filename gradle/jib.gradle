@@ -12,6 +12,6 @@ jib {
     }
     container {
         jvmFlags = ['-Xms512m', '-Xmx512m']
-        mainClass = 'cl.tica.portfolio.retrievecountriesapi.RetrieveCountriesApiApplication'
+        mainClass = 'cl.restapi.retrievecountriesapi.RetrieveCountriesApiApplication'
     }
 }

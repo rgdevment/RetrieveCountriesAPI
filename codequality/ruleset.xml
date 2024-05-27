@@ -11,7 +11,7 @@
     <rule ref="category/java/performance.xml"/>
     <rule ref="category/java/design.xml/LoosePackageCoupling">
         <properties>
-            <property name="packages" value="cl.tica.portfolio.retrievecountriesapi"/>
+            <property name="packages" value="cl.restapi.retrievecountriesapi"/>
         </properties>
     </rule>
 </ruleset>
