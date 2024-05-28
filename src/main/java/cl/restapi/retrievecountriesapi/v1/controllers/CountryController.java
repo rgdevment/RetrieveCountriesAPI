@@ -1,7 +1,7 @@
 package cl.restapi.retrievecountriesapi.v1.controllers;
 
 import cl.restapi.retrievecountriesapi.v1.Views;
-import cl.restapi.retrievecountriesapi.documents.Country;
+import cl.restapi.retrievecountriesapi.models.Country;
 import cl.restapi.retrievecountriesapi.services.CountryService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;

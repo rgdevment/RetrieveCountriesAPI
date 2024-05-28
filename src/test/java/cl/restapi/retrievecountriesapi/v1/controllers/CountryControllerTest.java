@@ -1,7 +1,7 @@
 package cl.restapi.retrievecountriesapi.v1.controllers;
 
-import cl.restapi.retrievecountriesapi.documents.Country;
-import cl.restapi.retrievecountriesapi.documents.CountryTestStub;
+import cl.restapi.retrievecountriesapi.models.Country;
+import cl.restapi.retrievecountriesapi.models.CountryTestStub;
 import cl.restapi.retrievecountriesapi.services.CountryService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
