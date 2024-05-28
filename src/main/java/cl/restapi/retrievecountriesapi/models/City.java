@@ -7,6 +7,7 @@ import jakarta.validation.constraints.NotNull;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 @Document(collection = "cities")
 public class City {
@@ -17,6 +18,16 @@ public class City {
     @Indexed
     @JsonView(Views.Single.class)
     private String name;
+
+    @NotBlank
+    @Field("state_code")
+    @JsonView(Views.Single.class)
+    private String stateCode;
+
+    @NotBlank
+    @Field("country_code")
+    @JsonView(Views.Single.class)
+    private String countryCode;
 
     @NotNull
     @JsonView(Views.Single.class)
@@ -48,5 +59,21 @@ public class City {
 
     public void setLongitude(@NotNull Double longitude) {
         this.longitude = longitude;
+    }
+
+    public @NotBlank String getStateCode() {
+        return stateCode;
+    }
+
+    public void setStateCode(@NotBlank String stateCode) {
+        this.stateCode = stateCode;
+    }
+
+    public @NotBlank String getCountryCode() {
+        return countryCode;
+    }
+
+    public void setCountryCode(@NotBlank String countryCode) {
+        this.countryCode = countryCode;
     }
 }

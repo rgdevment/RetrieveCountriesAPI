@@ -43,19 +43,27 @@ class CountryControllerTest {
                 .andExpect(jsonPath("$[0].capital").value(countries.getFirst().getCapital()))
                 .andExpect(jsonPath("$[0].region").value(countries.getFirst().getRegion()))
                 .andExpect(jsonPath("$[0].subregion").value(countries.getFirst().getSubregion()))
-                .andExpect(jsonPath("$[0].cities").exists())
+                .andExpect(jsonPath("$[0].iso2").value(countries.getFirst().getIso2()))
+                .andExpect(jsonPath("$[0].iso3").value(countries.getFirst().getIso3()))
+                .andExpect(jsonPath("$[0].tld").value(countries.getFirst().getTld()))
+                .andExpect(jsonPath("$[0].phoneCode").value(countries.getFirst().getPhoneCode()))
+                .andExpect(jsonPath("$[0].latitude").value(countries.getFirst().getLatitude()))
+                .andExpect(jsonPath("$[0].longitude").value(countries.getFirst().getLongitude()))
+                .andExpect(jsonPath("$[0].currency").value(countries.getFirst().getCurrency()))
+                .andExpect(jsonPath("$[0].cities").doesNotExist())
+                .andExpect(jsonPath("$[0].states").doesNotExist())
                 .andExpect(jsonPath("$[0].flag").exists());
 
         verify(service, times(1)).findAll();
     }
 
     @Test
-    void testGetCountriesWithOutCities() throws Exception {
+    void testGetCountriesWithCities() throws Exception {
         List<Country> countries = CountryTestStub.randomList(4);
 
         when(service.findAll()).thenReturn(countries);
 
-        mockMvc.perform(MockMvcRequestBuilders.get("/v1/all?excludeCities=true")
+        mockMvc.perform(MockMvcRequestBuilders.get("/v1/all?includeCities=true")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
@@ -63,7 +71,71 @@ class CountryControllerTest {
                 .andExpect(jsonPath("$[0].capital").value(countries.getFirst().getCapital()))
                 .andExpect(jsonPath("$[0].region").value(countries.getFirst().getRegion()))
                 .andExpect(jsonPath("$[0].subregion").value(countries.getFirst().getSubregion()))
+                .andExpect(jsonPath("$[0].iso2").value(countries.getFirst().getIso2()))
+                .andExpect(jsonPath("$[0].iso3").value(countries.getFirst().getIso3()))
+                .andExpect(jsonPath("$[0].tld").value(countries.getFirst().getTld()))
+                .andExpect(jsonPath("$[0].phoneCode").value(countries.getFirst().getPhoneCode()))
+                .andExpect(jsonPath("$[0].latitude").value(countries.getFirst().getLatitude()))
+                .andExpect(jsonPath("$[0].longitude").value(countries.getFirst().getLongitude()))
+                .andExpect(jsonPath("$[0].currency").value(countries.getFirst().getCurrency()))
+                .andExpect(jsonPath("$[0].cities").exists())
+                .andExpect(jsonPath("$[0].states").doesNotExist())
+                .andExpect(jsonPath("$[0].flag").exists());
+
+        verify(service, times(1)).findAll();
+    }
+
+    @Test
+    void testGetCountriesWithStates() throws Exception {
+        List<Country> countries = CountryTestStub.randomList(4);
+
+        when(service.findAll()).thenReturn(countries);
+
+        mockMvc.perform(MockMvcRequestBuilders.get("/v1/all?includeStates=true")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                .andExpect(jsonPath("$[0].name").value(countries.getFirst().getName()))
+                .andExpect(jsonPath("$[0].capital").value(countries.getFirst().getCapital()))
+                .andExpect(jsonPath("$[0].region").value(countries.getFirst().getRegion()))
+                .andExpect(jsonPath("$[0].subregion").value(countries.getFirst().getSubregion()))
+                .andExpect(jsonPath("$[0].iso2").value(countries.getFirst().getIso2()))
+                .andExpect(jsonPath("$[0].iso3").value(countries.getFirst().getIso3()))
+                .andExpect(jsonPath("$[0].tld").value(countries.getFirst().getTld()))
+                .andExpect(jsonPath("$[0].phoneCode").value(countries.getFirst().getPhoneCode()))
+                .andExpect(jsonPath("$[0].latitude").value(countries.getFirst().getLatitude()))
+                .andExpect(jsonPath("$[0].longitude").value(countries.getFirst().getLongitude()))
+                .andExpect(jsonPath("$[0].currency").value(countries.getFirst().getCurrency()))
                 .andExpect(jsonPath("$[0].cities").doesNotExist())
+                .andExpect(jsonPath("$[0].states").exists())
+                .andExpect(jsonPath("$[0].flag").exists());
+
+        verify(service, times(1)).findAll();
+    }
+
+    @Test
+    void testGetCountriesWithCitiesAndStates() throws Exception {
+        List<Country> countries = CountryTestStub.randomList(4);
+
+        when(service.findAll()).thenReturn(countries);
+
+        mockMvc.perform(MockMvcRequestBuilders.get("/v1/all?includeCities=true&includeStates=true")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                .andExpect(jsonPath("$[0].name").value(countries.getFirst().getName()))
+                .andExpect(jsonPath("$[0].capital").value(countries.getFirst().getCapital()))
+                .andExpect(jsonPath("$[0].region").value(countries.getFirst().getRegion()))
+                .andExpect(jsonPath("$[0].subregion").value(countries.getFirst().getSubregion()))
+                .andExpect(jsonPath("$[0].iso2").value(countries.getFirst().getIso2()))
+                .andExpect(jsonPath("$[0].iso3").value(countries.getFirst().getIso3()))
+                .andExpect(jsonPath("$[0].tld").value(countries.getFirst().getTld()))
+                .andExpect(jsonPath("$[0].phoneCode").value(countries.getFirst().getPhoneCode()))
+                .andExpect(jsonPath("$[0].latitude").value(countries.getFirst().getLatitude()))
+                .andExpect(jsonPath("$[0].longitude").value(countries.getFirst().getLongitude()))
+                .andExpect(jsonPath("$[0].currency").value(countries.getFirst().getCurrency()))
+                .andExpect(jsonPath("$[0].cities").exists())
+                .andExpect(jsonPath("$[0].states").exists())
                 .andExpect(jsonPath("$[0].flag").exists());
 
         verify(service, times(1)).findAll();
@@ -100,11 +172,20 @@ class CountryControllerTest {
         mockMvc.perform(MockMvcRequestBuilders.get("/v1/" + country.getName())
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.name").value(country.getName()))
                 .andExpect(jsonPath("$.capital").value(country.getCapital()))
                 .andExpect(jsonPath("$.region").value(country.getRegion()))
                 .andExpect(jsonPath("$.subregion").value(country.getSubregion()))
-                .andExpect(jsonPath("$.cities").exists())
+                .andExpect(jsonPath("$.iso2").value(country.getIso2()))
+                .andExpect(jsonPath("$.iso3").value(country.getIso3()))
+                .andExpect(jsonPath("$.tld").value(country.getTld()))
+                .andExpect(jsonPath("$.phoneCode").value(country.getPhoneCode()))
+                .andExpect(jsonPath("$.latitude").value(country.getLatitude()))
+                .andExpect(jsonPath("$.longitude").value(country.getLongitude()))
+                .andExpect(jsonPath("$.currency").value(country.getCurrency()))
+                .andExpect(jsonPath("$.cities").doesNotExist())
+                .andExpect(jsonPath("$.states").doesNotExist())
                 .andExpect(jsonPath("$.flag").exists());
 
         verify(service, times(1)).findByName(country.getName());
@@ -119,11 +200,20 @@ class CountryControllerTest {
         mockMvc.perform(MockMvcRequestBuilders.get("/v1/capital/" + country.getCapital())
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.name").value(country.getName()))
                 .andExpect(jsonPath("$.capital").value(country.getCapital()))
                 .andExpect(jsonPath("$.region").value(country.getRegion()))
                 .andExpect(jsonPath("$.subregion").value(country.getSubregion()))
-                .andExpect(jsonPath("$.cities").exists())
+                .andExpect(jsonPath("$.iso2").value(country.getIso2()))
+                .andExpect(jsonPath("$.iso3").value(country.getIso3()))
+                .andExpect(jsonPath("$.tld").value(country.getTld()))
+                .andExpect(jsonPath("$.phoneCode").value(country.getPhoneCode()))
+                .andExpect(jsonPath("$.latitude").value(country.getLatitude()))
+                .andExpect(jsonPath("$.longitude").value(country.getLongitude()))
+                .andExpect(jsonPath("$.currency").value(country.getCurrency()))
+                .andExpect(jsonPath("$.cities").doesNotExist())
+                .andExpect(jsonPath("$.states").doesNotExist())
                 .andExpect(jsonPath("$.flag").exists());
 
         verify(service, times(1)).findByCapital(country.getCapital());
@@ -136,14 +226,23 @@ class CountryControllerTest {
         when(service.findByName(country.getName())).thenReturn(country);
 
         mockMvc.perform(MockMvcRequestBuilders.get("/v1/" + country.getName()
-                                + "?excludeCities=true")
+                                + "?includeCities=true")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.name").value(country.getName()))
                 .andExpect(jsonPath("$.capital").value(country.getCapital()))
                 .andExpect(jsonPath("$.region").value(country.getRegion()))
                 .andExpect(jsonPath("$.subregion").value(country.getSubregion()))
-                .andExpect(jsonPath("$.cities").doesNotExist())
+                .andExpect(jsonPath("$.iso2").value(country.getIso2()))
+                .andExpect(jsonPath("$.iso3").value(country.getIso3()))
+                .andExpect(jsonPath("$.tld").value(country.getTld()))
+                .andExpect(jsonPath("$.phoneCode").value(country.getPhoneCode()))
+                .andExpect(jsonPath("$.latitude").value(country.getLatitude()))
+                .andExpect(jsonPath("$.longitude").value(country.getLongitude()))
+                .andExpect(jsonPath("$.currency").value(country.getCurrency()))
+                .andExpect(jsonPath("$.cities").exists())
+                .andExpect(jsonPath("$.states").doesNotExist())
                 .andExpect(jsonPath("$.flag").exists());
 
         verify(service, times(1)).findByName(country.getName());
@@ -163,7 +262,15 @@ class CountryControllerTest {
                 .andExpect(jsonPath("$[0].capital").value(countries.getFirst().getCapital()))
                 .andExpect(jsonPath("$[0].region").value(countries.getFirst().getRegion()))
                 .andExpect(jsonPath("$[0].subregion").value(countries.getFirst().getSubregion()))
-                .andExpect(jsonPath("$[0].cities").exists())
+                .andExpect(jsonPath("$[0].iso2").value(countries.getFirst().getIso2()))
+                .andExpect(jsonPath("$[0].iso3").value(countries.getFirst().getIso3()))
+                .andExpect(jsonPath("$[0].tld").value(countries.getFirst().getTld()))
+                .andExpect(jsonPath("$[0].phoneCode").value(countries.getFirst().getPhoneCode()))
+                .andExpect(jsonPath("$[0].latitude").value(countries.getFirst().getLatitude()))
+                .andExpect(jsonPath("$[0].longitude").value(countries.getFirst().getLongitude()))
+                .andExpect(jsonPath("$[0].currency").value(countries.getFirst().getCurrency()))
+                .andExpect(jsonPath("$[0].cities").doesNotExist())
+                .andExpect(jsonPath("$[0].states").doesNotExist())
                 .andExpect(jsonPath("$[0].flag").exists());
 
         verify(service, times(1)).findByRegion(countries.getFirst().getRegion());
@@ -184,7 +291,15 @@ class CountryControllerTest {
                 .andExpect(jsonPath("$[0].capital").value(countries.getFirst().getCapital()))
                 .andExpect(jsonPath("$[0].region").value(countries.getFirst().getRegion()))
                 .andExpect(jsonPath("$[0].subregion").value(countries.getFirst().getSubregion()))
-                .andExpect(jsonPath("$[0].cities").exists())
+                .andExpect(jsonPath("$[0].iso2").value(countries.getFirst().getIso2()))
+                .andExpect(jsonPath("$[0].iso3").value(countries.getFirst().getIso3()))
+                .andExpect(jsonPath("$[0].tld").value(countries.getFirst().getTld()))
+                .andExpect(jsonPath("$[0].phoneCode").value(countries.getFirst().getPhoneCode()))
+                .andExpect(jsonPath("$[0].latitude").value(countries.getFirst().getLatitude()))
+                .andExpect(jsonPath("$[0].longitude").value(countries.getFirst().getLongitude()))
+                .andExpect(jsonPath("$[0].currency").value(countries.getFirst().getCurrency()))
+                .andExpect(jsonPath("$[0].cities").doesNotExist())
+                .andExpect(jsonPath("$[0].states").doesNotExist())
                 .andExpect(jsonPath("$[0].flag").exists());
 
         verify(service, times(1)).findBySubregion(countries.getFirst().getSubregion());

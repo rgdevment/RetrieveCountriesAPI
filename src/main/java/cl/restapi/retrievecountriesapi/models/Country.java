@@ -1,7 +1,10 @@
 package cl.restapi.retrievecountriesapi.models;
 
+import cl.restapi.retrievecountriesapi.serializer.CityListSerializer;
+import cl.restapi.retrievecountriesapi.serializer.StateListSerializer;
 import cl.restapi.retrievecountriesapi.v1.Views;
 import com.fasterxml.jackson.annotation.JsonView;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import org.springframework.data.annotation.Id;
@@ -10,6 +13,7 @@ import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -67,12 +71,19 @@ public class Country {
     private Map<String, String> flag;
 
     @DBRef
-    @JsonView(Views.Single.class)
+    @JsonSerialize(using = StateListSerializer.class)
+    @JsonView({Views.Complete.class, Views.WithStates.class})
     private List<State> states;
 
     @DBRef
-    @JsonView(Views.Complete.class)
+    @JsonSerialize(using = CityListSerializer.class)
+    @JsonView({Views.Complete.class, Views.WithCities.class})
     private List<City> cities;
+
+    public Country() {
+        this.states = new ArrayList<>();
+        this.cities = new ArrayList<>();
+    }
 
     public @NotBlank String getName() {
         return name;

@@ -9,6 +9,7 @@ public class StateTestStub {
     public static State create(
             String name,
             String code,
+            String countryCode,
             Double latitude,
             Double longitude,
             List<City> cities
@@ -16,6 +17,7 @@ public class StateTestStub {
         State state = new State();
         state.setName(name);
         state.setCode(code);
+        state.setCountryCode(countryCode);
         state.setLatitude(latitude);
         state.setLongitude(longitude);
         state.setCities(cities);
@@ -31,11 +33,12 @@ public class StateTestStub {
         Faker faker = new Faker();
         String name = faker.address().state();
         String code = faker.address().countryCode();
+        String countryCode = faker.address().countryCode();
         Double latitude = faker.number().randomDouble(2, -90, 90);
         Double longitude = faker.number().randomDouble(2, -90, 90);
         List<City> cities = CityTestStub.randomList(size);
 
-        return create(name, code, latitude, longitude, cities);
+        return create(name, code, countryCode, latitude, longitude, cities);
     }
 
     public static List<State> randomList(int size) {

@@ -85,12 +85,14 @@ class CountryServiceJpaTest {
         assertEquals(countriesExpected.getFirst().getRegion(), countries.getFirst().getRegion());
         assertEquals(countriesExpected.getFirst().getSubregion(), countries.getFirst().getSubregion());
         assertEquals(cities.getFirst().getName(), citiesExpected.getFirst().getName());
+        assertEquals(cities.getFirst().getCountryCode(), citiesExpected.getFirst().getCountryCode());
         assertEquals(cities.getFirst().getLatitude(), citiesExpected.getFirst().getLatitude());
         assertEquals(cities.getFirst().getLongitude(), citiesExpected.getFirst().getLongitude());
         assertEquals(countriesExpected.getFirst().getFlag(), countries.getFirst().getFlag());
 
         assertEquals(states.getFirst().getName(), statesExpected.getFirst().getName());
         assertEquals(states.getFirst().getCode(), statesExpected.getFirst().getCode());
+        assertEquals(states.getFirst().getCountryCode(), statesExpected.getFirst().getCountryCode());
         assertEquals(states.getFirst().getLatitude(), statesExpected.getFirst().getLatitude());
         assertEquals(states.getFirst().getLongitude(), statesExpected.getFirst().getLongitude());
         assertEquals(states.getFirst().getCities(), statesExpected.getFirst().getCities());

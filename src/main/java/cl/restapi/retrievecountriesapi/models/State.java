@@ -1,7 +1,6 @@
 package cl.restapi.retrievecountriesapi.models;
 
 import cl.restapi.retrievecountriesapi.v1.Views;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonView;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -9,7 +8,9 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Document(collection = "states")
@@ -27,6 +28,12 @@ public class State {
     @JsonView(Views.Single.class)
     private String code;
 
+    @NotBlank
+    @Indexed
+    @Field("country_code")
+    @JsonView(Views.Single.class)
+    private String countryCode;
+
     @NotNull
     @JsonView(Views.Single.class)
     private Double latitude;
@@ -36,8 +43,12 @@ public class State {
     private Double longitude;
 
     @DBRef
-    @JsonIgnore
+    @JsonView(Views.Single.class)
     private List<City> cities;
+
+    public State() {
+        this.cities = new ArrayList<>();
+    }
 
     public @NotBlank String getName() {
         return name;
@@ -77,5 +88,13 @@ public class State {
 
     public void setCities(List<City> cities) {
         this.cities = cities;
+    }
+
+    public @NotBlank String getCountryCode() {
+        return countryCode;
+    }
+
+    public void setCountryCode(@NotBlank String countryCode) {
+        this.countryCode = countryCode;
     }
 }
