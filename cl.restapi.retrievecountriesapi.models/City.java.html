@@ -7,9 +7,10 @@ import jakarta.validation.constraints.NotNull;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 @Document(collection = &quot;cities&quot;)
-<span class="fc" id="L12">public class City {</span>
+<span class="fc" id="L13">public class City {</span>
     @Id
     private String id;
 
@@ -17,6 +18,16 @@ import org.springframework.data.mongodb.core.mapping.Document;
     @Indexed
     @JsonView(Views.Single.class)
     private String name;
+
+    @NotBlank
+    @Field(&quot;state_code&quot;)
+    @JsonView(Views.Single.class)
+    private String stateCode;
+
+    @NotBlank
+    @Field(&quot;country_code&quot;)
+    @JsonView(Views.Single.class)
+    private String countryCode;
 
     @NotNull
     @JsonView(Views.Single.class)
@@ -27,27 +38,43 @@ import org.springframework.data.mongodb.core.mapping.Document;
     private Double longitude;
 
     public @NotBlank String getName() {
-<span class="fc" id="L30">        return name;</span>
+<span class="fc" id="L41">        return name;</span>
     }
 
     public void setName(@NotBlank String name) {
-<span class="fc" id="L34">        this.name = name;</span>
-<span class="fc" id="L35">    }</span>
+<span class="fc" id="L45">        this.name = name;</span>
+<span class="fc" id="L46">    }</span>
 
     public @NotNull Double getLatitude() {
-<span class="fc" id="L38">        return latitude;</span>
+<span class="fc" id="L49">        return latitude;</span>
     }
 
     public void setLatitude(@NotNull Double latitude) {
-<span class="fc" id="L42">        this.latitude = latitude;</span>
-<span class="fc" id="L43">    }</span>
+<span class="fc" id="L53">        this.latitude = latitude;</span>
+<span class="fc" id="L54">    }</span>
 
     public @NotNull Double getLongitude() {
-<span class="fc" id="L46">        return longitude;</span>
+<span class="fc" id="L57">        return longitude;</span>
     }
 
     public void setLongitude(@NotNull Double longitude) {
-<span class="fc" id="L50">        this.longitude = longitude;</span>
-<span class="fc" id="L51">    }</span>
+<span class="fc" id="L61">        this.longitude = longitude;</span>
+<span class="fc" id="L62">    }</span>
+
+    public @NotBlank String getStateCode() {
+<span class="fc" id="L65">        return stateCode;</span>
+    }
+
+    public void setStateCode(@NotBlank String stateCode) {
+<span class="fc" id="L69">        this.stateCode = stateCode;</span>
+<span class="fc" id="L70">    }</span>
+
+    public @NotBlank String getCountryCode() {
+<span class="fc" id="L73">        return countryCode;</span>
+    }
+
+    public void setCountryCode(@NotBlank String countryCode) {
+<span class="fc" id="L77">        this.countryCode = countryCode;</span>
+<span class="fc" id="L78">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>
