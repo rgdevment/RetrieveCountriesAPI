@@ -37,6 +37,6 @@ jobs:
             --platform managed \
             --region ${{ secrets.GCP_REGION }} \
             --max-instances ${{ secrets.INSTANCE_MAX }} \
-            --memory ${{ secrets.INSTANCE_MEMORY }} \
+            --memory ${{ secrets.INSTANCE_MEMORY }}Mi \
             --concurrency ${{ secrets.CONCURRENCY_MAX }} \
             --set-env-vars SPRING_DATA_MONGODB_DATABASE=${{ secrets.SPRING_DATA_MONGODB_DATABASE }},SPRING_DATA_MONGODB_USERNAME=${{ secrets.SPRING_DATA_MONGODB_USERNAME }},SPRING_DATA_MONGODB_PASSWORD=${{ secrets.SPRING_DATA_MONGODB_PASSWORD }},SPRING_DATA_MONGODB_URI=${{ secrets.SPRING_DATA_MONGODB_URI }}
