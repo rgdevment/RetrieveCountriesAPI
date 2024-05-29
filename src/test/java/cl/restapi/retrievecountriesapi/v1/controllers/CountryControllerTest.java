@@ -251,7 +251,7 @@ class CountryControllerTest {
                 .andExpect(jsonPath("$.latitude").value(country.getLatitude()))
                 .andExpect(jsonPath("$.longitude").value(country.getLongitude()))
                 .andExpect(jsonPath("$.currency").exists())
-                .andExpect(jsonPath("$.cities").doesNotExist())
+                .andExpect(jsonPath("$.cities").exists())
                 .andExpect(jsonPath("$.states").doesNotExist())
                 .andExpect(jsonPath("$.flags").exists());
 
@@ -279,7 +279,7 @@ class CountryControllerTest {
                 .andExpect(jsonPath("$.latitude").value(country.getLatitude()))
                 .andExpect(jsonPath("$.longitude").value(country.getLongitude()))
                 .andExpect(jsonPath("$.currency").exists())
-                .andExpect(jsonPath("$.cities").doesNotExist())
+                .andExpect(jsonPath("$.cities").exists())
                 .andExpect(jsonPath("$.states").doesNotExist())
                 .andExpect(jsonPath("$.flags").exists());
 
@@ -337,7 +337,7 @@ class CountryControllerTest {
                 .andExpect(jsonPath("$[0].longitude").value(countries.getFirst().getLongitude()))
                 .andExpect(jsonPath("$[0].currency").exists())
                 .andExpect(jsonPath("$[0].cities").doesNotExist())
-                .andExpect(jsonPath("$[0].states").doesNotExist())
+                .andExpect(jsonPath("$[0].states").exists())
                 .andExpect(jsonPath("$[0].flags").exists());
 
         verify(service, times(1)).findByRegion(countries.getFirst().getRegion());
@@ -366,7 +366,7 @@ class CountryControllerTest {
                 .andExpect(jsonPath("$[0].longitude").value(countries.getFirst().getLongitude()))
                 .andExpect(jsonPath("$[0].currency").exists())
                 .andExpect(jsonPath("$[0].cities").doesNotExist())
-                .andExpect(jsonPath("$[0].states").doesNotExist())
+                .andExpect(jsonPath("$[0].states").exists())
                 .andExpect(jsonPath("$[0].flags").exists());
 
         verify(service, times(1)).findBySubregion(countries.getFirst().getSubregion());
