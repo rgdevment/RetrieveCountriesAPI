@@ -11,7 +11,10 @@ jib {
         tags = ['latest', project.version.toString()]
     }
     container {
-        jvmFlags = ['-Xms512m', '-Xmx512m']
+        def instanceMemory = System.getenv('INSTANCE_MEMORY') as double
+        def minMemory = 0.7 * instanceMemory
+        def maxMemory = 0.8 * instanceMemory
+        jvmFlags = ["-Xms${minMemory}m", "-Xmx${maxMemory}m"]
         mainClass = 'cl.restapi.retrievecountriesapi.RetrieveCountriesApiApplication'
     }
 }

@@ -10,7 +10,7 @@ cities, and other relevant information worldwide. This API is continuously devel
 ## Documentation
 
 - [Swagger Documentation](https://countries.restapi.cl/docs)
-- [Postman API Documentation](https://www.postman.com/rgdevment/workspace/retrievecountriesapi/overview)
+- [Postman API Documentation](https://www.postman.com/rgdevment/workspace/retrievecountriesapi/api/f7b4022f-5ec6-4d74-9718-523dff4931f8/definition/3a8a30c1-7515-438f-ba7c-40df724b4e85?version=c40899c5-b6ca-40c4-a9d2-9ac9e5660d5b)
 
 ## Example Usage
 
