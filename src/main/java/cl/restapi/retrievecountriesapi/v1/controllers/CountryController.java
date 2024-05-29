@@ -48,9 +48,10 @@ public class CountryController {
             content = @Content(mediaType = "application/json", schema = @Schema(implementation = Country.class)))
     @ApiResponse(responseCode = "204", description = "No content", content = @Content)
     @GetMapping("/{name}")
-    public ResponseEntity<MappingJacksonValue> getCountryByName(@PathVariable String name,
-                                                                @RequestParam(required = false) Boolean includeCities,
-                                                                @RequestParam(required = false) Boolean includeStates) {
+    public ResponseEntity<MappingJacksonValue> getCountryByName(
+            @PathVariable String name,
+            @RequestParam(required = false, defaultValue = "true") Boolean includeCities,
+            @RequestParam(required = false) Boolean includeStates) {
         Country country = this.service.findByName(name);
         return getMappingJacksonValueResponseEntity(includeCities, includeStates, country);
     }
@@ -63,7 +64,8 @@ public class CountryController {
     @ApiResponse(responseCode = "204", description = "No content", content = @Content)
     @GetMapping("/capital/{name}")
     public ResponseEntity<MappingJacksonValue> getCountryByCapital(
-            @PathVariable String name, @RequestParam(required = false) Boolean includeCities,
+            @PathVariable String name,
+            @RequestParam(required = false, defaultValue = "true") Boolean includeCities,
             @RequestParam(required = false) Boolean includeStates) {
         Country country = this.service.findByCapital(name);
         return getMappingJacksonValueResponseEntity(includeCities, includeStates, country);
@@ -77,8 +79,9 @@ public class CountryController {
     @ApiResponse(responseCode = "204", description = "No content", content = @Content)
     @GetMapping("/region/{region}")
     public ResponseEntity<MappingJacksonValue> getCountriesByRegion(
-            @PathVariable String region, @RequestParam(required = false) Boolean includeCities,
-            @RequestParam(required = false) Boolean includeStates) {
+            @PathVariable String region,
+            @RequestParam(required = false) Boolean includeCities,
+            @RequestParam(required = false, defaultValue = "true") Boolean includeStates) {
         List<Country> countries = service.findByRegion(region);
         return getMappingJacksonValueResponseListEntity(includeCities, includeStates, countries);
     }
@@ -91,8 +94,9 @@ public class CountryController {
     @ApiResponse(responseCode = "204", description = "No content", content = @Content)
     @GetMapping("/subregion/{subregion}")
     public ResponseEntity<MappingJacksonValue> getCountriesBySubregion(
-            @PathVariable String subregion, @RequestParam(required = false) Boolean includeCities,
-            @RequestParam(required = false) Boolean includeStates) {
+            @PathVariable String subregion,
+            @RequestParam(required = false) Boolean includeCities,
+            @RequestParam(required = false, defaultValue = "true") Boolean includeStates) {
         List<Country> countries = service.findBySubregion(subregion);
         return getMappingJacksonValueResponseListEntity(includeCities, includeStates, countries);
     }
