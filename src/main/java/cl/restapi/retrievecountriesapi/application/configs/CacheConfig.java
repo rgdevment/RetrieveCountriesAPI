@@ -22,9 +22,9 @@ public class CacheConfig {
 
     Caffeine<Object, Object> caffeineCacheBuilder() {
         return Caffeine.newBuilder()
-                .initialCapacity(50)
-                .maximumSize(250)
-                .expireAfterWrite(30, TimeUnit.DAYS)
+                .initialCapacity(10)
+                .maximumSize(30)
+                .expireAfterWrite(7, TimeUnit.DAYS)
                 .weakKeys()
                 .recordStats();
     }
