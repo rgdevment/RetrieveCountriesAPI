@@ -13,14 +13,13 @@ public class CityTestStub {
             Double latitude,
             Double longitude
     ) {
-        City city = new City();
-        city.setName(name);
-        city.setStateCode(stateCode);
-        city.setCountryCode(countryCode);
-        city.setLatitude(latitude);
-        city.setLongitude(longitude);
-
-        return city;
+        return new City(
+                name,
+                stateCode,
+                countryCode,
+                latitude,
+                longitude
+        );
     }
 
     public static City random() {

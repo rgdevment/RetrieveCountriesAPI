@@ -49,10 +49,20 @@ class CountryControllerTest {
                 .andExpect(jsonPath("$[0].phoneCode").value(countries.getFirst().getPhoneCode()))
                 .andExpect(jsonPath("$[0].latitude").value(countries.getFirst().getLatitude()))
                 .andExpect(jsonPath("$[0].longitude").value(countries.getFirst().getLongitude()))
-                .andExpect(jsonPath("$[0].currency").value(countries.getFirst().getCurrency()))
+
+                .andExpect(jsonPath("$[0].currency").exists())
+                .andExpect(jsonPath("$[0].currency.symbol").value(countries.getFirst().getCurrency().symbol()))
+                .andExpect(jsonPath("$[0].currency.code").value(countries.getFirst().getCurrency().code()))
+                .andExpect(jsonPath("$[0].currency.name").value(countries.getFirst().getCurrency().name()))
+
                 .andExpect(jsonPath("$[0].cities").doesNotExist())
                 .andExpect(jsonPath("$[0].states").doesNotExist())
-                .andExpect(jsonPath("$[0].flag").exists());
+
+                .andExpect(jsonPath("$[0].flags").exists())
+                .andExpect(jsonPath("$[0].flags.ico").value(countries.getFirst().getFlags().ico()))
+                .andExpect(jsonPath("$[0].flags.png").value(countries.getFirst().getFlags().png()))
+                .andExpect(jsonPath("$[0].flags.svg").value(countries.getFirst().getFlags().svg()))
+                .andExpect(jsonPath("$[0].flags.alt").value(countries.getFirst().getFlags().alt()));
 
         verify(service, times(1)).findAll();
     }
@@ -77,10 +87,26 @@ class CountryControllerTest {
                 .andExpect(jsonPath("$[0].phoneCode").value(countries.getFirst().getPhoneCode()))
                 .andExpect(jsonPath("$[0].latitude").value(countries.getFirst().getLatitude()))
                 .andExpect(jsonPath("$[0].longitude").value(countries.getFirst().getLongitude()))
-                .andExpect(jsonPath("$[0].currency").value(countries.getFirst().getCurrency()))
+
+                .andExpect(jsonPath("$[0].currency").exists())
+                .andExpect(jsonPath("$[0].currency.symbol").value(countries.getFirst().getCurrency().symbol()))
+                .andExpect(jsonPath("$[0].currency.code").value(countries.getFirst().getCurrency().code()))
+                .andExpect(jsonPath("$[0].currency.name").value(countries.getFirst().getCurrency().name()))
+
                 .andExpect(jsonPath("$[0].cities").exists())
+                .andExpect(jsonPath("$[0].cities[0].name").value(countries.getFirst().getCities().getFirst().name()))
+                .andExpect(jsonPath("$[0].cities[0].latitude").value(
+                        countries.getFirst().getCities().getFirst().latitude()))
+                .andExpect(jsonPath("$[0].cities[0].longitude").value(
+                        countries.getFirst().getCities().getFirst().longitude()))
+
                 .andExpect(jsonPath("$[0].states").doesNotExist())
-                .andExpect(jsonPath("$[0].flag").exists());
+
+                .andExpect(jsonPath("$[0].flags").exists())
+                .andExpect(jsonPath("$[0].flags.ico").value(countries.getFirst().getFlags().ico()))
+                .andExpect(jsonPath("$[0].flags.png").value(countries.getFirst().getFlags().png()))
+                .andExpect(jsonPath("$[0].flags.svg").value(countries.getFirst().getFlags().svg()))
+                .andExpect(jsonPath("$[0].flags.alt").value(countries.getFirst().getFlags().alt()));
 
         verify(service, times(1)).findAll();
     }
@@ -105,10 +131,26 @@ class CountryControllerTest {
                 .andExpect(jsonPath("$[0].phoneCode").value(countries.getFirst().getPhoneCode()))
                 .andExpect(jsonPath("$[0].latitude").value(countries.getFirst().getLatitude()))
                 .andExpect(jsonPath("$[0].longitude").value(countries.getFirst().getLongitude()))
-                .andExpect(jsonPath("$[0].currency").value(countries.getFirst().getCurrency()))
+
+                .andExpect(jsonPath("$[0].currency").exists())
+                .andExpect(jsonPath("$[0].currency.symbol").value(countries.getFirst().getCurrency().symbol()))
+                .andExpect(jsonPath("$[0].currency.code").value(countries.getFirst().getCurrency().code()))
+                .andExpect(jsonPath("$[0].currency.name").value(countries.getFirst().getCurrency().name()))
+
                 .andExpect(jsonPath("$[0].cities").doesNotExist())
+
                 .andExpect(jsonPath("$[0].states").exists())
-                .andExpect(jsonPath("$[0].flag").exists());
+                .andExpect(jsonPath("$[0].states[0].name").value(countries.getFirst().getStates().getFirst().name()))
+                .andExpect(jsonPath("$[0].states[0].latitude").value(
+                        countries.getFirst().getStates().getFirst().latitude()))
+                .andExpect(jsonPath("$[0].states[0].longitude").value(
+                        countries.getFirst().getStates().getFirst().longitude()))
+
+                .andExpect(jsonPath("$[0].flags").exists())
+                .andExpect(jsonPath("$[0].flags.ico").value(countries.getFirst().getFlags().ico()))
+                .andExpect(jsonPath("$[0].flags.png").value(countries.getFirst().getFlags().png()))
+                .andExpect(jsonPath("$[0].flags.svg").value(countries.getFirst().getFlags().svg()))
+                .andExpect(jsonPath("$[0].flags.alt").value(countries.getFirst().getFlags().alt()));
 
         verify(service, times(1)).findAll();
     }
@@ -133,10 +175,35 @@ class CountryControllerTest {
                 .andExpect(jsonPath("$[0].phoneCode").value(countries.getFirst().getPhoneCode()))
                 .andExpect(jsonPath("$[0].latitude").value(countries.getFirst().getLatitude()))
                 .andExpect(jsonPath("$[0].longitude").value(countries.getFirst().getLongitude()))
-                .andExpect(jsonPath("$[0].currency").value(countries.getFirst().getCurrency()))
+
+                .andExpect(jsonPath("$[0].currency").exists())
+                .andExpect(jsonPath("$[0].currency.symbol").value(countries.getFirst().getCurrency().symbol()))
+                .andExpect(jsonPath("$[0].currency.code").value(countries.getFirst().getCurrency().code()))
+                .andExpect(jsonPath("$[0].currency.name").value(countries.getFirst().getCurrency().name()))
+
                 .andExpect(jsonPath("$[0].cities").exists())
+                .andExpect(jsonPath("$[0].cities[0].name").value(countries.getFirst().getCities().getFirst().name()))
+                .andExpect(jsonPath("$[0].cities[0].state_code").value(
+                        countries.getFirst().getCities().getFirst().stateCode()))
+                .andExpect(jsonPath("$[0].cities[0].latitude").value(
+                        countries.getFirst().getCities().getFirst().latitude()))
+                .andExpect(jsonPath("$[0].cities[0].longitude").value(
+                        countries.getFirst().getCities().getFirst().longitude()))
+
                 .andExpect(jsonPath("$[0].states").exists())
-                .andExpect(jsonPath("$[0].flag").exists());
+                .andExpect(jsonPath("$[0].states[0].name").value(countries.getFirst().getStates().getFirst().name()))
+                .andExpect(jsonPath("$[0].states[0].code").value(countries.getFirst().getStates().getFirst().code()))
+                .andExpect(jsonPath("$[0].states[0].latitude").value(
+                        countries.getFirst().getStates().getFirst().latitude()))
+                .andExpect(jsonPath("$[0].states[0].longitude").value(
+                        countries.getFirst().getStates().getFirst().longitude()))
+
+                .andExpect(jsonPath("$[0].flags").exists())
+                .andExpect(jsonPath("$[0].flags.ico").value(countries.getFirst().getFlags().ico()))
+                .andExpect(jsonPath("$[0].flags.png").value(countries.getFirst().getFlags().png()))
+                .andExpect(jsonPath("$[0].flags.svg").value(countries.getFirst().getFlags().svg()))
+                .andExpect(jsonPath("$[0].flags.alt").value(countries.getFirst().getFlags().alt()));
+
 
         verify(service, times(1)).findAll();
     }
@@ -183,10 +250,10 @@ class CountryControllerTest {
                 .andExpect(jsonPath("$.phoneCode").value(country.getPhoneCode()))
                 .andExpect(jsonPath("$.latitude").value(country.getLatitude()))
                 .andExpect(jsonPath("$.longitude").value(country.getLongitude()))
-                .andExpect(jsonPath("$.currency").value(country.getCurrency()))
+                .andExpect(jsonPath("$.currency").exists())
                 .andExpect(jsonPath("$.cities").doesNotExist())
                 .andExpect(jsonPath("$.states").doesNotExist())
-                .andExpect(jsonPath("$.flag").exists());
+                .andExpect(jsonPath("$.flags").exists());
 
         verify(service, times(1)).findByName(country.getName());
     }
@@ -211,10 +278,10 @@ class CountryControllerTest {
                 .andExpect(jsonPath("$.phoneCode").value(country.getPhoneCode()))
                 .andExpect(jsonPath("$.latitude").value(country.getLatitude()))
                 .andExpect(jsonPath("$.longitude").value(country.getLongitude()))
-                .andExpect(jsonPath("$.currency").value(country.getCurrency()))
+                .andExpect(jsonPath("$.currency").exists())
                 .andExpect(jsonPath("$.cities").doesNotExist())
                 .andExpect(jsonPath("$.states").doesNotExist())
-                .andExpect(jsonPath("$.flag").exists());
+                .andExpect(jsonPath("$.flags").exists());
 
         verify(service, times(1)).findByCapital(country.getCapital());
     }
@@ -240,10 +307,10 @@ class CountryControllerTest {
                 .andExpect(jsonPath("$.phoneCode").value(country.getPhoneCode()))
                 .andExpect(jsonPath("$.latitude").value(country.getLatitude()))
                 .andExpect(jsonPath("$.longitude").value(country.getLongitude()))
-                .andExpect(jsonPath("$.currency").value(country.getCurrency()))
+                .andExpect(jsonPath("$.currency").exists())
                 .andExpect(jsonPath("$.cities").exists())
                 .andExpect(jsonPath("$.states").doesNotExist())
-                .andExpect(jsonPath("$.flag").exists());
+                .andExpect(jsonPath("$.flags").exists());
 
         verify(service, times(1)).findByName(country.getName());
     }
@@ -268,10 +335,10 @@ class CountryControllerTest {
                 .andExpect(jsonPath("$[0].phoneCode").value(countries.getFirst().getPhoneCode()))
                 .andExpect(jsonPath("$[0].latitude").value(countries.getFirst().getLatitude()))
                 .andExpect(jsonPath("$[0].longitude").value(countries.getFirst().getLongitude()))
-                .andExpect(jsonPath("$[0].currency").value(countries.getFirst().getCurrency()))
+                .andExpect(jsonPath("$[0].currency").exists())
                 .andExpect(jsonPath("$[0].cities").doesNotExist())
                 .andExpect(jsonPath("$[0].states").doesNotExist())
-                .andExpect(jsonPath("$[0].flag").exists());
+                .andExpect(jsonPath("$[0].flags").exists());
 
         verify(service, times(1)).findByRegion(countries.getFirst().getRegion());
     }
@@ -297,10 +364,10 @@ class CountryControllerTest {
                 .andExpect(jsonPath("$[0].phoneCode").value(countries.getFirst().getPhoneCode()))
                 .andExpect(jsonPath("$[0].latitude").value(countries.getFirst().getLatitude()))
                 .andExpect(jsonPath("$[0].longitude").value(countries.getFirst().getLongitude()))
-                .andExpect(jsonPath("$[0].currency").value(countries.getFirst().getCurrency()))
+                .andExpect(jsonPath("$[0].currency").exists())
                 .andExpect(jsonPath("$[0].cities").doesNotExist())
                 .andExpect(jsonPath("$[0].states").doesNotExist())
-                .andExpect(jsonPath("$[0].flag").exists());
+                .andExpect(jsonPath("$[0].flags").exists());
 
         verify(service, times(1)).findBySubregion(countries.getFirst().getSubregion());
     }

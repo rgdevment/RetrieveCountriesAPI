@@ -16,14 +16,14 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-class CountryServiceJpaTest {
+class CountryServiceMongoTest {
     private CountryRepository repository;
-    private CountryServiceJpa service;
+    private CountryServiceMongo service;
 
     @BeforeEach
     void setUp() {
         this.repository = mock(CountryRepository.class);
-        this.service = new CountryServiceJpa(repository);
+        this.service = new CountryServiceMongo(repository);
     }
 
     @Test
@@ -44,7 +44,7 @@ class CountryServiceJpaTest {
         assertEquals(countryExpected.getRegion(), country.getRegion());
         assertEquals(countryExpected.getSubregion(), country.getSubregion());
         assertEquals(countryExpected.getCities(), country.getCities());
-        assertEquals(countryExpected.getFlag(), country.getFlag());
+        assertEquals(countryExpected.getFlags(), country.getFlags());
 
         verify(repository, times(1)).findCountriesByNameIgnoreCase(countryExpected.getName());
     }
@@ -61,7 +61,7 @@ class CountryServiceJpaTest {
         assertEquals(countryExpected.getRegion(), country.getRegion());
         assertEquals(countryExpected.getSubregion(), country.getSubregion());
         assertEquals(countryExpected.getCities(), country.getCities());
-        assertEquals(countryExpected.getFlag(), country.getFlag());
+        assertEquals(countryExpected.getFlags(), country.getFlags());
 
         verify(repository, times(1)).findCountriesByCapitalIgnoreCase(countryExpected.getName());
     }
@@ -84,18 +84,17 @@ class CountryServiceJpaTest {
         assertEquals(countriesExpected.getFirst().getCapital(), countries.getFirst().getCapital());
         assertEquals(countriesExpected.getFirst().getRegion(), countries.getFirst().getRegion());
         assertEquals(countriesExpected.getFirst().getSubregion(), countries.getFirst().getSubregion());
-        assertEquals(cities.getFirst().getName(), citiesExpected.getFirst().getName());
-        assertEquals(cities.getFirst().getCountryCode(), citiesExpected.getFirst().getCountryCode());
-        assertEquals(cities.getFirst().getLatitude(), citiesExpected.getFirst().getLatitude());
-        assertEquals(cities.getFirst().getLongitude(), citiesExpected.getFirst().getLongitude());
-        assertEquals(countriesExpected.getFirst().getFlag(), countries.getFirst().getFlag());
+        assertEquals(cities.getFirst().name(), citiesExpected.getFirst().name());
+        assertEquals(cities.getFirst().countryCode(), citiesExpected.getFirst().countryCode());
+        assertEquals(cities.getFirst().latitude(), citiesExpected.getFirst().latitude());
+        assertEquals(cities.getFirst().longitude(), citiesExpected.getFirst().longitude());
+        assertEquals(countriesExpected.getFirst().getFlags(), countries.getFirst().getFlags());
 
-        assertEquals(states.getFirst().getName(), statesExpected.getFirst().getName());
-        assertEquals(states.getFirst().getCode(), statesExpected.getFirst().getCode());
-        assertEquals(states.getFirst().getCountryCode(), statesExpected.getFirst().getCountryCode());
-        assertEquals(states.getFirst().getLatitude(), statesExpected.getFirst().getLatitude());
-        assertEquals(states.getFirst().getLongitude(), statesExpected.getFirst().getLongitude());
-        assertEquals(states.getFirst().getCities(), statesExpected.getFirst().getCities());
+        assertEquals(states.getFirst().name(), statesExpected.getFirst().name());
+        assertEquals(states.getFirst().code(), statesExpected.getFirst().code());
+        assertEquals(states.getFirst().countryCode(), statesExpected.getFirst().countryCode());
+        assertEquals(states.getFirst().latitude(), statesExpected.getFirst().latitude());
+        assertEquals(states.getFirst().longitude(), statesExpected.getFirst().longitude());
 
         verify(repository, times(1))
                 .findCountriesByRegionIgnoreCase(countriesExpected.getFirst().getRegion());
@@ -115,7 +114,7 @@ class CountryServiceJpaTest {
         assertEquals(countriesExpected.getFirst().getRegion(), countries.getFirst().getRegion());
         assertEquals(countriesExpected.getFirst().getSubregion(), countries.getFirst().getSubregion());
         assertEquals(countriesExpected.getFirst().getCities(), countries.getFirst().getCities());
-        assertEquals(countriesExpected.getFirst().getFlag(), countries.getFirst().getFlag());
+        assertEquals(countriesExpected.getFirst().getFlags(), countries.getFirst().getFlags());
 
         verify(repository, times(1))
                 .findCountriesBySubregionIgnoreCase(countriesExpected.getFirst().getSubregion());

@@ -1,82 +1,64 @@
 package cl.restapi.retrievecountriesapi.models;
 
-import cl.restapi.retrievecountriesapi.serializer.CityListSerializer;
-import cl.restapi.retrievecountriesapi.serializer.StateListSerializer;
 import cl.restapi.retrievecountriesapi.v1.Views;
 import com.fasterxml.jackson.annotation.JsonView;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
-import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 @Document(collection = "countries")
 public class Country {
     @Id
     private String id;
 
-    @NotBlank
     @Indexed
     @JsonView(Views.Single.class)
     private String name;
 
-    @NotBlank
+    @Indexed
     @JsonView(Views.Single.class)
     private String capital;
 
-    @NotBlank
-    @JsonView(Views.Single.class)
-    private String region;
-
-    @NotBlank
-    @JsonView(Views.Single.class)
-    private String subregion;
-
-    @NotBlank
+    @Indexed
     @JsonView(Views.Single.class)
     private String iso2;
 
-    @NotBlank
+    @Indexed
     @JsonView(Views.Single.class)
     private String iso3;
 
-    @NotBlank
+    @JsonView(Views.Single.class)
+    private String region;
+
+    @JsonView(Views.Single.class)
+    private String subregion;
+
     @JsonView(Views.Single.class)
     private String tld;
 
-    @NotBlank
     @Field("phone_code")
     @JsonView(Views.Single.class)
     private String phoneCode;
 
-    @NotNull
     @JsonView(Views.Single.class)
     private Double latitude;
 
-    @NotNull
     @JsonView(Views.Single.class)
     private Double longitude;
 
     @JsonView(Views.Single.class)
-    private Map<String, String> currency;
+    private Currency currency;
 
     @JsonView(Views.Single.class)
-    private Map<String, String> flag;
+    private Flag flags;
 
-    @DBRef
-    @JsonSerialize(using = StateListSerializer.class)
     @JsonView({Views.Complete.class, Views.WithStates.class})
     private List<State> states;
 
-    @DBRef
-    @JsonSerialize(using = CityListSerializer.class)
     @JsonView({Views.Complete.class, Views.WithCities.class})
     private List<City> cities;
 
@@ -85,100 +67,100 @@ public class Country {
         this.cities = new ArrayList<>();
     }
 
-    public @NotBlank String getName() {
+    public String getName() {
         return name;
     }
 
-    public void setName(@NotBlank String name) {
+    public void setName(String name) {
         this.name = name;
     }
 
-    public @NotBlank String getCapital() {
+    public String getCapital() {
         return capital;
     }
 
-    public void setCapital(@NotBlank String capital) {
+    public void setCapital(String capital) {
         this.capital = capital;
     }
 
-    public @NotBlank String getRegion() {
-        return region;
-    }
-
-    public void setRegion(@NotBlank String region) {
-        this.region = region;
-    }
-
-    public @NotBlank String getSubregion() {
-        return subregion;
-    }
-
-    public void setSubregion(@NotBlank String subregion) {
-        this.subregion = subregion;
-    }
-
-    public @NotBlank String getIso2() {
+    public String getIso2() {
         return iso2;
     }
 
-    public void setIso2(@NotBlank String iso2) {
+    public void setIso2(String iso2) {
         this.iso2 = iso2;
     }
 
-    public @NotBlank String getIso3() {
+    public String getIso3() {
         return iso3;
     }
 
-    public void setIso3(@NotBlank String iso3) {
+    public void setIso3(String iso3) {
         this.iso3 = iso3;
     }
 
-    public @NotBlank String getTld() {
+    public String getRegion() {
+        return region;
+    }
+
+    public void setRegion(String region) {
+        this.region = region;
+    }
+
+    public String getSubregion() {
+        return subregion;
+    }
+
+    public void setSubregion(String subregion) {
+        this.subregion = subregion;
+    }
+
+    public String getTld() {
         return tld;
     }
 
-    public void setTld(@NotBlank String tld) {
+    public void setTld(String tld) {
         this.tld = tld;
     }
 
-    public @NotBlank String getPhoneCode() {
+    public String getPhoneCode() {
         return phoneCode;
     }
 
-    public void setPhoneCode(@NotBlank String phoneCode) {
+    public void setPhoneCode(String phoneCode) {
         this.phoneCode = phoneCode;
     }
 
-    public @NotNull Double getLatitude() {
+    public Double getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(@NotNull Double latitude) {
+    public void setLatitude(Double latitude) {
         this.latitude = latitude;
     }
 
-    public @NotNull Double getLongitude() {
+    public Double getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(@NotNull Double longitude) {
+    public void setLongitude(Double longitude) {
         this.longitude = longitude;
     }
 
-    public Map<String, String> getCurrency() {
+    public Currency getCurrency() {
         return currency;
     }
 
-    public void setCurrency(Map<String, String> currency) {
+    public void setCurrency(Currency currency) {
         this.currency = currency;
     }
 
-    public Map<String, String> getFlag() {
-        return flag;
+    public Flag getFlags() {
+        return flags;
     }
 
-    public void setFlag(Map<String, String> flag) {
-        this.flag = flag;
+    public void setFlags(Flag flags) {
+        this.flags = flags;
     }
 
     public List<State> getStates() {
