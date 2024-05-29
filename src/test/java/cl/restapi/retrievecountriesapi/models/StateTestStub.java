@@ -11,40 +11,32 @@ public class StateTestStub {
             String code,
             String countryCode,
             Double latitude,
-            Double longitude,
-            List<City> cities
+            Double longitude
     ) {
-        State state = new State();
-        state.setName(name);
-        state.setCode(code);
-        state.setCountryCode(countryCode);
-        state.setLatitude(latitude);
-        state.setLongitude(longitude);
-        state.setCities(cities);
-
-        return state;
+        return new State(
+                name,
+                code,
+                countryCode,
+                latitude,
+                longitude
+        );
     }
 
     public static State random() {
-        return random(5);
-    }
-
-    public static State random(int size) {
         Faker faker = new Faker();
         String name = faker.address().state();
         String code = faker.address().countryCode();
         String countryCode = faker.address().countryCode();
         Double latitude = faker.number().randomDouble(2, -90, 90);
         Double longitude = faker.number().randomDouble(2, -90, 90);
-        List<City> cities = CityTestStub.randomList(size);
 
-        return create(name, code, countryCode, latitude, longitude, cities);
+        return create(name, code, countryCode, latitude, longitude);
     }
 
     public static List<State> randomList(int size) {
         List<State> states = new ArrayList<>();
         for (int i = 0; i < size; i++) {
-            states.add(random(size * 2));
+            states.add(random());
         }
         return states;
     }

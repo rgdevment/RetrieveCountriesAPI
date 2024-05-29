@@ -3,7 +3,6 @@ package cl.restapi.retrievecountriesapi.models;
 import net.datafaker.Faker;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 public class CountryTestStub {
@@ -18,8 +17,8 @@ public class CountryTestStub {
             String phoneCode,
             Double latitude,
             Double longitude,
-            HashMap<String, String> flags,
-            HashMap<String, String> currency,
+            Flag flags,
+            Currency currency,
             List<City> cities,
             List<State> states
     ) {
@@ -34,7 +33,7 @@ public class CountryTestStub {
         country.setPhoneCode(phoneCode);
         country.setLatitude(latitude);
         country.setLongitude(longitude);
-        country.setFlag(flags);
+        country.setFlags(flags);
         country.setCurrency(currency);
 
         country.setStates(states);
@@ -57,16 +56,8 @@ public class CountryTestStub {
         Double latitude = faker.number().randomDouble(2, -90, 90);
         Double longitude = faker.number().randomDouble(2, -90, 90);
 
-        HashMap<String, String> flags = new HashMap<>();
-        flags.put("svg", faker.internet().url());
-        flags.put("png", faker.internet().url());
-        flags.put("ico", faker.internet().url());
-        flags.put("alt", faker.superhero().descriptor());
-
-        HashMap<String, String> currency = new HashMap<>();
-        currency.put("name", faker.money().currency());
-        currency.put("code", faker.money().currencyCode());
-        currency.put("symbol", faker.money().currencySymbol());
+        Currency currency = CurrencyTestStub.random();
+        Flag flags = FlagTestStub.random();
 
         List<City> cities = CityTestStub.randomList(5);
         List<State> states = StateTestStub.randomList(5);

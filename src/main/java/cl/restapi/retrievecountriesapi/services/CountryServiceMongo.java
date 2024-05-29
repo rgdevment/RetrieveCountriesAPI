@@ -9,10 +9,10 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
-public class CountryServiceJpa implements CountryService {
+public class CountryServiceMongo implements CountryService {
     private final CountryRepository repository;
 
-    public CountryServiceJpa(CountryRepository repository) {
+    public CountryServiceMongo(CountryRepository repository) {
         this.repository = repository;
     }
 
