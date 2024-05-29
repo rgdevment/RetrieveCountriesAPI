@@ -22,9 +22,9 @@ import java.util.concurrent.TimeUnit;
 
     Caffeine&lt;Object, Object&gt; caffeineCacheBuilder() {
 <span class="fc" id="L24">        return Caffeine.newBuilder()</span>
-<span class="fc" id="L25">                .initialCapacity(100)</span>
-<span class="fc" id="L26">                .maximumSize(500)</span>
-<span class="fc" id="L27">                .expireAfterAccess(22, TimeUnit.HOURS)</span>
+<span class="fc" id="L25">                .initialCapacity(50)</span>
+<span class="fc" id="L26">                .maximumSize(250)</span>
+<span class="fc" id="L27">                .expireAfterWrite(30, TimeUnit.DAYS)</span>
 <span class="fc" id="L28">                .weakKeys()</span>
 <span class="fc" id="L29">                .recordStats();</span>
     }

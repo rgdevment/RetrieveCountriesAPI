@@ -18,35 +18,35 @@ public class CountryServiceMongo implements CountryService {
 
     @Override
     @Transactional(readOnly = true)
-    @Cacheable(&quot;countries&quot;)
+    @Cacheable(&quot;countries_all&quot;)
     public List&lt;Country&gt; findAll() {
 <span class="fc" id="L23">        return repository.findAll();</span>
     }
 
     @Override
     @Transactional(readOnly = true)
-    @Cacheable(&quot;countries_by_name&quot;)
+    @Cacheable(&quot;countries_name&quot;)
     public Country findByName(String name) {
 <span class="fc" id="L30">        return repository.findCountriesByNameIgnoreCase(name);</span>
     }
 
     @Override
     @Transactional(readOnly = true)
-    @Cacheable(&quot;countries_by_capital&quot;)
+    @Cacheable(&quot;countries_capital&quot;)
     public Country findByCapital(String name) {
 <span class="fc" id="L37">        return repository.findCountriesByCapitalIgnoreCase(name);</span>
     }
 
     @Override
     @Transactional(readOnly = true)
-    @Cacheable(&quot;countries_by_region&quot;)
+    @Cacheable(&quot;countries_region&quot;)
     public List&lt;Country&gt; findByRegion(String region) {
 <span class="fc" id="L44">        return repository.findCountriesByRegionIgnoreCase(region);</span>
     }
 
     @Override
     @Transactional(readOnly = true)
-    @Cacheable(&quot;countries_by_subregion&quot;)
+    @Cacheable(&quot;countries_subregion&quot;)
     public List&lt;Country&gt; findBySubregion(String subregion) {
 <span class="fc" id="L51">        return repository.findCountriesBySubregionIgnoreCase(subregion);</span>
     }
