@@ -1,80 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>City.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">RetrieveCountriesAPI</a> &gt; <a href="index.source.html" class="el_package">cl.restapi.retrievecountriesapi.models</a> &gt; <span class="el_source">City.java</span></div><h1>City.java</h1><pre class="source lang-java linenums">package cl.restapi.retrievecountriesapi.models;
 
 import cl.restapi.retrievecountriesapi.v1.Views;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonView;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.index.Indexed;
-import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.Field;
 
-@Document(collection = &quot;cities&quot;)
-<span class="fc" id="L13">public class City {</span>
-    @Id
-    private String id;
-
-    @NotBlank
-    @Indexed
-    @JsonView(Views.Single.class)
-    private String name;
-
-    @NotBlank
-    @Field(&quot;state_code&quot;)
-    @JsonView(Views.Single.class)
-    private String stateCode;
-
-    @NotBlank
-    @Field(&quot;country_code&quot;)
-    @JsonView(Views.Single.class)
-    private String countryCode;
-
-    @NotNull
-    @JsonView(Views.Single.class)
-    private Double latitude;
-
-    @NotNull
-    @JsonView(Views.Single.class)
-    private Double longitude;
-
-    public @NotBlank String getName() {
-<span class="fc" id="L41">        return name;</span>
-    }
-
-    public void setName(@NotBlank String name) {
-<span class="fc" id="L45">        this.name = name;</span>
-<span class="fc" id="L46">    }</span>
-
-    public @NotNull Double getLatitude() {
-<span class="fc" id="L49">        return latitude;</span>
-    }
-
-    public void setLatitude(@NotNull Double latitude) {
-<span class="fc" id="L53">        this.latitude = latitude;</span>
-<span class="fc" id="L54">    }</span>
-
-    public @NotNull Double getLongitude() {
-<span class="fc" id="L57">        return longitude;</span>
-    }
-
-    public void setLongitude(@NotNull Double longitude) {
-<span class="fc" id="L61">        this.longitude = longitude;</span>
-<span class="fc" id="L62">    }</span>
-
-    public @NotBlank String getStateCode() {
-<span class="fc" id="L65">        return stateCode;</span>
-    }
-
-    public void setStateCode(@NotBlank String stateCode) {
-<span class="fc" id="L69">        this.stateCode = stateCode;</span>
-<span class="fc" id="L70">    }</span>
-
-    public @NotBlank String getCountryCode() {
-<span class="fc" id="L73">        return countryCode;</span>
-    }
-
-    public void setCountryCode(@NotBlank String countryCode) {
-<span class="fc" id="L77">        this.countryCode = countryCode;</span>
-<span class="fc" id="L78">    }</span>
+<span class="fc" id="L7">public record City(</span>
+        @JsonView({Views.WithCities.class, Views.Complete.class}) String name,
+        @JsonView({Views.Complete.class}) @JsonProperty(&quot;state_code&quot;) String stateCode,
+        @JsonProperty(&quot;country_code&quot;) String countryCode,
+        @JsonView({Views.WithCities.class, Views.Complete.class}) Double latitude,
+        @JsonView({Views.WithCities.class, Views.Complete.class}) Double longitude
+) {
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

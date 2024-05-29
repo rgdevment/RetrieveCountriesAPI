@@ -1,200 +1,182 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Country.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">RetrieveCountriesAPI</a> &gt; <a href="index.source.html" class="el_package">cl.restapi.retrievecountriesapi.models</a> &gt; <span class="el_source">Country.java</span></div><h1>Country.java</h1><pre class="source lang-java linenums">package cl.restapi.retrievecountriesapi.models;
 
-import cl.restapi.retrievecountriesapi.serializer.CityListSerializer;
-import cl.restapi.retrievecountriesapi.serializer.StateListSerializer;
 import cl.restapi.retrievecountriesapi.v1.Views;
 import com.fasterxml.jackson.annotation.JsonView;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
-import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 @Document(collection = &quot;countries&quot;)
 public class Country {
     @Id
     private String id;
 
-    @NotBlank
     @Indexed
     @JsonView(Views.Single.class)
     private String name;
 
-    @NotBlank
+    @Indexed
     @JsonView(Views.Single.class)
     private String capital;
 
-    @NotBlank
-    @JsonView(Views.Single.class)
-    private String region;
-
-    @NotBlank
-    @JsonView(Views.Single.class)
-    private String subregion;
-
-    @NotBlank
+    @Indexed
     @JsonView(Views.Single.class)
     private String iso2;
 
-    @NotBlank
+    @Indexed
     @JsonView(Views.Single.class)
     private String iso3;
 
-    @NotBlank
+    @JsonView(Views.Single.class)
+    private String region;
+
+    @JsonView(Views.Single.class)
+    private String subregion;
+
     @JsonView(Views.Single.class)
     private String tld;
 
-    @NotBlank
     @Field(&quot;phone_code&quot;)
     @JsonView(Views.Single.class)
     private String phoneCode;
 
-    @NotNull
     @JsonView(Views.Single.class)
     private Double latitude;
 
-    @NotNull
     @JsonView(Views.Single.class)
     private Double longitude;
 
     @JsonView(Views.Single.class)
-    private Map&lt;String, String&gt; currency;
+    private Currency currency;
 
     @JsonView(Views.Single.class)
-    private Map&lt;String, String&gt; flag;
+    private Flag flags;
 
-    @DBRef
-    @JsonSerialize(using = StateListSerializer.class)
     @JsonView({Views.Complete.class, Views.WithStates.class})
     private List&lt;State&gt; states;
 
-    @DBRef
-    @JsonSerialize(using = CityListSerializer.class)
     @JsonView({Views.Complete.class, Views.WithCities.class})
     private List&lt;City&gt; cities;
 
-<span class="fc" id="L83">    public Country() {</span>
-<span class="fc" id="L84">        this.states = new ArrayList&lt;&gt;();</span>
-<span class="fc" id="L85">        this.cities = new ArrayList&lt;&gt;();</span>
-<span class="fc" id="L86">    }</span>
+<span class="fc" id="L65">    public Country() {</span>
+<span class="fc" id="L66">        this.states = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L67">        this.cities = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L68">    }</span>
 
-    public @NotBlank String getName() {
-<span class="fc" id="L89">        return name;</span>
+    public String getName() {
+<span class="fc" id="L71">        return name;</span>
     }
 
-    public void setName(@NotBlank String name) {
-<span class="fc" id="L93">        this.name = name;</span>
-<span class="fc" id="L94">    }</span>
+    public void setName(String name) {
+<span class="fc" id="L75">        this.name = name;</span>
+<span class="fc" id="L76">    }</span>
 
-    public @NotBlank String getCapital() {
-<span class="fc" id="L97">        return capital;</span>
+    public String getCapital() {
+<span class="fc" id="L79">        return capital;</span>
     }
 
-    public void setCapital(@NotBlank String capital) {
-<span class="fc" id="L101">        this.capital = capital;</span>
-<span class="fc" id="L102">    }</span>
+    public void setCapital(String capital) {
+<span class="fc" id="L83">        this.capital = capital;</span>
+<span class="fc" id="L84">    }</span>
 
-    public @NotBlank String getRegion() {
-<span class="fc" id="L105">        return region;</span>
+    public String getIso2() {
+<span class="fc" id="L87">        return iso2;</span>
     }
 
-    public void setRegion(@NotBlank String region) {
-<span class="fc" id="L109">        this.region = region;</span>
-<span class="fc" id="L110">    }</span>
+    public void setIso2(String iso2) {
+<span class="fc" id="L91">        this.iso2 = iso2;</span>
+<span class="fc" id="L92">    }</span>
 
-    public @NotBlank String getSubregion() {
-<span class="fc" id="L113">        return subregion;</span>
+    public String getIso3() {
+<span class="fc" id="L95">        return iso3;</span>
     }
 
-    public void setSubregion(@NotBlank String subregion) {
-<span class="fc" id="L117">        this.subregion = subregion;</span>
-<span class="fc" id="L118">    }</span>
+    public void setIso3(String iso3) {
+<span class="fc" id="L99">        this.iso3 = iso3;</span>
+<span class="fc" id="L100">    }</span>
 
-    public @NotBlank String getIso2() {
-<span class="fc" id="L121">        return iso2;</span>
+    public String getRegion() {
+<span class="fc" id="L103">        return region;</span>
     }
 
-    public void setIso2(@NotBlank String iso2) {
-<span class="fc" id="L125">        this.iso2 = iso2;</span>
-<span class="fc" id="L126">    }</span>
+    public void setRegion(String region) {
+<span class="fc" id="L107">        this.region = region;</span>
+<span class="fc" id="L108">    }</span>
 
-    public @NotBlank String getIso3() {
-<span class="fc" id="L129">        return iso3;</span>
+    public String getSubregion() {
+<span class="fc" id="L111">        return subregion;</span>
     }
 
-    public void setIso3(@NotBlank String iso3) {
-<span class="fc" id="L133">        this.iso3 = iso3;</span>
-<span class="fc" id="L134">    }</span>
+    public void setSubregion(String subregion) {
+<span class="fc" id="L115">        this.subregion = subregion;</span>
+<span class="fc" id="L116">    }</span>
 
-    public @NotBlank String getTld() {
-<span class="fc" id="L137">        return tld;</span>
+    public String getTld() {
+<span class="fc" id="L119">        return tld;</span>
     }
 
-    public void setTld(@NotBlank String tld) {
-<span class="fc" id="L141">        this.tld = tld;</span>
-<span class="fc" id="L142">    }</span>
+    public void setTld(String tld) {
+<span class="fc" id="L123">        this.tld = tld;</span>
+<span class="fc" id="L124">    }</span>
 
-    public @NotBlank String getPhoneCode() {
-<span class="fc" id="L145">        return phoneCode;</span>
+    public String getPhoneCode() {
+<span class="fc" id="L127">        return phoneCode;</span>
     }
 
-    public void setPhoneCode(@NotBlank String phoneCode) {
-<span class="fc" id="L149">        this.phoneCode = phoneCode;</span>
-<span class="fc" id="L150">    }</span>
+    public void setPhoneCode(String phoneCode) {
+<span class="fc" id="L131">        this.phoneCode = phoneCode;</span>
+<span class="fc" id="L132">    }</span>
 
-    public @NotNull Double getLatitude() {
-<span class="fc" id="L153">        return latitude;</span>
+    public Double getLatitude() {
+<span class="fc" id="L135">        return latitude;</span>
     }
 
-    public void setLatitude(@NotNull Double latitude) {
-<span class="fc" id="L157">        this.latitude = latitude;</span>
-<span class="fc" id="L158">    }</span>
+    public void setLatitude(Double latitude) {
+<span class="fc" id="L139">        this.latitude = latitude;</span>
+<span class="fc" id="L140">    }</span>
 
-    public @NotNull Double getLongitude() {
-<span class="fc" id="L161">        return longitude;</span>
+    public Double getLongitude() {
+<span class="fc" id="L143">        return longitude;</span>
     }
 
-    public void setLongitude(@NotNull Double longitude) {
-<span class="fc" id="L165">        this.longitude = longitude;</span>
-<span class="fc" id="L166">    }</span>
+    public void setLongitude(Double longitude) {
+<span class="fc" id="L147">        this.longitude = longitude;</span>
+<span class="fc" id="L148">    }</span>
 
-    public Map&lt;String, String&gt; getCurrency() {
-<span class="fc" id="L169">        return currency;</span>
+    public Currency getCurrency() {
+<span class="fc" id="L151">        return currency;</span>
     }
 
-    public void setCurrency(Map&lt;String, String&gt; currency) {
-<span class="fc" id="L173">        this.currency = currency;</span>
-<span class="fc" id="L174">    }</span>
+    public void setCurrency(Currency currency) {
+<span class="fc" id="L155">        this.currency = currency;</span>
+<span class="fc" id="L156">    }</span>
 
-    public Map&lt;String, String&gt; getFlag() {
-<span class="fc" id="L177">        return flag;</span>
+    public Flag getFlags() {
+<span class="fc" id="L159">        return flags;</span>
     }
 
-    public void setFlag(Map&lt;String, String&gt; flag) {
-<span class="fc" id="L181">        this.flag = flag;</span>
-<span class="fc" id="L182">    }</span>
+    public void setFlags(Flag flags) {
+<span class="fc" id="L163">        this.flags = flags;</span>
+<span class="fc" id="L164">    }</span>
 
     public List&lt;State&gt; getStates() {
-<span class="fc" id="L185">        return states;</span>
+<span class="fc" id="L167">        return states;</span>
     }
 
     public void setStates(List&lt;State&gt; states) {
-<span class="fc" id="L189">        this.states = states;</span>
-<span class="fc" id="L190">    }</span>
+<span class="fc" id="L171">        this.states = states;</span>
+<span class="fc" id="L172">    }</span>
 
     public List&lt;City&gt; getCities() {
-<span class="fc" id="L193">        return cities;</span>
+<span class="fc" id="L175">        return cities;</span>
     }
 
     public void setCities(List&lt;City&gt; cities) {
-<span class="fc" id="L197">        this.cities = cities;</span>
-<span class="fc" id="L198">    }</span>
+<span class="fc" id="L179">        this.cities = cities;</span>
+<span class="fc" id="L180">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>
