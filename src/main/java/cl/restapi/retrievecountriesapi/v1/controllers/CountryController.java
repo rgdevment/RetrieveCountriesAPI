@@ -29,14 +29,22 @@ public class CountryController {
     }
 
     @GetMapping("/all")
-    @Operation(summary = "Get all country data with options to exclude cities and/or states.",
-            description = "This operation retrieves all countries from the database. If includeCities is true, the "
-                    + "cities will be included. If includeStates is true, the states will be included.")
-    @ApiResponse(responseCode = "200", description = "Successful operation",
-            content = @Content(mediaType = "application/json", schema = @Schema(implementation = Country.class)))
+    @Operation(
+            summary = "Get all country data with options to exclude cities and/or states.",
+            description = "This operation retrieves all countries from the database. By default, both cities and"
+                    + " states are excluded due to the large amount of data. If includeCities is set to true, the cities"
+                    + " will be included. If includeStates is set to true, the states will be included. It is"
+                    + " recommended to cache the data in your application to avoid over-consuming the public API."
+    )
+    @ApiResponse(
+            responseCode = "200",
+            description = "Successful operation",
+            content = @Content(mediaType = "application/json", schema = @Schema(implementation = Country.class))
+    )
     @ApiResponse(responseCode = "204", description = "No content", content = @Content)
-    public ResponseEntity<MappingJacksonValue> getCountries(@RequestParam(required = false) Boolean includeCities,
-                                                            @RequestParam(required = false) Boolean includeStates) {
+    public ResponseEntity<MappingJacksonValue> getCountries(
+            @RequestParam(required = false, defaultValue = "false") Boolean includeCities,
+            @RequestParam(required = false, defaultValue = "false") Boolean includeStates) {
         List<Country> countries = service.findAll();
         return getMappingJacksonValueResponseListEntity(includeCities, includeStates, countries);
     }
