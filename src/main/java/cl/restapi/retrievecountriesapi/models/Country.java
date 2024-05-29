@@ -31,9 +31,11 @@ public class Country {
     @JsonView(Views.Single.class)
     private String iso3;
 
+    @Indexed
     @JsonView(Views.Single.class)
     private String region;
 
+    @Indexed
     @JsonView(Views.Single.class)
     private String subregion;
 
