@@ -33,11 +33,13 @@ public class SwaggerConfig {
 
         Server server = new Server();
         server.url("https://countries.restapi.cl");
+        server.description("Production server");
 
         return new OpenAPI()
                 .info(new Info().title("Retrieve Countries API")
                         .description("API to retrieve countries and their information.")
-                        .version("1.1.1")
+                        .version("1.1.2")
+                        .termsOfService("https://github.com/rgdevment/RetrieveCountriesAPI/blob/main/README.md")
                         .contact(contact)
                         .license(mitLicence)
                 ).servers(List.of(server));
