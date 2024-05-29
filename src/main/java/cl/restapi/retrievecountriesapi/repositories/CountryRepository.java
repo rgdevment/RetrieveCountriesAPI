@@ -1,6 +1,6 @@
 package cl.restapi.retrievecountriesapi.repositories;
 
-import cl.restapi.retrievecountriesapi.documents.Country;
+import cl.restapi.retrievecountriesapi.models.Country;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.List;

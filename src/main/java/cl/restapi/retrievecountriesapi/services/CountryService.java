@@ -1,6 +1,6 @@
 package cl.restapi.retrievecountriesapi.services;
 
-import cl.restapi.retrievecountriesapi.documents.Country;
+import cl.restapi.retrievecountriesapi.models.Country;
 
 import java.util.List;
 

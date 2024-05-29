@@ -21,16 +21,31 @@ Retrieves all country data with an option to exclude cities.
 
 **Parameters:**
 
-- `excludeCities` (optional): boolean
+- `includeCities` (optional): boolean
+- `includeStates` (optional): boolean
+
+include states
 
 ```sh
-curl -X GET "https://countries.restapi.cl/v1/all"
+curl -X GET "https://countries.restapi.cl/v1/all?includeStates=true"
 ```
 
-or exclude cities
+include cities
 
 ```sh
-curl -X GET "https://countries.restapi.cl/v1/all?excludeCities=true"
+curl -X GET "https://countries.restapi.cl/v1/all?includeCities=true"
+```
+
+include states and cities
+
+```sh
+curl -X GET "https://countries.restapi.cl/v1/all?includeCities=true&includeStates=true"
+```
+
+or single request
+
+```sh
+curl -X GET "https://countries.restapi.cl/v1/v1/all"
 ```
 
 For more information and other endpoints, please refer to the Postman API Documentation or Swagger Documentation.

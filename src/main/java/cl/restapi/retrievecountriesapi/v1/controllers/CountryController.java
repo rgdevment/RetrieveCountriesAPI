@@ -1,8 +1,8 @@
 package cl.restapi.retrievecountriesapi.v1.controllers;
 
-import cl.restapi.retrievecountriesapi.v1.Views;
-import cl.restapi.retrievecountriesapi.documents.Country;
+import cl.restapi.retrievecountriesapi.models.Country;
 import cl.restapi.retrievecountriesapi.services.CountryService;
+import cl.restapi.retrievecountriesapi.v1.Views;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -29,98 +29,113 @@ public class CountryController {
     }
 
     @GetMapping("/all")
-    @Operation(summary = "Get all country data with an option to exclude cities.",
-            description = "This operation retrieves all countries from the database. If excludeCities is true, the "
-                    + "cities will not be included.")
+    @Operation(summary = "Get all country data with options to exclude cities and/or states.",
+            description = "This operation retrieves all countries from the database. If includeCities is true, the "
+                    + "cities will be included. If includeStates is true, the states will be included.")
     @ApiResponse(responseCode = "200", description = "Successful operation",
             content = @Content(mediaType = "application/json", schema = @Schema(implementation = Country.class)))
     @ApiResponse(responseCode = "204", description = "No content", content = @Content)
-    public ResponseEntity<MappingJacksonValue> getCountries(@RequestParam(required = false) Boolean excludeCities) {
+    public ResponseEntity<MappingJacksonValue> getCountries(@RequestParam(required = false) Boolean includeCities,
+                                                            @RequestParam(required = false) Boolean includeStates) {
         List<Country> countries = service.findAll();
-        return getMappingJacksonValueResponseListEntity(excludeCities, countries);
+        return getMappingJacksonValueResponseListEntity(includeCities, includeStates, countries);
     }
 
     @Operation(summary = "Get country data by name.",
-            description = "This operation retrieves a country from the database by its name. If excludeCities is true, "
-                    + "the cities will not be included.")
+            description = "This operation retrieves a country from the database by its name. If includeCities is true, "
+                    + "the cities will be included. If includeStates is true, the states will be included.")
     @ApiResponse(responseCode = "200", description = "Successful operation",
             content = @Content(mediaType = "application/json", schema = @Schema(implementation = Country.class)))
     @ApiResponse(responseCode = "204", description = "No content", content = @Content)
     @GetMapping("/{name}")
     public ResponseEntity<MappingJacksonValue> getCountryByName(@PathVariable String name,
-                                                                @RequestParam(required = false) Boolean excludeCities) {
+                                                                @RequestParam(required = false) Boolean includeCities,
+                                                                @RequestParam(required = false) Boolean includeStates) {
         Country country = this.service.findByName(name);
-        return getMappingJacksonValueResponseEntity(excludeCities, country);
+        return getMappingJacksonValueResponseEntity(includeCities, includeStates, country);
     }
 
     @Operation(summary = "Get country data by capital.",
-            description = "This operation retrieves a country from the database by its capital. If excludeCities is "
-                    + "true, the cities will not be included.")
+            description = "This operation retrieves a country from the database by its capital. If includeCities is "
+                    + "true, the cities will be included. If includeStates is true, the states will be included.")
     @ApiResponse(responseCode = "200", description = "Successful operation",
             content = @Content(mediaType = "application/json", schema = @Schema(implementation = Country.class)))
     @ApiResponse(responseCode = "204", description = "No content", content = @Content)
     @GetMapping("/capital/{name}")
     public ResponseEntity<MappingJacksonValue> getCountryByCapital(
-            @PathVariable String name, @RequestParam(required = false) Boolean excludeCities) {
+            @PathVariable String name, @RequestParam(required = false) Boolean includeCities,
+            @RequestParam(required = false) Boolean includeStates) {
         Country country = this.service.findByCapital(name);
-        return getMappingJacksonValueResponseEntity(excludeCities, country);
+        return getMappingJacksonValueResponseEntity(includeCities, includeStates, country);
     }
 
     @Operation(summary = "Get countries by region.",
-            description = "This operation retrieves countries from the database by region. If excludeCities is true, "
-                    + "the cities will not be included.")
+            description = "This operation retrieves countries from the database by region. If includeCities is true, "
+                    + "the cities will be included. If includeStates is true, the states will be included.")
     @ApiResponse(responseCode = "200", description = "Successful operation",
             content = @Content(mediaType = "application/json", schema = @Schema(implementation = Country.class)))
     @ApiResponse(responseCode = "204", description = "No content", content = @Content)
     @GetMapping("/region/{region}")
     public ResponseEntity<MappingJacksonValue> getCountriesByRegion(
-            @PathVariable String region, @RequestParam(required = false) Boolean excludeCities) {
+            @PathVariable String region, @RequestParam(required = false) Boolean includeCities,
+            @RequestParam(required = false) Boolean includeStates) {
         List<Country> countries = service.findByRegion(region);
-        return getMappingJacksonValueResponseListEntity(excludeCities, countries);
+        return getMappingJacksonValueResponseListEntity(includeCities, includeStates, countries);
     }
 
     @Operation(summary = "Get countries by subregion.",
-            description = "This operation retrieves countries from the database by subregion. If excludeCities is true,"
-                    + " the cities will not be included.")
+            description = "This operation retrieves countries from the database by subregion. If includeCities is true,"
+                    + " the cities will be included. If includeStates is true, the states will be included.")
     @ApiResponse(responseCode = "200", description = "Successful operation",
             content = @Content(mediaType = "application/json", schema = @Schema(implementation = Country.class)))
     @ApiResponse(responseCode = "204", description = "No content", content = @Content)
     @GetMapping("/subregion/{subregion}")
     public ResponseEntity<MappingJacksonValue> getCountriesBySubregion(
-            @PathVariable String subregion, @RequestParam(required = false) Boolean excludeCities) {
+            @PathVariable String subregion, @RequestParam(required = false) Boolean includeCities,
+            @RequestParam(required = false) Boolean includeStates) {
         List<Country> countries = service.findBySubregion(subregion);
-        return getMappingJacksonValueResponseListEntity(excludeCities, countries);
+        return getMappingJacksonValueResponseListEntity(includeCities, includeStates, countries);
     }
 
     private ResponseEntity<MappingJacksonValue> getMappingJacksonValueResponseListEntity(
-            @RequestParam(required = false) Boolean excludeCities,
-            List<Country> countries) {
+            Boolean includeCities,
+            Boolean includeStates,
+            List<Country> countries
+    ) {
         if (countries.isEmpty()) {
             return ResponseEntity.noContent().build();
         } else {
             MappingJacksonValue mappingJacksonValue = new MappingJacksonValue(countries);
-            if (Boolean.TRUE.equals(excludeCities)) {
-                mappingJacksonValue.setSerializationView(Views.Single.class);
-            } else {
-                mappingJacksonValue.setSerializationView(Views.Complete.class);
-            }
-            return ResponseEntity.ok(mappingJacksonValue);
+            return getViewMappingJacksonValueResponseEntity(includeCities, includeStates, mappingJacksonValue);
         }
     }
 
     private ResponseEntity<MappingJacksonValue> getMappingJacksonValueResponseEntity(
-            @RequestParam(required = false) Boolean excludeCities,
+            Boolean includeCities,
+            Boolean includeStates,
             Country country) {
         if (country == null) {
             return ResponseEntity.noContent().build();
         } else {
             MappingJacksonValue mappingJacksonValue = new MappingJacksonValue(country);
-            if (Boolean.TRUE.equals(excludeCities)) {
-                mappingJacksonValue.setSerializationView(Views.Single.class);
-            } else {
-                mappingJacksonValue.setSerializationView(Views.Complete.class);
-            }
-            return ResponseEntity.ok(mappingJacksonValue);
+            return getViewMappingJacksonValueResponseEntity(includeCities, includeStates, mappingJacksonValue);
         }
+    }
+
+    private static ResponseEntity<MappingJacksonValue> getViewMappingJacksonValueResponseEntity(
+            Boolean includeCities,
+            Boolean includeStates,
+            MappingJacksonValue mappingJacksonValue
+    ) {
+        if (Boolean.TRUE.equals(includeCities) && Boolean.TRUE.equals(includeStates)) {
+            mappingJacksonValue.setSerializationView(Views.Complete.class);
+        } else if (Boolean.TRUE.equals(includeCities)) {
+            mappingJacksonValue.setSerializationView(Views.WithCities.class);
+        } else if (Boolean.TRUE.equals(includeStates)) {
+            mappingJacksonValue.setSerializationView(Views.WithStates.class);
+        } else {
+            mappingJacksonValue.setSerializationView(Views.Single.class);
+        }
+        return ResponseEntity.ok(mappingJacksonValue);
     }
 }

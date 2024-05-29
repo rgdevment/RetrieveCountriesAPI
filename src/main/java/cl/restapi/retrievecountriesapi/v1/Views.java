@@ -7,6 +7,14 @@ public final class Views {
     public interface Complete extends Single {
     }
 
+    public interface WithStates extends Single {
+
+    }
+
+    public interface WithCities extends Single {
+
+    }
+
     private Views() {
     }
 }

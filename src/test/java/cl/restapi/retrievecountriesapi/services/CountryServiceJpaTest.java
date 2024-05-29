@@ -1,7 +1,9 @@
 package cl.restapi.retrievecountriesapi.services;
 
-import cl.restapi.retrievecountriesapi.documents.Country;
-import cl.restapi.retrievecountriesapi.documents.CountryTestStub;
+import cl.restapi.retrievecountriesapi.models.City;
+import cl.restapi.retrievecountriesapi.models.Country;
+import cl.restapi.retrievecountriesapi.models.CountryTestStub;
+import cl.restapi.retrievecountriesapi.models.State;
 import cl.restapi.retrievecountriesapi.repositories.CountryRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -72,15 +74,28 @@ class CountryServiceJpaTest {
         ).thenReturn(countriesExpected);
 
         List<Country> countries = service.findByRegion(countriesExpected.getFirst().getRegion());
-        List<String> cities = countriesExpected.getFirst().getCities();
-        List<String> citiesExpected = countries.getFirst().getCities();
+        List<City> cities = countriesExpected.getFirst().getCities();
+        List<City> citiesExpected = countries.getFirst().getCities();
+
+        List<State> states = countriesExpected.getFirst().getStates();
+        List<State> statesExpected = countries.getFirst().getStates();
 
         assertEquals(countriesExpected.getFirst().getName(), countries.getFirst().getName());
         assertEquals(countriesExpected.getFirst().getCapital(), countries.getFirst().getCapital());
         assertEquals(countriesExpected.getFirst().getRegion(), countries.getFirst().getRegion());
         assertEquals(countriesExpected.getFirst().getSubregion(), countries.getFirst().getSubregion());
-        assertEquals(cities, citiesExpected);
+        assertEquals(cities.getFirst().getName(), citiesExpected.getFirst().getName());
+        assertEquals(cities.getFirst().getCountryCode(), citiesExpected.getFirst().getCountryCode());
+        assertEquals(cities.getFirst().getLatitude(), citiesExpected.getFirst().getLatitude());
+        assertEquals(cities.getFirst().getLongitude(), citiesExpected.getFirst().getLongitude());
         assertEquals(countriesExpected.getFirst().getFlag(), countries.getFirst().getFlag());
+
+        assertEquals(states.getFirst().getName(), statesExpected.getFirst().getName());
+        assertEquals(states.getFirst().getCode(), statesExpected.getFirst().getCode());
+        assertEquals(states.getFirst().getCountryCode(), statesExpected.getFirst().getCountryCode());
+        assertEquals(states.getFirst().getLatitude(), statesExpected.getFirst().getLatitude());
+        assertEquals(states.getFirst().getLongitude(), statesExpected.getFirst().getLongitude());
+        assertEquals(states.getFirst().getCities(), statesExpected.getFirst().getCities());
 
         verify(repository, times(1))
                 .findCountriesByRegionIgnoreCase(countriesExpected.getFirst().getRegion());
