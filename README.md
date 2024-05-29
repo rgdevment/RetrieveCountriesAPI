@@ -14,13 +14,6 @@ cities, and other relevant information worldwide. This API is continuously devel
 
 ## Example Usage
 
-Retrieves all country data with an option to exclude cities.
-
-**Parameters:**
-
-- `includeCities` (optional): boolean
-- `includeStates` (optional): boolean
-
 A simple request:
 
 ```sh
@@ -36,8 +29,13 @@ curl -X GET "https://countries.restapi.cl/v1/chile"
 If you need all regions with their states:
 
 ```sh
-curl -X GET "https://countries.restapi.cl/v1/region/americas?includeStates=true"
+curl -X GET "https://countries.restapi.cl/v1/region/americas"
 ```
+
+In addition to the above, you can also obtain additional information with the following **parameters**
+
+- `includeCities` (optional): boolean
+- `includeStates` (optional): boolean
 
 For more information and other endpoints, please refer to the Postman API Documentation or Swagger Documentation.
 
