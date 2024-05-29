@@ -33,8 +33,8 @@ public class CountryController {
     @Operation(
             summary = "Get all country data with options to exclude cities and/or states.",
             description = "This operation retrieves all countries from the database. By default, both cities and"
-                    + " states are excluded due to the large amount of data. If includeCities is set to true, the cities"
-                    + " will be included. If includeStates is set to true, the states will be included. It is"
+                    + " states are excluded due to the large amount of data. If includeCities is set to true, the"
+                    + " cities will be included. If includeStates is set to true, the states will be included. It is"
                     + " recommended to cache the data in your application to avoid over-consuming the public API."
     )
     @ApiResponse(
