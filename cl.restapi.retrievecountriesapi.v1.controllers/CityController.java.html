@@ -30,8 +30,8 @@ public class CityController {
 <span class="fc" id="L30">    }</span>
 
     @GetMapping(&quot;/country/{countryCode}&quot;)
-    @Operation(summary = &quot;Get cities by country code&quot;,
-            description = &quot;Get a list of cities by country code in ISO 3166-1 alpha-2 format&quot;)
+    @Operation(summary = &quot;Get cities by country code.&quot;,
+            description = &quot;Get a list of cities by country code in ISO 3166-1 alpha-2 format.&quot;)
     @ApiResponse(
             responseCode = &quot;200&quot;,
             description = &quot;Successful operation&quot;,
@@ -46,9 +46,9 @@ public class CityController {
     }
 
     @GetMapping(&quot;/country/{countryCode}/state/{stateCode}&quot;)
-    @Operation(summary = &quot;Get cities by country code and state code&quot;,
+    @Operation(summary = &quot;Get cities by country code and state code.&quot;,
             description = &quot;Get a list of cities by country code in ISO 3166-1 alpha-2 format and state code in &quot;
-            + &quot;ISO 3166-2 format&quot;)
+            + &quot;ISO 3166-2 format.&quot;)
     @ApiResponse(
             responseCode = &quot;200&quot;,
             description = &quot;Successful operation&quot;,
