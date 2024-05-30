@@ -4,11 +4,12 @@ import cl.restapi.retrievecountriesapi.v1.Views;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonView;
 import io.swagger.v3.oas.annotations.media.Schema;
+import org.springframework.data.mongodb.core.mapping.Field;
 
-<span class="fc" id="L8">public record City(</span>
+<span class="fc" id="L9">public record City(</span>
         @JsonView({Views.WithCities.class, Views.Complete.class}) String name,
-        @JsonView({Views.Complete.class}) @JsonProperty(&quot;state_code&quot;) String stateCode,
-        @Schema(hidden = true) String countryCode,
+        @JsonView({Views.Complete.class}) @JsonProperty(&quot;state_code&quot;) @Field(&quot;state_code&quot;) String stateCode,
+        @Schema(hidden = true) @JsonProperty(&quot;country_code&quot;) @Field(&quot;country_code&quot;) String countryCode,
         @JsonView({Views.WithCities.class, Views.Complete.class}) Double latitude,
         @JsonView({Views.WithCities.class, Views.Complete.class}) Double longitude
 ) {

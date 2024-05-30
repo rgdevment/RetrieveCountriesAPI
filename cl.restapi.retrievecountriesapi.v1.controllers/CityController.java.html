@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CityController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">RetrieveCountriesAPI</a> &gt; <a href="index.source.html" class="el_package">cl.restapi.retrievecountriesapi.v1.controllers</a> &gt; <span class="el_source">CityController.java</span></div><h1>CityController.java</h1><pre class="source lang-java linenums">package cl.restapi.retrievecountriesapi.v1.controllers;
+
+import cl.restapi.retrievecountriesapi.dto.CityResponse;
+import cl.restapi.retrievecountriesapi.models.City;
+import cl.restapi.retrievecountriesapi.services.CityService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import org.springframework.http.CacheControl;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+@Tag(name = &quot;Cities&quot;)
+@RestController
+@RequestMapping(&quot;/v1/cities&quot;)
+public class CityController {
+    private final CityService service;
+
+<span class="fc" id="L28">    public CityController(CityService service) {</span>
+<span class="fc" id="L29">        this.service = service;</span>
+<span class="fc" id="L30">    }</span>
+
+    @GetMapping(&quot;/country/{countryCode}&quot;)
+    @Parameter(description = &quot;Country code in ISO 3166-1 alpha-2 format&quot;)
+    @Operation(summary = &quot;Get cities by country code&quot;,
+            description = &quot;Get a list of cities by country code in ISO 3166-1 alpha-2 format&quot;)
+    @ApiResponse(
+            responseCode = &quot;200&quot;,
+            description = &quot;Successful operation&quot;,
+            content = @Content(mediaType = &quot;application/json&quot;, schema = @Schema(implementation = CityResponse.class))
+    )
+    @ApiResponse(responseCode = &quot;204&quot;, description = &quot;No content&quot;, content = @Content)
+    public ResponseEntity&lt;List&lt;CityResponse&gt;&gt; getCitiesByCountryCode(
+            @PathVariable @Parameter(example = &quot;CL&quot;) String countryCode) {
+<span class="fc" id="L44">        List&lt;CityResponse&gt; cities = service.getCitiesByCountryCode(countryCode);</span>
+
+<span class="fc" id="L46">        return getResponseEntity(cities);</span>
+    }
+
+    @GetMapping(&quot;/country/{countryCode}/state/{stateCode}&quot;)
+    @Parameter(description = &quot;Country code in ISO 3166-1 alpha-2 format&quot;)
+    @Parameter(description = &quot;State code in ISO 3166-2 format&quot;)
+    @Operation(summary = &quot;Get cities by country code and state code&quot;,
+            description = &quot;Get a list of cities by country code in ISO 3166-1 alpha-2 format and state code in &quot;
+            + &quot;ISO 3166-2 format&quot;)
+    @ApiResponse(
+            responseCode = &quot;200&quot;,
+            description = &quot;Successful operation&quot;,
+            content = @Content(mediaType = &quot;application/json&quot;, schema = @Schema(implementation = City.class))
+    )
+    @ApiResponse(responseCode = &quot;204&quot;, description = &quot;No content&quot;, content = @Content)
+    public ResponseEntity&lt;List&lt;CityResponse&gt;&gt; getCitiesByCountryCodeAndStateCode(
+            @PathVariable @Parameter(example = &quot;CL&quot;) String countryCode,
+            @PathVariable @Parameter(example = &quot;AN&quot;) String stateCode
+    ) {
+<span class="fc" id="L65">        List&lt;CityResponse&gt; cities = service.getCitiesByCountryCodeAndStateCode(countryCode, stateCode);</span>
+<span class="fc" id="L66">        return getResponseEntity(cities);</span>
+    }
+
+    private ResponseEntity&lt;List&lt;CityResponse&gt;&gt; getResponseEntity(List&lt;CityResponse&gt; cities) {
+<span class="fc bfc" id="L70" title="All 2 branches covered.">        if (cities.isEmpty()) {</span>
+<span class="fc" id="L71">            return ResponseEntity.noContent().build();</span>
+        }
+
+<span class="fc" id="L74">        return ResponseEntity.ok()</span>
+<span class="fc" id="L75">                .cacheControl(CacheControl.maxAge(7, TimeUnit.DAYS))</span>
+<span class="fc" id="L76">                .body(cities);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

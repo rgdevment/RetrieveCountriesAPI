@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>State.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">RetrieveCountriesAPI</a> &gt; <a href="index.source.html" class="el_package">cl.restapi.retrievecountriesapi.models</a> &gt; <span class="el_source">State.java</span></div><h1>State.java</h1><pre class="source lang-java linenums">package cl.restapi.retrievecountriesapi.models;
 
 import cl.restapi.retrievecountriesapi.v1.Views;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonView;
 import io.swagger.v3.oas.annotations.media.Schema;
+import org.springframework.data.mongodb.core.mapping.Field;
 
-<span class="fc" id="L7">public record State(</span>
+<span class="fc" id="L9">public record State(</span>
         @JsonView({Views.WithStates.class, Views.Complete.class}) String name,
         @JsonView({Views.Complete.class}) String code,
-        @Schema(hidden = true) String countryCode,
+        @Schema(hidden = true)  @JsonView({Views.Complete.class}) @JsonProperty(&quot;country_code&quot;)
+        @Field(&quot;country_code&quot;) String countryCode,
         @JsonView({Views.WithStates.class, Views.Complete.class}) Double latitude,
         @JsonView({Views.WithStates.class, Views.Complete.class}) Double longitude
 ) {
