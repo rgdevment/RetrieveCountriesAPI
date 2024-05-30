@@ -14,35 +14,30 @@ cities, and other relevant information worldwide. This API is continuously devel
 
 ## Example Usage
 
-A simple request:
-
-```sh
-curl -X GET "https://countries.restapi.cl/v1/all"
-```
-
-To get a specific country:
+You can get information about a country and its cities with this simple call:
 
 ```sh
 curl -X GET "https://countries.restapi.cl/v1/chile"
 ```
 
-If you need all regions with their states:
+Or if you prefer, you can get all the countries in a specific region with:
 
 ```sh
 curl -X GET "https://countries.restapi.cl/v1/region/americas"
 ```
 
-In addition to the above, you can also obtain additional information with the following **parameters**
+You could even get all the countries in the world with a single request:
 
-- `includeCities` (optional): boolean
-- `includeStates` (optional): boolean
+```sh
+curl -X GET "https://countries.restapi.cl/v1/all"
+```
+
+In addition to the above, you can also show or hide additional information with the following **optional parameters**:
+
+- `excludeCities` (optional): boolean
+- `excludeStates` (optional): boolean
 
 For more information and other endpoints, please refer to the Postman API Documentation or Swagger Documentation.
-
-## License
-
-This project is licensed under the [MIT License](https://choosealicense.com/licenses/mit/). See
-the [LICENSE](LICENSE.md) file for more details.
 
 ## 🌟 **Thank you for using this API!**
 
@@ -54,14 +49,8 @@ This will reduce unnecessary resource consumption.
 Please maintain **good practices and behavior** to ensure we can continue providing this service **freely and openly**
 to all who need it.
 
----
+## License
 
-## 🌟 **¡Gracias por utilizar esta API!**
+This project is licensed under the [MIT License](https://choosealicense.com/licenses/mit/). See
+the [LICENSE](LICENSE.md) file for more details.
 
-Nuestra API es un **servicio público**, **disponible de forma gratuita** para su uso, y es **de código abierto**.
-
-Contamos con **recursos limitados**. Para ayudarnos a servir eficientemente a todos, por favor **almacene en caché las
-solicitudes** en su aplicación. Esto reducirá el consumo innecesario de recursos.
-
-Por favor, mantenga **buenas prácticas y comportamiento** para asegurar que podamos continuar proporcionando este
-servicio **libre y abiertamente** para todos aquellos que lo necesiten.
