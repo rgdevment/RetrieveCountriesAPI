@@ -23,9 +23,9 @@ public class Country {
     @JsonView(Views.Single.class)
     private String capital;
 
-    @Indexed
+    @Indexed(unique = true)
     @JsonView(Views.Single.class)
-    private String iso2;
+    private String code;
 
     @Indexed
     @JsonView(Views.Single.class)
@@ -85,12 +85,12 @@ public class Country {
         this.capital = capital;
     }
 
-    public String getIso2() {
-        return iso2;
+    public String getCode() {
+        return code;
     }
 
-    public void setIso2(String iso2) {
-        this.iso2 = iso2;
+    public void setCode(String code) {
+        this.code = code;
     }
 
     public String getIso3() {

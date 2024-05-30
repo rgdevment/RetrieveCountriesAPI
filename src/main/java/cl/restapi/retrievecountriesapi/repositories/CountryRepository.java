@@ -15,4 +15,6 @@ public interface CountryRepository extends MongoRepository<Country, String>, Cou
     List<Country> findCountriesRegionExcludeCities(String region);
 
     List<Country> findCountriesSubregionExcludeCities(String subregion);
+
+    Country findByCodeIgnoreCase(String code);
 }
