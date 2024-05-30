@@ -11,7 +11,7 @@ jib {
         tags = ['latest', project.version.toString()]
     }
     container {
-        def instanceMemory = (System.getenv('INSTANCE_MEMORY') ?: '512') as double
+        def instanceMemory = System.getenv('INSTANCE_MEMORY') as double
         def minMemory = (0.7 * instanceMemory).round()
         def maxMemory = (0.8 * instanceMemory).round()
         jvmFlags = ["-Xms${minMemory}m", "-Xmx${maxMemory}m"]
