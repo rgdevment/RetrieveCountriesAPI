@@ -30,7 +30,6 @@ public class CityController {
     }
 
     @GetMapping("/country/{countryCode}")
-    @Parameter(description = "Country code in ISO 3166-1 alpha-2 format")
     @Operation(summary = "Get cities by country code",
             description = "Get a list of cities by country code in ISO 3166-1 alpha-2 format")
     @ApiResponse(
