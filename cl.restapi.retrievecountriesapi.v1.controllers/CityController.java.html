@@ -46,8 +46,6 @@ public class CityController {
     }
 
     @GetMapping(&quot;/country/{countryCode}/state/{stateCode}&quot;)
-    @Parameter(description = &quot;Country code in ISO 3166-1 alpha-2 format&quot;)
-    @Parameter(description = &quot;State code in ISO 3166-2 format&quot;)
     @Operation(summary = &quot;Get cities by country code and state code&quot;,
             description = &quot;Get a list of cities by country code in ISO 3166-1 alpha-2 format and state code in &quot;
             + &quot;ISO 3166-2 format&quot;)
@@ -61,18 +59,18 @@ public class CityController {
             @PathVariable @Parameter(example = &quot;CL&quot;) String countryCode,
             @PathVariable @Parameter(example = &quot;AN&quot;) String stateCode
     ) {
-<span class="fc" id="L64">        List&lt;CityResponse&gt; cities = service.getCitiesByCountryCodeAndStateCode(countryCode, stateCode);</span>
-<span class="fc" id="L65">        return getResponseEntity(cities);</span>
+<span class="fc" id="L62">        List&lt;CityResponse&gt; cities = service.getCitiesByCountryCodeAndStateCode(countryCode, stateCode);</span>
+<span class="fc" id="L63">        return getResponseEntity(cities);</span>
     }
 
     private ResponseEntity&lt;List&lt;CityResponse&gt;&gt; getResponseEntity(List&lt;CityResponse&gt; cities) {
-<span class="fc bfc" id="L69" title="All 2 branches covered.">        if (cities.isEmpty()) {</span>
-<span class="fc" id="L70">            return ResponseEntity.noContent().build();</span>
+<span class="fc bfc" id="L67" title="All 2 branches covered.">        if (cities.isEmpty()) {</span>
+<span class="fc" id="L68">            return ResponseEntity.noContent().build();</span>
         }
 
-<span class="fc" id="L73">        return ResponseEntity.ok()</span>
-<span class="fc" id="L74">                .cacheControl(CacheControl.maxAge(7, TimeUnit.DAYS))</span>
-<span class="fc" id="L75">                .body(cities);</span>
+<span class="fc" id="L71">        return ResponseEntity.ok()</span>
+<span class="fc" id="L72">                .cacheControl(CacheControl.maxAge(7, TimeUnit.DAYS))</span>
+<span class="fc" id="L73">                .body(cities);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>
