@@ -1,5 +1,6 @@
 package cl.restapi.retrievecountriesapi.v1.controllers;
 
+import cl.restapi.retrievecountriesapi.dto.StateResponse;
 import cl.restapi.retrievecountriesapi.models.State;
 import cl.restapi.retrievecountriesapi.services.StateService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -38,16 +39,16 @@ public class StateController {
             content = @Content(mediaType = "application/json", schema = @Schema(implementation = State.class))
     )
     @ApiResponse(responseCode = "204", description = "No content", content = @Content)
-    public ResponseEntity<List<State>> getCitiesByCountryCode(
+    public ResponseEntity<List<StateResponse>> getCitiesByCountryCode(
             @PathVariable @Parameter(example = "CL") String countryCode) {
-        List<State> cities = service.getStatesByCountryCode(countryCode);
+        List<StateResponse> states = service.getStatesByCountryCode(countryCode);
 
-        if (cities.isEmpty()) {
+        if (states.isEmpty()) {
             return ResponseEntity.noContent().build();
         }
 
         return ResponseEntity.ok()
                 .cacheControl(CacheControl.maxAge(7, TimeUnit.DAYS))
-                .body(cities);
+                .body(states);
     }
 }

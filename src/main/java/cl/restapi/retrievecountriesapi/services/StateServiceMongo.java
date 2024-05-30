@@ -1,7 +1,7 @@
 package cl.restapi.retrievecountriesapi.services;
 
+import cl.restapi.retrievecountriesapi.dto.StateResponse;
 import cl.restapi.retrievecountriesapi.models.Country;
-import cl.restapi.retrievecountriesapi.models.State;
 import cl.restapi.retrievecountriesapi.repositories.CountryRepository;
 import org.springframework.stereotype.Service;
 
@@ -17,11 +17,15 @@ public class StateServiceMongo implements StateService {
     }
 
     @Override
-    public List<State> getStatesByCountryCode(String countryCode) {
+    public List<StateResponse> getStatesByCountryCode(String countryCode) {
         Country country = repository.findByCodeIgnoreCase(countryCode);
-        if (country != null) {
-            return country.getStates();
+
+        if (country == null) {
+            return new ArrayList<>();
         }
-        return new ArrayList<>();
+
+        return country.getStates().stream()
+                .map(StateResponse::fromState)
+                .toList();
     }
 }

@@ -1,5 +1,6 @@
 package cl.restapi.retrievecountriesapi.v1.controllers;
 
+import cl.restapi.retrievecountriesapi.dto.CityResponse;
 import cl.restapi.retrievecountriesapi.models.City;
 import cl.restapi.retrievecountriesapi.services.CityService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -35,12 +36,13 @@ public class CityController {
     @ApiResponse(
             responseCode = "200",
             description = "Successful operation",
-            content = @Content(mediaType = "application/json", schema = @Schema(implementation = City.class))
+            content = @Content(mediaType = "application/json", schema = @Schema(implementation = CityResponse.class))
     )
     @ApiResponse(responseCode = "204", description = "No content", content = @Content)
-    public ResponseEntity<List<City>> getCitiesByCountryCode(
+    public ResponseEntity<List<CityResponse>> getCitiesByCountryCode(
             @PathVariable @Parameter(example = "CL") String countryCode) {
-        List<City> cities = service.getCitiesByCountryCode(countryCode);
+        List<CityResponse> cities = service.getCitiesByCountryCode(countryCode);
+
         return getResponseEntity(cities);
     }
 
@@ -56,15 +58,15 @@ public class CityController {
             content = @Content(mediaType = "application/json", schema = @Schema(implementation = City.class))
     )
     @ApiResponse(responseCode = "204", description = "No content", content = @Content)
-    public ResponseEntity<List<City>> getCitiesByCountryCodeAndStateCode(
+    public ResponseEntity<List<CityResponse>> getCitiesByCountryCodeAndStateCode(
             @PathVariable @Parameter(example = "CL") String countryCode,
             @PathVariable @Parameter(example = "AN") String stateCode
     ) {
-        List<City> cities = service.getCitiesByCountryCodeAndStateCode(countryCode, stateCode);
+        List<CityResponse> cities = service.getCitiesByCountryCodeAndStateCode(countryCode, stateCode);
         return getResponseEntity(cities);
     }
 
-    private ResponseEntity<List<City>> getResponseEntity(List<City> cities) {
+    private ResponseEntity<List<CityResponse>> getResponseEntity(List<CityResponse> cities) {
         if (cities.isEmpty()) {
             return ResponseEntity.noContent().build();
         }

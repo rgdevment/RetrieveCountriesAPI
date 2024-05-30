@@ -1,11 +1,11 @@
 package cl.restapi.retrievecountriesapi.services;
 
-import cl.restapi.retrievecountriesapi.models.City;
+import cl.restapi.retrievecountriesapi.dto.CityResponse;
 
 import java.util.List;
 
 public interface CityService {
-    List<City> getCitiesByCountryCode(String countryCode);
+    List<CityResponse> getCitiesByCountryCode(String countryCode);
 
-    List<City> getCitiesByCountryCodeAndStateCode(String countryCode, String stateCode);
+    List<CityResponse> getCitiesByCountryCodeAndStateCode(String countryCode, String stateCode);
 }

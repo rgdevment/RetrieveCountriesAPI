@@ -1,6 +1,6 @@
 package cl.restapi.retrievecountriesapi.services;
 
-import cl.restapi.retrievecountriesapi.models.City;
+import cl.restapi.retrievecountriesapi.dto.CityResponse;
 import cl.restapi.retrievecountriesapi.models.Country;
 import cl.restapi.retrievecountriesapi.repositories.CountryRepository;
 import org.springframework.stereotype.Service;
@@ -17,22 +17,27 @@ public class CityServiceMongo implements CityService {
     }
 
     @Override
-    public List<City> getCitiesByCountryCode(String countryCode) {
+    public List<CityResponse> getCitiesByCountryCode(String countryCode) {
         Country country = repository.findByCodeIgnoreCase(countryCode);
-        if (country != null) {
-            return country.getCities();
+        if (country == null) {
+            return new ArrayList<>();
         }
-        return new ArrayList<>();
+
+        return country.getCities().stream()
+                .map(CityResponse::fromCity)
+                .toList();
     }
 
     @Override
-    public List<City> getCitiesByCountryCodeAndStateCode(String countryCode, String stateCode) {
+    public List<CityResponse> getCitiesByCountryCodeAndStateCode(String countryCode, String stateCode) {
         Country country = repository.findByCodeIgnoreCase(countryCode);
-        if (country != null) {
-            List<City> cities = country.getCities();
-
-            return cities.stream().filter(city -> city.stateCode().equalsIgnoreCase(stateCode)).toList();
+        if (country == null) {
+            return new ArrayList<>();
         }
-        return new ArrayList<>();
+
+        return country.getCities().stream()
+                .filter(city -> city.stateCode().equalsIgnoreCase(stateCode))
+                .map(CityResponse::fromCity)
+                .toList();
     }
 }
