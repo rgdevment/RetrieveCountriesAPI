@@ -46,8 +46,6 @@ public class CityController {
     }
 
     @GetMapping("/country/{countryCode}/state/{stateCode}")
-    @Parameter(description = "Country code in ISO 3166-1 alpha-2 format")
-    @Parameter(description = "State code in ISO 3166-2 format")
     @Operation(summary = "Get cities by country code and state code",
             description = "Get a list of cities by country code in ISO 3166-1 alpha-2 format and state code in "
             + "ISO 3166-2 format")
