@@ -30,7 +30,6 @@ public class StateController {
 <span class="fc" id="L30">    }</span>
 
     @GetMapping(&quot;/country/{countryCode}&quot;)
-    @Parameter(description = &quot;Country code in ISO 3166-1 alpha-2 format&quot;)
     @Operation(summary = &quot;Get states by country code&quot;,
             description = &quot;Get a list of states by country code in ISO 3166-1 alpha-2 format&quot;)
     @ApiResponse(
@@ -41,15 +40,15 @@ public class StateController {
     @ApiResponse(responseCode = &quot;204&quot;, description = &quot;No content&quot;, content = @Content)
     public ResponseEntity&lt;List&lt;StateResponse&gt;&gt; getCitiesByCountryCode(
             @PathVariable @Parameter(example = &quot;CL&quot;) String countryCode) {
-<span class="fc" id="L44">        List&lt;StateResponse&gt; states = service.getStatesByCountryCode(countryCode);</span>
+<span class="fc" id="L43">        List&lt;StateResponse&gt; states = service.getStatesByCountryCode(countryCode);</span>
 
-<span class="fc bfc" id="L46" title="All 2 branches covered.">        if (states.isEmpty()) {</span>
-<span class="fc" id="L47">            return ResponseEntity.noContent().build();</span>
+<span class="fc bfc" id="L45" title="All 2 branches covered.">        if (states.isEmpty()) {</span>
+<span class="fc" id="L46">            return ResponseEntity.noContent().build();</span>
         }
 
-<span class="fc" id="L50">        return ResponseEntity.ok()</span>
-<span class="fc" id="L51">                .cacheControl(CacheControl.maxAge(7, TimeUnit.DAYS))</span>
-<span class="fc" id="L52">                .body(states);</span>
+<span class="fc" id="L49">        return ResponseEntity.ok()</span>
+<span class="fc" id="L50">                .cacheControl(CacheControl.maxAge(7, TimeUnit.DAYS))</span>
+<span class="fc" id="L51">                .body(states);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>
