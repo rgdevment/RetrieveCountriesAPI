@@ -30,8 +30,8 @@ public class CityController {
     }
 
     @GetMapping("/country/{countryCode}")
-    @Operation(summary = "Get cities by country code",
-            description = "Get a list of cities by country code in ISO 3166-1 alpha-2 format")
+    @Operation(summary = "Get cities by country code.",
+            description = "Get a list of cities by country code in ISO 3166-1 alpha-2 format.")
     @ApiResponse(
             responseCode = "200",
             description = "Successful operation",
@@ -46,9 +46,9 @@ public class CityController {
     }
 
     @GetMapping("/country/{countryCode}/state/{stateCode}")
-    @Operation(summary = "Get cities by country code and state code",
+    @Operation(summary = "Get cities by country code and state code.",
             description = "Get a list of cities by country code in ISO 3166-1 alpha-2 format and state code in "
-            + "ISO 3166-2 format")
+            + "ISO 3166-2 format.")
     @ApiResponse(
             responseCode = "200",
             description = "Successful operation",
