@@ -155,7 +155,7 @@ public class CountryController {
         }
     }
 
-    private static ResponseEntity<MappingJacksonValue> getViewMappingJacksonValueResponseEntity(
+    private ResponseEntity<MappingJacksonValue> getViewMappingJacksonValueResponseEntity(
             Boolean excludeCities,
             Boolean excludeStates,
             MappingJacksonValue mappingJacksonValue

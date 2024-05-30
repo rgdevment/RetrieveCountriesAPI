@@ -2,7 +2,11 @@ package cl.restapi.retrievecountriesapi.v1.controllers;
 
 import cl.restapi.retrievecountriesapi.models.State;
 import cl.restapi.retrievecountriesapi.services.StateService;
+import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.CacheControl;
 import org.springframework.http.ResponseEntity;
@@ -25,6 +29,15 @@ public class StateController {
     }
 
     @GetMapping("/country/{countryCode}")
+    @Parameter(description = "Country code in ISO 3166-1 alpha-2 format")
+    @Operation(summary = "Get states by country code",
+            description = "Get a list of states by country code in ISO 3166-1 alpha-2 format")
+    @ApiResponse(
+            responseCode = "200",
+            description = "Successful operation",
+            content = @Content(mediaType = "application/json", schema = @Schema(implementation = State.class))
+    )
+    @ApiResponse(responseCode = "204", description = "No content", content = @Content)
     public ResponseEntity<List<State>> getCitiesByCountryCode(
             @PathVariable @Parameter(example = "CL") String countryCode) {
         List<State> cities = service.getStatesByCountryCode(countryCode);
