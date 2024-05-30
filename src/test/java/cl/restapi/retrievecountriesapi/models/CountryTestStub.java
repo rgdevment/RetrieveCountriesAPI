@@ -27,7 +27,7 @@ public class CountryTestStub {
         country.setCapital(capital);
         country.setRegion(region);
         country.setSubregion(subregion);
-        country.setIso2(iso2);
+        country.setCode(iso2);
         country.setIso3(iso3);
         country.setTld(tld);
         country.setPhoneCode(phoneCode);

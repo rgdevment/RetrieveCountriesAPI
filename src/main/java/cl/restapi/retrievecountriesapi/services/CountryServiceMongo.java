@@ -25,14 +25,12 @@ public class CountryServiceMongo implements CountryService {
 
     @Override
     @Transactional(readOnly = true)
-    @Cacheable("countries_name")
     public Country findByName(String name) {
         return repository.findCountriesByNameIgnoreCase(name);
     }
 
     @Override
     @Transactional(readOnly = true)
-    @Cacheable("countries_capital")
     public Country findByCapital(String name) {
         return repository.findCountriesByCapitalIgnoreCase(name);
     }

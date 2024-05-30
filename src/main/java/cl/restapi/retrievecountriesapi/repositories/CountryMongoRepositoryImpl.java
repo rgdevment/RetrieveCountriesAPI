@@ -25,7 +25,7 @@ public class CountryMongoRepositoryImpl implements CountryMongoRepository {
     @Override
     public List<Country> findCountriesRegionExcludeCities(String region) {
         Query query = new Query();
-        region = region.trim();
+        region = region.trim().toLowerCase();
         query.addCriteria(Criteria.where("region").regex(region, "i"));
         query.fields().exclude(CITIES);
         return mongoTemplate.find(query, Country.class);
@@ -34,7 +34,7 @@ public class CountryMongoRepositoryImpl implements CountryMongoRepository {
     @Override
     public List<Country> findCountriesSubregionExcludeCities(String subregion) {
         Query query = new Query();
-        subregion = subregion.trim();
+        subregion = subregion.trim().toLowerCase();
         query.addCriteria(Criteria.where("subregion").regex(subregion, "i"));
         query.fields().exclude(CITIES);
         return mongoTemplate.find(query, Country.class);
