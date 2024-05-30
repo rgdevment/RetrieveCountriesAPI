@@ -20,7 +20,7 @@ public class CountryServiceMongo implements CountryService {
     @Transactional(readOnly = true)
     @Cacheable("countries_all")
     public List<Country> findAll() {
-        return repository.findAll();
+        return repository.findAllExcludeCities();
     }
 
     @Override
@@ -41,13 +41,13 @@ public class CountryServiceMongo implements CountryService {
     @Transactional(readOnly = true)
     @Cacheable("countries_region")
     public List<Country> findByRegion(String region) {
-        return repository.findCountriesByRegionIgnoreCase(region);
+        return repository.findCountriesRegionExcludeCities(region);
     }
 
     @Override
     @Transactional(readOnly = true)
     @Cacheable("countries_subregion")
     public List<Country> findBySubregion(String subregion) {
-        return repository.findCountriesBySubregionIgnoreCase(subregion);
+        return repository.findCountriesSubregionExcludeCities(subregion);
     }
 }
