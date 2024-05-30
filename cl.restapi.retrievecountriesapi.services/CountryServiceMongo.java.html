@@ -20,7 +20,7 @@ public class CountryServiceMongo implements CountryService {
     @Transactional(readOnly = true)
     @Cacheable(&quot;countries_all&quot;)
     public List&lt;Country&gt; findAll() {
-<span class="fc" id="L23">        return repository.findAll();</span>
+<span class="fc" id="L23">        return repository.findAllExcludeCities();</span>
     }
 
     @Override
@@ -41,14 +41,14 @@ public class CountryServiceMongo implements CountryService {
     @Transactional(readOnly = true)
     @Cacheable(&quot;countries_region&quot;)
     public List&lt;Country&gt; findByRegion(String region) {
-<span class="fc" id="L44">        return repository.findCountriesByRegionIgnoreCase(region);</span>
+<span class="fc" id="L44">        return repository.findCountriesRegionExcludeCities(region);</span>
     }
 
     @Override
     @Transactional(readOnly = true)
     @Cacheable(&quot;countries_subregion&quot;)
     public List&lt;Country&gt; findBySubregion(String subregion) {
-<span class="fc" id="L51">        return repository.findCountriesBySubregionIgnoreCase(subregion);</span>
+<span class="fc" id="L51">        return repository.findCountriesSubregionExcludeCities(subregion);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

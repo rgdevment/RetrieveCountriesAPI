@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CountryMongoRepositoryImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">RetrieveCountriesAPI</a> &gt; <a href="index.source.html" class="el_package">cl.restapi.retrievecountriesapi.repositories</a> &gt; <span class="el_source">CountryMongoRepositoryImpl.java</span></div><h1>CountryMongoRepositoryImpl.java</h1><pre class="source lang-java linenums">package cl.restapi.retrievecountriesapi.repositories;
+
+import cl.restapi.retrievecountriesapi.models.Country;
+import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
+
+import java.util.List;
+
+public class CountryMongoRepositoryImpl implements CountryMongoRepository {
+    private static final String CITIES = &quot;cities&quot;;
+    private final MongoTemplate mongoTemplate;
+
+<span class="fc" id="L14">    public CountryMongoRepositoryImpl(MongoTemplate mongoTemplate) {</span>
+<span class="fc" id="L15">        this.mongoTemplate = mongoTemplate;</span>
+<span class="fc" id="L16">    }</span>
+
+    @Override
+    public List&lt;Country&gt; findAllExcludeCities() {
+<span class="fc" id="L20">        Query query = new Query();</span>
+<span class="fc" id="L21">        query.fields().exclude(CITIES);</span>
+<span class="fc" id="L22">        return mongoTemplate.find(query, Country.class);</span>
+    }
+
+    @Override
+    public List&lt;Country&gt; findCountriesRegionExcludeCities(String region) {
+<span class="fc" id="L27">        Query query = new Query();</span>
+<span class="fc" id="L28">        region = region.trim();</span>
+<span class="fc" id="L29">        query.addCriteria(Criteria.where(&quot;region&quot;).regex(region, &quot;i&quot;));</span>
+<span class="fc" id="L30">        query.fields().exclude(CITIES);</span>
+<span class="fc" id="L31">        return mongoTemplate.find(query, Country.class);</span>
+    }
+
+    @Override
+    public List&lt;Country&gt; findCountriesSubregionExcludeCities(String subregion) {
+<span class="fc" id="L36">        Query query = new Query();</span>
+<span class="fc" id="L37">        subregion = subregion.trim();</span>
+<span class="fc" id="L38">        query.addCriteria(Criteria.where(&quot;subregion&quot;).regex(subregion, &quot;i&quot;));</span>
+<span class="fc" id="L39">        query.fields().exclude(CITIES);</span>
+<span class="fc" id="L40">        return mongoTemplate.find(query, Country.class);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>
