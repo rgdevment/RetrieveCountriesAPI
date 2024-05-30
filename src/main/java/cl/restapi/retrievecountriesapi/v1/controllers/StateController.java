@@ -30,7 +30,6 @@ public class StateController {
     }
 
     @GetMapping("/country/{countryCode}")
-    @Parameter(description = "Country code in ISO 3166-1 alpha-2 format")
     @Operation(summary = "Get states by country code",
             description = "Get a list of states by country code in ISO 3166-1 alpha-2 format")
     @ApiResponse(
