@@ -36,7 +36,7 @@ jobs:
       - name: Deploy to Google Cloud Run
         run: |
           gcloud run deploy ${{ secrets.GCP_SERVICE }} \
-            --image "gcr.io/${{ secrets.GCP_PROJECT }}/countries-image" \
+            --image "us-central1-docker.pkg.dev/${{ secrets.GCP_PROJECT }}/${{ secrets.ARTIFACTS_NAME }}/countries-image:latest" \
             --platform managed \
             --region ${{ secrets.GCP_REGION }} \
             --max-instances ${{ secrets.INSTANCE_MAX }} \
