@@ -7,6 +7,8 @@ on:
 
 env:
   INSTANCE_MEMORY: ${{ secrets.INSTANCE_MEMORY }}
+  ARTIFACTS_NAME: ${{ secrets.ARTIFACTS_NAME }}
+  GCP_PROJECT: ${{ secrets.GCP_PROJECT }}
 
 jobs:
   build-and-deploy:
@@ -36,10 +38,12 @@ jobs:
       - name: Deploy to Google Cloud Run
         run: |
           gcloud run deploy ${{ secrets.GCP_SERVICE }} \
-            --image "us-central1-docker.pkg.dev/${{ secrets.GCP_PROJECT }}/${{ secrets.ARTIFACTS_NAME }}/countries-image:latest" \
+            --image "us-central1-docker.pkg.dev/${{ secrets.GCP_PROJECT }}/${{ secrets.ARTIFACTS_NAME }}/countries-api:latest" \
             --platform managed \
             --region ${{ secrets.GCP_REGION }} \
             --max-instances ${{ secrets.INSTANCE_MAX }} \
             --memory ${{ secrets.INSTANCE_MEMORY }}Mi \
             --concurrency ${{ secrets.CONCURRENCY_MAX }} \
-            --set-env-vars SPRING_DATA_MONGODB_DATABASE=${{ secrets.SPRING_DATA_MONGODB_DATABASE }},SPRING_DATA_MONGODB_USERNAME=${{ secrets.SPRING_DATA_MONGODB_USERNAME }},SPRING_DATA_MONGODB_PASSWORD=${{secrets.SPRING_DATA_MONGODB_PASSWORD }},SPRING_DATA_MONGODB_URI=${{ secrets.SPRING_DATA_MONGODB_URI }},INSTANCE_MEMORY=${{ secrets.INSTANCE_MEMORY }}
+            --set-env-vars SPRING_DATA_MONGODB_DATABASE=${{ secrets.SPRING_DATA_MONGODB_DATABASE }},
+          SPRING_DATA_MONGODB_USERNAME=${{ secrets.SPRING_DATA_MONGODB_USERNAME }},
+          SPRING_DATA_MONGODB_PASSWORD=${{secrets.SPRING_DATA_MONGODB_PASSWORD }},SPRING_DATA_MONGODB_URI=${{ secrets.SPRING_DATA_MONGODB_URI }},INSTANCE_MEMORY=${{ secrets.INSTANCE_MEMORY }},ARTIFACTS_NAME=${{ secrets.ARTIFACTS_NAME }},GCP_PROJECT=${{ secrets.GCP_PROJECT }}
