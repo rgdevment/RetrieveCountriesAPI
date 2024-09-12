@@ -32,7 +32,7 @@ public class SwaggerConfig {
         contact.url("https://github.com/rgdevment/RetrieveCountriesAPI");
 
         Server server = new Server();
-        server.url("https://countries.restapi.cl");
+        server.url("https://countries.apirest.cl");
         server.description("Production server");
 
         return new OpenAPI()

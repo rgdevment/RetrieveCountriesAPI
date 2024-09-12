@@ -13,22 +13,22 @@ RetrieveCountriesAPI es una API REST de código abierto bajo la licencia MIT que
 
 ## Documentación
 
-- [Documentación Swagger](https://countries.restapi.cl/docs)
+- [Documentación Swagger](https://countries.apirest.cl/docs)
 - [Documentación API en Postman](https://www.postman.com/rgdevment/workspace/retrievecountriesapi/overview)
 
 ## Ejemplos de uso
 
 Puedes obtener información sobre un país y sus ciudades con esta simple llamada:
 
-	curl -X GET "https://countries.restapi.cl/v1/chile"
+	curl -X GET "https://countries.apirest.cl/v1/chile"
 
 O, si lo prefieres, puedes obtener todos los países de una región específica:
 
-	curl -X GET "https://countries.restapi.cl/v1/region/americas"
+	curl -X GET "https://countries.apirest.cl/v1/region/americas"
 
 Incluso puedes obtener todos los países del mundo con una sola petición:
 
-	curl -X GET "https://countries.restapi.cl/v1/all"
+	curl -X GET "https://countries.apirest.cl/v1/all"
 
 También puedes mostrar u ocultar información adicional con los siguientes **parámetros opcionales**:
 
