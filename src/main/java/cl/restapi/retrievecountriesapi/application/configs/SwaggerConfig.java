@@ -38,7 +38,7 @@ public class SwaggerConfig {
         return new OpenAPI()
                 .info(new Info().title("Retrieve Countries API")
                         .description("API to retrieve countries and their information.")
-                        .version("1.0.0")
+                        .version("1.0.1")
                         .termsOfService("https://github.com/rgdevment/RetrieveCountriesAPI/blob/main/README.md")
                         .contact(contact)
                         .license(mitLicence)
