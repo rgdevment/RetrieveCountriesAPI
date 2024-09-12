@@ -41,7 +41,7 @@ Para más información y otros endpoints, consulta la Documentación en Postman 
 
 ### Requisitos
 
-- **Java**: 22
+- **Java**: 21
 - **Spring Boot**: 3.x
 - **Gradle**: Utiliza el wrapper `gradlew` incluido.
 

@@ -41,7 +41,7 @@ For more information and other endpoints, please refer to the Postman API Docume
 
 ### Requirements
 
-- **Java**: 22
+- **Java**: 21
 - **Spring Boot**: 3.x
 - **Gradle**: Use the included `gradlew` wrapper.
 
