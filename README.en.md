@@ -11,9 +11,24 @@ RetrieveCountriesAPI is an open-source REST API licensed under MIT that allows y
 ## Available in other languages:
 - [Español (Spanish)](README.md)
 
+## ⚠️ Aviso Importante / Important Notice
+> We have moved. This repository will **no longer be supported**, and the API along with its documentation can now be found at: [https://github.com/rgdevment/retrieve-countries](https://github.com/rgdevment/retrieve-countries)
+>
+> - **The API will remain consumable**, and the contracts stay the same.
+> - **We have migrated the codebase from Java to JavaScript** to optimize resources and reduce costs.
+>
+> _It's not that I don't like Java; it's a great language and what I use most in my daily work. However, for a public open-source API, resources and costs are higher, and we need to optimize them to sustain over time._
+>
+> - **Technology shift:** From Spring Boot and Java 21 to NestJS and Node 20.
+> - **We are continuing development** and improving daily.
+>
+> **Thank you for your support and understanding.**
+>
+> Check the documentation at: [https://countries.apirest.cl/v1/docs](https://countries.apirest.cl/v1/docs)
+
 ## Documentation
 
-- [Swagger Documentation](https://countries.apirest.cl/docs)
+- [Swagger Documentation](https://countries.apirest.cl/v1/docs)
 - [Postman API Documentation](https://www.postman.com/rgdevment/workspace/retrievecountriesapi/overview)
 
 ## Example Usage
