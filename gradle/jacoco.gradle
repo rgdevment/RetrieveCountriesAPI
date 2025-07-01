@@ -1,6 +1,6 @@
 def exclusions = [
-        "cl/tica/portfolio/retrievecountriesapi/populate/Populate.class",
-        "cl/tica/portfolio/retrievecountriesapi/RetrieveCountriesApiApplication.class"
+        "cl/restapi/retrievecountriesapi/populate/Populate.class",
+        "cl/restapi/retrievecountriesapi/RetrieveCountriesApiApplication.class"
 ]
 
 jacocoTestReport {

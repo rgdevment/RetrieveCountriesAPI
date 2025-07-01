@@ -5,6 +5,9 @@ on:
   pull_request:
     branches: [ "main" ]
 
+env:
+  INSTANCE_MEMORY: ${{ secrets.INSTANCE_MEMORY }}
+
 jobs:
   build-deploy:
     name: Continuous Integration
@@ -31,7 +34,7 @@ jobs:
           restore-keys: ${{ runner.os }}-gradle
 
       - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v3
+        uses: gradle/actions/setup-gradle@v4
 
         #run: checkstyleMain, checkstyleTest, pmdMain, pmdTest and test
       - name: Check Code Quality
